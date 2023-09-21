@@ -20,12 +20,11 @@ let checkifwalkingup;
 let checkifwalkingdown;
 let checkifwalkingleft;
 
-let ifdialogue = false;
-
+let canMove = true;
 
 addEventListener("keydown", function (event) {
     console.log(event.code)
-    if (event.code == 'ArrowRight') {
+    if (event.code == 'ArrowRight' ) {
         persondirection = "right";
         realdirectionx = "right";
         realdirection = "right";

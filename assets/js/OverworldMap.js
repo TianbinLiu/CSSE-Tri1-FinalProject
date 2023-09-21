@@ -40,15 +40,13 @@ class OverworldMap {
     let isReach = false;
     Object.values(this.gameObjects).forEach(npc => {
       if (npc.isMounted) {
-        if (npc.id === "npcA") {
-          if (((x >= (npc.x - (npc.sizex / 4)) && (x <= (npc.x + (npc.sizex / 4)))) && ((y >= (npc.y - (npc.sizey / 10))) && (y <= (npc.y + (npc.sizey / 10)))))) {
-            isReach = true;
-          }
+        if ((((x) >= (npc.Wallx) && ((x - this.gameObjects["hero"].WallSizex) <= (npc.Wallx + npc.WallSizex))) && ((y >= (npc.Wally)) && (y <= (npc.Wally + npc.WallSizey))))) {
+          isReach = true;
         }
       }
     })
     Object.values(this.walls).forEach(wall => {
-      if (((x >= (wall.x + 3)) && (x <= (wall.x + wall.sizex + 13))) && ((y >= wall.y) && (y <= (wall.y + wall.sizey)))) {
+      if (((x >= wall.x) && ((x - this.gameObjects["hero"].WallSizex) <= (wall.x + wall.sizex))) && ((y >= wall.y) && (y <= (wall.y + wall.sizey)))) {
         if (wall.wall) {
           isReach = true;
         }
@@ -96,12 +94,9 @@ class OverworldMap {
     const match = Object.values(this.gameObjects).find(object => {
       let ifisReach = false;
       if (object.isMounted) {
-        if (object.id === "npcA") {
-          if (((nextCoords.x >= (object.x - (object.sizex / 4)) && (nextCoords.x <= (object.x + (object.sizex / 4)))) && ((nextCoords.y >= (object.y - (object.sizey / 10))) && (nextCoords.y <= (object.y + (object.sizey / 10)))))) {
-            ifisReach = true;
-          }
+        if ((((nextCoords.x) >= (object.Wallx) && ((nextCoords.x - hero.WallSizex) <= (object.Wallx + object.WallSizex))) && ((nextCoords.y >= (object.Wally)) && (nextCoords.y <= (object.Wally + (object.WallSizey)))))) {
+          ifisReach = true;
         }
-
         return ifisReach;
       }
     });
@@ -128,12 +123,18 @@ window.OverworldMaps = {
         y: utils.withGrid(6),
         sizex: 50,
         sizey: 37,
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
         id: "hero",
       }),
       npcA: new Person({
         isMounted: true,
         x: utils.withGrid(6),
-        y: utils.withGrid(9),
+        y: utils.withGrid(8),
+        Wallx: utils.withGrid(5),
+        Wally: utils.withGrid(8),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
         sizex: 48,
         sizey: 48,
         id: "npcA",
@@ -250,7 +251,6 @@ window.OverworldMaps = {
             { type: "textMessage", text: "......." },
             { type: "textMessage", text: "..........." },
             { type: "textMessage", text: "Move!!!!!!!!!" },
-            { who: "npcA", type: "walk", direction: "right", spritedirection: "right" },
             { who: "npcA", type: "walk", direction: "right", spritedirection: "right" },
             { who: "npcA", type: "stand", direction: "up", time: 500 },
           ]

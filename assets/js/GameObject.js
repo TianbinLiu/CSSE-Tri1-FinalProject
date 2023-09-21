@@ -7,6 +7,10 @@ class GameObject {
     this.y = config.y || 0;
     this.sizex = config.sizex || 0;
     this.sizey = config.sizey || 0;
+    this.Wallx = config.Wallx || 0;
+    this.Wally = config.Wally || 0;
+    this.WallSizex = config.WallSizex || 0;
+    this.WallSizey = config.WallSizey || 0;
     this.wall = config.wall || false;
     this.ifdialogue = config.ifdialogue || false;
     this.sprite = new Sprite({
