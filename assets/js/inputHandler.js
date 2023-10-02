@@ -24,32 +24,35 @@ let canMove = true;
 
 addEventListener("keydown", function (event) {
     console.log(event.code)
-    if (event.code == 'ArrowRight' ) {
-        persondirection = "right";
-        realdirectionx = "right";
-        realdirection = "right";
-        checkifwalkingright = true;
-        vx = 1;
+    if (canMove) {
+        if (event.code == 'ArrowRight') {
+            persondirection = "right";
+            realdirectionx = "right";
+            realdirection = "right";
+            checkifwalkingright = true;
+            vx = 1;
+        }
+        if (event.code == 'ArrowLeft') {
+            persondirection = "left";
+            realdirectionx = "left";
+            realdirection = "left";
+            checkifwalkingleft = true;
+            vx = -1;
+        }
+        if (event.code == 'ArrowDown') {
+            checkifwalkingdown = true;
+            realdirectiony = "down";
+            realdirection = "down";
+            vy = 1;
+        }
+        if (event.code == 'ArrowUp') {
+            checkifwalkingup = true;
+            realdirectiony = "up";
+            realdirection = "up";
+            vy = -1;
+        };
     }
-    if (event.code == 'ArrowLeft') {
-        persondirection = "left";
-        realdirectionx = "left";
-        realdirection = "left";
-        checkifwalkingleft = true;
-        vx = -1;
-    }
-    if (event.code == 'ArrowDown') {
-        checkifwalkingdown = true;
-        realdirectiony = "down";
-        realdirection = "down";
-        vy = 1;
-    }
-    if (event.code == 'ArrowUp') {
-        checkifwalkingup = true;
-        realdirectiony = "up";
-        realdirection = "up";
-        vy = -1;
-    };
+
 })
 
 addEventListener("keyup", function (event) {
