@@ -18,3 +18,4 @@ Rewards: User can gain different skills or update their skills from the battle w
 
 ### map
 ![projectwireframe.pdf](https://github.com/TianbinLiu/CSSE-Tri1-FinalProject/blob/main/images/projectwireframe-1.png?raw=true)
+![projectwireframe.pdf](https://github.com/TianbinLiu/CSSE-Tri1-FinalProject/blob/main/images/map.png?raw=true)
