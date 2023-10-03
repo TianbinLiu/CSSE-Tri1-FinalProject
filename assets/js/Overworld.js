@@ -64,12 +64,18 @@ class Overworld {
     this.startGameLoop();
 
 
-    // this.map.startCutscene([
-    //   { type: "textMessage", text: "WHY HELLO THERE!"}
+    this.map.startCutscene([
+    { type: "textMessage", text: "Unparalleled Earth, Easter Island 1500 B.C.E"},
+    { type: "textMessage", text: "The world was burdened with Order and Systems and stability and tranquility after [classified]."},
+    { type: "textMessage", text: "Moais were left to be stranded on Easter island to prevent Chaos and Disorderment"},
+    { type: "textMessage", text: "But one was exceptionally tempered and shattered reality itself to create the bridge."},
+    { type: "textMessage", text: "and sparked the great bridge war after 10 long years the Order won "},
+    { type: "textMessage", text: "and damaged the bridge and guarded it heavily no moai ever dared to cross apart"},
+    { type: "textMessage", text: "from one day a unknown Moai thought otherwise."},
     //   // { who: "npcA", type: "walk",  direction: "left", spritedirection: "left" },
     //   // { who: "npcA", type: "walk",  direction: "left", spritedirection: "left" },
     //   // { who: "npcA", type: "stand",  direction: "right", time: 800 },
-    // ])
+    ])
 
 
   }
