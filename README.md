@@ -9,8 +9,8 @@
 - Gameplay:
 
 > Main map: User can control the character to move and talk to different NPCs, and go to different maps. 
-Battle: User can battle with the monsters in the maps by grabbing the cards and activating different cards' effects.
-Rewards/Source of Cards: User can gain different cards from the battle with monsters or the communication with NPCs.
+Battle: User can battle with the monsters in the maps by activating different skills to cause damage.
+Rewards: User can gain different skills or update their skills from the battle with monsters or the communication with NPCs.
 
  - Plot/Background of the game: 
 
