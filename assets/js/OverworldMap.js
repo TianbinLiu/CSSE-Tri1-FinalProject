@@ -108,6 +108,25 @@ class OverworldMap {
       }
     }
   }
+  checkForBattle() {
+    const hero = this.gameObjects["hero"];
+    const nextCoords = utils.heronextPosition(hero.x, hero.y, hero.direction);
+    const match = Object.values(this.gameObjects).find(object => {
+      let ifisReach = false;
+      if (object.isMounted) {
+        if ((((nextCoords.x) >= (object.Wallx) && ((nextCoords.x - hero.WallSizex) <= (object.Wallx + object.WallSizex))) && ((nextCoords.y >= (object.Wally)) && (nextCoords.y <= (object.Wally + (object.WallSizey)))))) {
+          ifisReach = true;
+        }
+        return ifisReach;
+      }
+    });
+    if (!this.isCutscenePlaying && match) {
+      setTimeout(() => {
+          this.startCutscene(match.talking[1].Receiveattackevents);
+      }, 500); // Delay for 1 second (1000 milliseconds)
+  }
+  }
+
 
 }
 
@@ -153,8 +172,15 @@ window.OverworldMaps = {
               { type: "textMessage", text: "I'm busy..." },
               { type: "textMessage", text: "Go away!" },
             ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "Ouch!!!!" },
+              { type: "textMessage", text: "You really want to piss me off?!" },
+              { type: "textMessage", text: "I will kill you!" },
+            ]
           }
-        ]
+        ],
       }),
     },
     walls: {

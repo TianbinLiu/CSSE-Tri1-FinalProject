@@ -25,7 +25,7 @@ class Person extends GameObject {
         canMovey = true;
       }
 
-      if (canMovex) {
+      if (canMovex && !attack) {
         if (state.map.heroisSpaceTaken(this.x, this.y, realdirectionx)) {
           canMovex = false;
         }
@@ -35,7 +35,7 @@ class Person extends GameObject {
       }
 
 
-      if (canMovey) {
+      if (canMovey && !attack) {
 
         if (state.map.heroisSpaceTaken(this.x, this.y, realdirectiony)) {
           canMovey = false;
@@ -101,14 +101,17 @@ class Person extends GameObject {
 
   heroupdateSprite() {
     let checkifwalkingResult = checkifwalkingright || checkifwalkingleft || checkifwalkingdown || checkifwalkingup;
-    if (this.isPlayerControlled && !(checkifwalkingResult)) {
+    if (this.isPlayerControlled && !(checkifwalkingResult) && !attack) {
       this.sprite.setAnimation(this.id + "-idle-" + persondirection);
-      return;
     }
 
-    if (this.isPlayerControlled && checkifwalkingResult) {
+    if (this.isPlayerControlled && checkifwalkingResult && !attack) {
       this.sprite.setAnimation(this.id + "-walk-" + persondirection);
     }
+    if (this.isPlayerControlled && attack) {
+      this.sprite.setAnimation(this.id + "-attack-" + persondirection);
+    }
+
   }
 
   updateSprite() {
@@ -117,5 +120,6 @@ class Person extends GameObject {
       return;
     }
     this.sprite.setAnimation(this.id + "-idle-" + this.direction);
+
   }
 }

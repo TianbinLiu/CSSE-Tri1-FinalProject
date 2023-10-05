@@ -25,6 +25,7 @@ let canMove = true;
 addEventListener("keydown", function (event) {
     console.log(event.code)
     if (canMove) {
+        if(!attack){
         if (event.code == 'ArrowRight') {
             persondirection = "right";
             realdirectionx = "right";
@@ -51,6 +52,11 @@ addEventListener("keydown", function (event) {
             realdirection = "up";
             vy = -1;
         };
+        }
+        if (event.code == 'Space') {
+            // Handle Space key event here     
+            attack = true;
+        }
     }
 
 })
@@ -100,5 +106,9 @@ addEventListener("keyup", function (event) {
         checkifwalkingup = false;
 
     };
+    if (event.code == 'Space') {
+        // Handle Space key event here
+        attack = false;
+    }
 })
 
