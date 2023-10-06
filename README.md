@@ -14,7 +14,7 @@ Rewards: User can gain different skills or update their skills from the battle w
 
  - Plot/Background of the game: 
 
-> Unparalleled Earth, Easter Island 1500 B.C.E  The world was burdened with Order and Systems and stability and tranquility after [classified]. Moais were left to be stranded on Easter island to prevent Chaos and Disorderment But one was exceptionally  tempered and shattered reality itself to create the bridge. and sparked the great bridge war after 10 long years the Order won and damaged the bridge and guarded it heavily no moai ever dared to cross apart from one day a unknown Moai thought otherwise.
+> Unparalleled Earth, Easter Island 1500 B.C.E. The world was burdened with Order and Systems and stability and tranquility after [classified]. Moais were left stranded on Easter Island to prevent Chaos and Disorderment. But one was exceptionally tempered and shattered reality itself to create the bridge and sparked the Great Bridge War. After 10 long years, the Order won, damaged the bridge, and guarded it heavily so that no Moai ever dared to cross -- except for one day a unknown Moai thought otherwise.
 
 ### map
 ![projectwireframe.pdf](https://github.com/TianbinLiu/CSSE-Tri1-FinalProject/blob/main/images/projectwireframe-1.png?raw=true)
