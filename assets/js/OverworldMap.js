@@ -146,8 +146,8 @@ class OverworldMap {
 
 window.OverworldMaps = {
   DemoRoom: {
-    lowerSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/DemoLower.png",
-    upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/DemoUpper.png",
+    lowerSrc: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/maps/mainmap.JPG",
+    upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/transparent.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
@@ -212,62 +212,6 @@ window.OverworldMaps = {
         y: utils.withGrid(5),
         sizex: utils.withGrid(2),
         sizey: utils.withGrid(2),
-      }),
-      wall2: new GameObject({
-        id: "wall2",
-        wall: true,
-        x: utils.withGrid(0),
-        y: utils.withGrid(2),
-        sizex: utils.withGrid(10),
-        sizey: utils.withGrid(1),
-      }),
-      wall3: new GameObject({
-        id: "wall3",
-        wall: true,
-        x: utils.withGrid(0),
-        y: utils.withGrid(3),
-        sizex: utils.withGrid(0),
-        sizey: utils.withGrid(6),
-      }),
-      wall4: new GameObject({
-        id: "wall4",
-        wall: true,
-        x: utils.withGrid(0),
-        y: utils.withGrid(9),
-        sizex: utils.withGrid(10),
-        sizey: utils.withGrid(0),
-      }),
-      wall5: new GameObject({
-        id: "wall5",
-        wall: true,
-        x: utils.withGrid(10),
-        y: utils.withGrid(3),
-        sizex: utils.withGrid(0),
-        sizey: utils.withGrid(6),
-      }),
-      wall6: new GameObject({
-        id: "wall6",
-        wall: true,
-        x: utils.withGrid(2),
-        y: utils.withGrid(3),
-        sizex: utils.withGrid(2),
-        sizey: utils.withGrid(0.5),
-      }),
-      wall7: new GameObject({
-        id: "wall7",
-        wall: true,
-        x: utils.withGrid(5),
-        y: utils.withGrid(3),
-        sizex: utils.withGrid(1),
-        sizey: utils.withGrid(1),
-      }),
-      wall8: new GameObject({
-        id: "wall8",
-        wall: true,
-        x: utils.withGrid(7),
-        y: utils.withGrid(3),
-        sizex: utils.withGrid(1),
-        sizey: utils.withGrid(1),
       }),
       event1: new GameObject({
         id: "npcA",
