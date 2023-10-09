@@ -68,7 +68,6 @@ class Overworld {
 
     this.startGameLoop();
 
-
     this.map.startCutscene([
     { type: "textMessage", text: "Unparalleled Earth, Easter Island 1500 B.C.E"},
     { type: "textMessage", text: "The world was burdened with Order and Systems and stability and tranquility after [classified]."},

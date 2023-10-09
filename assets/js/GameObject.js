@@ -12,12 +12,15 @@ class GameObject {
     this.WallSizex = config.WallSizex || 0;
     this.WallSizey = config.WallSizey || 0;
     this.wall = config.wall || false;
+    this.alive = config.alive || true;
+    this.hp= config.hp || 0;
     this.ifdialogue = config.ifdialogue || false;
     this.sprite = new Sprite({
       gameObject: this,
       id: config.id || null,
       sizex: config.sizex || 0,
       sizey: config.sizey || 0,
+      alive: config.alive || true,
       src: config.src || "https://tianbinliu.github.io/CSA-FinalProject/images/character/adventurer-v1.5-Sheetflip.png",
     });
 
