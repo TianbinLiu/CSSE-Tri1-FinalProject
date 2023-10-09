@@ -50,7 +50,7 @@ class OverworldMap {
         if (wall.wall) {
           isReach = true;
         }
-        if (!this.isCutscenePlaying && wall.event) {
+        if (!this.isCutscenePlaying && wall.event && this.cutsceneSpaces[wall.id][0].events.length!==0) {
           this.startCutscene(this.cutsceneSpaces[wall.id][0].events);
           wall.event = false;
         }
@@ -121,15 +121,27 @@ class OverworldMap {
       }
     });
     if (!this.isCutscenePlaying && match) {
-      setTimeout(() => {
+      match.hp-=1;
+      if(match.hp > 0){
+        setTimeout(() => {
           this.startCutscene(match.talking[1].Receiveattackevents);
-      }, 500); // Delay for 1 second (1000 milliseconds)
+      }, 500); // Delay for 0.5 second (500 milliseconds)
+      }
+      else{
+        setTimeout(() => {
+          this.startCutscene(match.talking[2].death);
+        }, 500); // Delay for 0.5 second (500 milliseconds)
+        match.alive = false;
+        npcAAlive = match.alive;
+        this.cutsceneSpaces[match.id][0].events =[];
+        match.isMounted = false;
+      }
+    
   }
   }
 
 
 }
-
 
 
 window.OverworldMaps = {
@@ -143,6 +155,8 @@ window.OverworldMaps = {
         y: utils.withGrid(6),
         sizex: 50,
         sizey: 37,
+        hp:2,
+        alive: true,
         WallSizex: utils.withGrid(1),
         WallSizey: utils.withGrid(1),
         id: "hero",
@@ -157,6 +171,8 @@ window.OverworldMaps = {
         WallSizey: utils.withGrid(1),
         sizex: 48,
         sizey: 48,
+        hp:2,
+        alive: true,
         id: "npcA",
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSA-FinalProject/images/character/Charakter.png",
@@ -179,7 +195,12 @@ window.OverworldMaps = {
               { type: "textMessage", text: "You really want to piss me off?!" },
               { type: "textMessage", text: "I will kill you!" },
             ]
-          }
+          },
+          {
+            death: [
+              { type: "textMessage", text: "Well, my time is come......." },
+            ]
+          },
         ],
       }),
     },
@@ -249,7 +270,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(1),
       }),
       event1: new GameObject({
-        id: "event1",
+        id: "npcA",
         event: true,
         x: utils.withGrid(4),
         y: utils.withGrid(8),
@@ -267,7 +288,7 @@ window.OverworldMaps = {
     },
     cutsceneSpaces: {
 
-      ["event1"]: [
+      ["npcA"]: [
         {
           events: [
             { who: "npcA", type: "walk", direction: "left", spritedirection: "left" },

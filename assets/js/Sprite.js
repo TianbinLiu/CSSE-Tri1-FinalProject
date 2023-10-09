@@ -1,12 +1,15 @@
 class Sprite {
   constructor(config) {
 
+    this.config = config;
+
     //Set up the image
     this.image = new Image();
     this.image.src = config.src;
     this.image.id = config.id;
     this.image.sizex = config.sizex;
     this.image.sizey = config.sizey;
+    this.image.alive = config.alive; // Use a private variable
     this.image.onload = () => {
       this.isLoaded = true;
     }
@@ -47,6 +50,8 @@ class Sprite {
 
     //Reference the game object
     this.gameObject = config.gameObject;
+
+    
   }
 
   get frame() {
@@ -60,6 +65,7 @@ class Sprite {
       this.animationFrameProgress = this.animationFrameLimit;
     }
   }
+
 
   updateAnimationProgress() {
     //Downtick frame progress
@@ -83,26 +89,44 @@ class Sprite {
   draw(ctx, cameraPerson) {
     const x = this.gameObject.x + utils.withGrid(9.5) - cameraPerson.x;
     const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y;
-
+    this.image.alive = this.config.alive;
     if (this.image.id === "hero" || this.image.id === "npcA") {
-      this.isShadowLoaded && ctx.drawImage(this.shadow,
-        0, 0,
-        32, 32,
-        x, y,
-        this.image.sizex, this.image.sizey
-      );
+      if(this.image.alive){
+        this.isShadowLoaded && ctx.drawImage(this.shadow,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+
     }
 
 
     const [frameX, frameY] = this.frame;
 
-    if (this.image.id === "hero" || this.image.id === "npcA") {
-      this.isLoaded && ctx.drawImage(this.image,
-        frameX * this.image.sizex, frameY * this.image.sizey,
-        this.image.sizex, this.image.sizey,
-        x, y,
-        this.image.sizex, this.image.sizey,
-      );
+    if (this.image.id === "hero") {
+      this.image.alive=heroAlive;
+      if(this.image.alive){
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
+
+    if(this.image.id ==="npcA"){
+      this.image.alive = npcAAlive;
+      if(this.image.alive){
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
     }
 
     this.updateAnimationProgress();
