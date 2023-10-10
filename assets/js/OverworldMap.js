@@ -151,8 +151,8 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(5),
-        y: utils.withGrid(6),
+        x: utils.withGrid(20),
+        y: utils.withGrid(30),
         sizex: 50,
         sizey: 37,
         hp:2,
@@ -163,10 +163,10 @@ window.OverworldMaps = {
       }),
       npcA: new Person({
         isMounted: true,
-        x: utils.withGrid(6),
-        y: utils.withGrid(8),
-        Wallx: utils.withGrid(5),
-        Wally: utils.withGrid(8),
+        x: utils.withGrid(21),
+        y: utils.withGrid(32),
+        Wallx: utils.withGrid(20),
+        Wally: utils.withGrid(32),
         WallSizex: utils.withGrid(1),
         WallSizey: utils.withGrid(1),
         sizex: 48,
