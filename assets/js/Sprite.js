@@ -7,7 +7,7 @@ class Sprite {
     this.image.id = config.id;
     this.image.sizex = config.sizex;
     this.image.sizey = config.sizey;
-    this.image.alive = config.alive; 
+    this.image.alive = config.alive;
     this.image.onload = () => {
       this.isLoaded = true;
     }
@@ -24,9 +24,9 @@ class Sprite {
 
     //blood
     this.blood = new Image();
-    this.blooduse = true; 
+    this.blooduse = true;
     if (this.blooduse) {
-      this.blood.src = "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/effect/blood.png";
+      this.blood.src = "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/effect/Blood.png";
     }
     this.blood.onload = () => {
       this.isBloodLoaded = true;
@@ -38,8 +38,8 @@ class Sprite {
       "hero-idle-left": [[6, 0], [5, 0], [4, 0],],
       "hero-walk-left": [[5, 1], [4, 1], [3, 1], [2, 1], [1, 1],],
       "hero-walk-right": [[8, 1], [9, 1], [10, 1], [11, 1], [12, 1],],
-      "hero-attack-left": [[6, 7], [5, 7], [4, 6], [3, 6], [2, 6],[1, 6],[0, 6],],
-      "hero-attack-right": [[7, 7], [8, 7], [9, 6], [10, 6], [11, 6],[12, 6],[13, 6],],
+      "hero-attack-left": [[6, 7], [5, 7], [4, 6], [3, 6], [2, 6], [1, 6], [0, 6],],
+      "hero-attack-right": [[7, 7], [8, 7], [9, 6], [10, 6], [11, 6], [12, 6], [13, 6],],
       "npcA-idle-right": [[0, 3], [1, 3],],
       "npcA-idle-left": [[0, 2], [1, 2],],
       "npcA-idle-up": [[0, 1], [1, 1],],
@@ -59,7 +59,7 @@ class Sprite {
     //Reference the game object
     this.gameObject = config.gameObject;
 
-    
+
   }
 
   get frame() {
@@ -97,9 +97,9 @@ class Sprite {
   draw(ctx, cameraPerson) {
     const x = this.gameObject.x + utils.withGrid(9.5) - cameraPerson.x;
     const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y;
-    if (this.image.id === "hero") {
-      this.image.alive=heroAlive;
-      if(this.image.alive){
+    if (this.image.id === "npcA") {
+      this.image.alive = npcAAlive;
+      if (this.image.alive) {
         this.isShadowLoaded && ctx.drawImage(this.shadow,
           0, 0,
           32, 32,
@@ -107,41 +107,43 @@ class Sprite {
           this.image.sizex, this.image.sizey
         );
       }
-      else{
+      else if (!this.image.alive) {
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
-          650, 812,
+          32, 32,
           x, y,
           this.image.sizex, this.image.sizey
         );
       }
-      if (this.image.id === "npcA") {
-        this.image.alive=npcAAlive;
-        if(this.image.alive){
-          this.isShadowLoaded && ctx.drawImage(this.shadow,
-            0, 0,
-            32, 32,
-            x, y,
-            this.image.sizex, this.image.sizey
-          );
-        }
-        else if(!this.image.alive){
-          this.isBloodLoaded && ctx.drawImage(this.blood,
-            0, 0,
-            650, 812,
-            x, y,
-            this.image.sizex, this.image.sizey
-          );
-        }
+
+    }
+    if (this.image.id === "hero") {
+      this.image.alive = heroAlive;
+      if (this.image.alive) {
+        this.isShadowLoaded && ctx.drawImage(this.shadow,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+      else {
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
       }
     }
+
 
 
     const [frameX, frameY] = this.frame;
 
     if (this.image.id === "hero") {
-      this.image.alive=heroAlive;
-      if(this.image.alive){
+      this.image.alive = heroAlive;
+      if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
           this.image.sizex, this.image.sizey,
@@ -151,9 +153,9 @@ class Sprite {
       }
     }
 
-    if(this.image.id ==="npcA"){
+    if (this.image.id === "npcA") {
       this.image.alive = npcAAlive;
-      if(this.image.alive){
+      if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
           this.image.sizex, this.image.sizey,
