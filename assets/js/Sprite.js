@@ -1,8 +1,6 @@
 class Sprite {
   constructor(config) {
 
-    this.config = config;
-
     //Set up the image
     this.image = new Image();
     this.image.src = config.src;
@@ -22,6 +20,16 @@ class Sprite {
     }
     this.shadow.onload = () => {
       this.isShadowLoaded = true;
+    }
+
+    //blood
+    this.blood = new Image();
+    this.blooduse = true; //config.useShadow || false
+    if (this.blooduse) {
+      this.blood.src = "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/effect/blood.png";
+    }
+    this.blood.onload = () => {
+      this.isBloodLoaded = true;
     }
 
     //Configure Animation & Initial State
@@ -89,8 +97,8 @@ class Sprite {
   draw(ctx, cameraPerson) {
     const x = this.gameObject.x + utils.withGrid(9.5) - cameraPerson.x;
     const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y;
-    this.image.alive = this.config.alive;
-    if (this.image.id === "hero" || this.image.id === "npcA") {
+    if (this.image.id === "hero") {
+      this.image.alive=heroAlive;
       if(this.image.alive){
         this.isShadowLoaded && ctx.drawImage(this.shadow,
           0, 0,
@@ -99,7 +107,33 @@ class Sprite {
           this.image.sizex, this.image.sizey
         );
       }
-
+      else{
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+      if (this.image.id === "npcA") {
+        this.image.alive=npcAAlive;
+        if(this.image.alive){
+          this.isShadowLoaded && ctx.drawImage(this.shadow,
+            0, 0,
+            32, 32,
+            x, y,
+            this.image.sizex, this.image.sizey
+          );
+        }
+        else{
+          this.isBloodLoaded && ctx.drawImage(this.blood,
+            0, 0,
+            32, 32,
+            x, y,
+            this.image.sizex, this.image.sizey
+          );
+        }
+      }
     }
 
 
