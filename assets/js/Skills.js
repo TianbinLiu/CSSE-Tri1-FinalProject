@@ -11,3 +11,8 @@ let skill1 = false
 let skill2 = false 
 let skill3 = false 
 let skill4 = false 
+function hitchance(max) {
+    return Math.floor(Math.random() * max);
+  }
+  
+  console.log(hitchance(100));
