@@ -14,7 +14,7 @@ Rewards: User can gain different skills or update their skills from the battle w
 
  - Plot/Background of the game: 
 
-> Altairius,shafted plains  1500 N.C.E. 10 Years Ago monsters and humans fought eachother in the great war of 1490 despite humanitys best efforts to fight the monsters decimated them with planets overburned with new reign of the monsters what used to be a golden age and order is now anarchy and the dark ages with no one to fight the oppression of the monsters it can only be one to fight them and that one being you. . . Merlin
+> Altairius | Shafted Plains | 1500 N.C.E. 10 Years Ago, monsters and humans fought eachother in the great war of 1490 Despite humanity's best efforts to fight the monsters decimated them With planets overburned with new reign of the monsters What used to be a golden age and order is now anarchy and the dark ages With no one to fight the oppression of the monsters it can only be one to fight them and that one being you. . . Merlin
 ### map
 ![projectwireframe.pdf](https://github.com/TianbinLiu/CSSE-Tri1-FinalProject/blob/main/images/projectwireframe-1.png?raw=true)
 ![projectwireframe.pdf](https://github.com/TianbinLiu/CSSE-Tri1-FinalProject/blob/main/images/map.png?raw=true)
