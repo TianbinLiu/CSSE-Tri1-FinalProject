@@ -26,27 +26,27 @@ addEventListener("keydown", function (event) {
     console.log(event.code)
     if (canMove) {
         if(!attack){
-        if (event.code == 'ArrowRight') {
+        if (event.code == 'ArrowRight'||event.code == 'KeyD') {
             persondirection = "right";
             realdirectionx = "right";
             realdirection = "right";
             checkifwalkingright = true;
             vx = 1;
         }
-        if (event.code == 'ArrowLeft') {
+        if (event.code == 'ArrowLeft'||event.code == 'KeyA') {
             persondirection = "left";
             realdirectionx = "left";
             realdirection = "left";
             checkifwalkingleft = true;
             vx = -1;
         }
-        if (event.code == 'ArrowDown') {
+        if (event.code == 'ArrowDown'||event.code == 'KeyS') {
             checkifwalkingdown = true;
             realdirectiony = "down";
             realdirection = "down";
             vy = 1;
         }
-        if (event.code == 'ArrowUp') {
+        if (event.code == 'ArrowUp'||event.code == 'KeyW') {
             checkifwalkingup = true;
             realdirectiony = "up";
             realdirection = "up";
@@ -77,7 +77,7 @@ addEventListener("keydown", function (event) {
 })
 
 addEventListener("keyup", function (event) {
-    if (event.code == 'ArrowRight') {
+    if (event.code == 'ArrowRight'||event.code == 'KeyA') {
         if (!checkifwalkingleft) {
             vx = 0
         }
@@ -88,7 +88,7 @@ addEventListener("keyup", function (event) {
         }
         checkifwalkingright = false;
     };
-    if (event.code == 'ArrowLeft') {
+    if (event.code == 'ArrowLeft'||event.code == 'KeyA') {
         if (!checkifwalkingright) {
             vx = 0
         }
@@ -99,7 +99,7 @@ addEventListener("keyup", function (event) {
         }
         checkifwalkingleft = false;
     };
-    if (event.code == 'ArrowDown') {
+    if (event.code == 'ArrowDown'||event.code == 'KeyS') {
         if (!checkifwalkingup) {
             vy = 0
         }
@@ -110,7 +110,7 @@ addEventListener("keyup", function (event) {
         checkifwalkingdown = false;
 
     };
-    if (event.code == 'ArrowUp') {
+    if (event.code == 'ArrowUp'||event.code == 'KeyW') {
         if (!checkifwalkingdown) {
             vy = 0
         }

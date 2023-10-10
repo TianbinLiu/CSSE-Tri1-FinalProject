@@ -67,15 +67,16 @@ class Overworld {
     this.bindActionInput();
 
     this.startGameLoop();
-
+    
+     
     this.map.startCutscene([
-    { type: "textMessage", text: "Unparalleled Earth, Easter Island 1500 B.C.E"},
-    { type: "textMessage", text: "The world was burdened with Order and Systems and stability and tranquility after [classified]."},
-    { type: "textMessage", text: "Moais were left to be stranded on Easter island to prevent Chaos and Disorderment"},
-    { type: "textMessage", text: "But one was exceptionally tempered and shattered reality itself to create the bridge."},
-    { type: "textMessage", text: "and sparked the great bridge war after 10 long years the Order won "},
-    { type: "textMessage", text: "and damaged the bridge and guarded it heavily no moai ever dared to cross apart"},
-    { type: "textMessage", text: "from one day a unknown Moai thought otherwise."},
+    { type: "textMessage", text: "Altairius,shafted plains  1500 N.C.E."},
+    { type: "textMessage", text: "10 Years Ago monsters and humans fought eachother in the great war of 1490."},
+    { type: "textMessage", text: "despite humanitys best efforts to fight the monsters decimated them."},
+    { type: "textMessage", text: "with planets overburned with new reign of the monsters."},
+    { type: "textMessage", text: "what used to be a golden age and order is now anarchy and the dark ages."},
+    { type: "textMessage", text: "with no one to fight the oppression of the monsters it can only be one to fight them and that one being you. . ."},
+    { type: "textMessage", text: "Merlin."},
     //   // { who: "npcA", type: "walk",  direction: "left", spritedirection: "left" },
     //   // { who: "npcA", type: "walk",  direction: "left", spritedirection: "left" },
     //   // { who: "npcA", type: "stand",  direction: "right", time: 800 },
