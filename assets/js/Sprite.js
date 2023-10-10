@@ -7,7 +7,7 @@ class Sprite {
     this.image.id = config.id;
     this.image.sizex = config.sizex;
     this.image.sizey = config.sizey;
-    this.image.alive = config.alive; // Use a private variable
+    this.image.alive = config.alive; 
     this.image.onload = () => {
       this.isLoaded = true;
     }
@@ -24,7 +24,7 @@ class Sprite {
 
     //blood
     this.blood = new Image();
-    this.blooduse = true; //config.useShadow || false
+    this.blooduse = true; 
     if (this.blooduse) {
       this.blood.src = "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/effect/blood.png";
     }
@@ -110,7 +110,7 @@ class Sprite {
       else{
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
-          32, 32,
+          650, 812,
           x, y,
           this.image.sizex, this.image.sizey
         );
@@ -125,10 +125,10 @@ class Sprite {
             this.image.sizex, this.image.sizey
           );
         }
-        else{
+        else if(!this.image.alive){
           this.isBloodLoaded && ctx.drawImage(this.blood,
             0, 0,
-            32, 32,
+            650, 812,
             x, y,
             this.image.sizex, this.image.sizey
           );
