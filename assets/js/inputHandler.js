@@ -57,6 +57,21 @@ addEventListener("keydown", function (event) {
             // Handle Space key event here     
             attack = true;
         }
+        // commited as of october 10 10:46 am unsure if we can make the skills behave like the attack but
+        //with a extra layer of cooldown 
+        if (event.code == 'U') {
+            skill1 = true 
+        }
+        if (event.code == 'I') {
+            skill2 = true 
+        }
+        if (event.code == 'O') {
+            skill3 = true 
+        }
+        if (event.code == 'P') {
+            skill4 = true 
+        }
+        // end of commit 
     }
 
 })
