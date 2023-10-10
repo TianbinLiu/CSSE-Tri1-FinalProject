@@ -59,17 +59,21 @@ addEventListener("keydown", function (event) {
         }
         // commited as of october 10 10:46 am unsure if we can make the skills behave like the attack but
         //with a extra layer of cooldown 
-        if (event.code == 'U') {
-            skill1 = true 
+        if (event.code == 'KeyU') {
+            skill1 = true
+            console.log ("skill1 is functional") 
         }
-        if (event.code == 'I') {
-            skill2 = true 
+        if (event.code == 'KeyI') {
+            skill2 = true
+            console.log ("skill2 is functional")  
         }
-        if (event.code == 'O') {
-            skill3 = true 
+        if (event.code == 'KeyO') {
+            skill3 = true
+            console.log ("skill3 is functional")  
         }
-        if (event.code == 'P') {
-            skill4 = true 
+        if (event.code == 'KeyP') {
+            skill4 = true
+            console.log ("skill4 is functional")  
         }
         // end of commit 
     }
@@ -124,6 +128,18 @@ addEventListener("keyup", function (event) {
     if (event.code == 'Space') {
         // Handle Space key event here
         attack = false;
+    }
+    if (event.code == 'KeyU') {
+        skill1 = false 
+    }
+    if (event.code == 'KeyI') {
+        skill2 = false
+    }
+    if (event.code == 'KeyO') {
+        skill3 = false 
+    }
+    if (event.code == 'KeyP') {
+        skill4 = false 
     }
 })
 
