@@ -77,7 +77,7 @@ addEventListener("keydown", function (event) {
 })
 
 addEventListener("keyup", function (event) {
-    if (event.code == 'ArrowRight'||event.code == 'KeyA') {
+    if (event.code == 'ArrowRight'||event.code == 'KeyD') {
         if (!checkifwalkingleft) {
             vx = 0
         }
