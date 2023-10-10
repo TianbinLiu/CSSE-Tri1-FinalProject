@@ -70,12 +70,12 @@ class Overworld {
     
      
     this.map.startCutscene([
-    { type: "textMessage", text: "Altairius,shafted plains  1500 N.C.E."},
-    { type: "textMessage", text: "10 Years Ago monsters and humans fought eachother in the great war of 1490."},
-    { type: "textMessage", text: "despite humanitys best efforts to fight the monsters decimated them."},
-    { type: "textMessage", text: "with planets overburned with new reign of the monsters."},
-    { type: "textMessage", text: "what used to be a golden age and order is now anarchy and the dark ages."},
-    { type: "textMessage", text: "with no one to fight the oppression of the monsters it can only be one to fight them and that one being you. . ."},
+    { type: "textMessage", text: "Altairius | Shafted Plains | 1500 N.C.E."},
+    { type: "textMessage", text: "Ten years ago, monsters and humans fought eachother in the great war of 1490."},
+    { type: "textMessage", text: "Despite humanitys best efforts to fight the monsters decimated them."},
+    { type: "textMessage", text: "With planets overburned with new reign of the monsters."},
+    { type: "textMessage", text: "What used to be a golden age and order is now anarchy and the dark ages."},
+    { type: "textMessage", text: "With no one to fight the oppression of the monsters it can only be one to fight them and that one being you. . ."},
     { type: "textMessage", text: "Merlin."},
     //   // { who: "npcA", type: "walk",  direction: "left", spritedirection: "left" },
     //   // { who: "npcA", type: "walk",  direction: "left", spritedirection: "left" },
