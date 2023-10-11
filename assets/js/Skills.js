@@ -15,7 +15,6 @@ let skill4 = false
 function chanced(max) {
     return Math.floor(Math.random() * max);
   }
-
   if (skill1 = true) {
   console.log(chanced(100));
   if (chanced > 50) {
@@ -48,11 +47,12 @@ function chanced(max) {
       }
       if (skill4 = true) {
         console.log(chanced(100));
-        if (hitchance >= 50) {
+        if (chanced >= 50) {
           hit = true
           console.log("critical")
         } else if (chanced <= 49) {
-          miss = true
-          console.log("miss") 
-        }
-        }
+          miss = true 
+          console.log("miss")
+        }}
+
+      
