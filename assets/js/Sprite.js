@@ -119,7 +119,6 @@ class Sprite {
           this.image.sizex, this.image.sizey
         );
       }
-
     }
     if (this.image.id === "hero") {
       this.image.alive = heroAlive;
@@ -142,15 +141,7 @@ class Sprite {
     }
     if (this.image.id === "slime") {
       this.image.alive = slimeAlive;
-      if (this.image.alive) {
-        this.isShadowLoaded && ctx.drawImage(this.shadow,
-          0, 0,
-          32, 32,
-          x, y,
-          this.image.sizex, this.image.sizey
-        );
-      }
-      else {
+      if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
           32, 32,
@@ -190,7 +181,6 @@ class Sprite {
 
     if (this.image.id === "slime") {
       this.image.alive = slimeAlive;
-      console.log("yes")
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,

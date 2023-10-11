@@ -208,55 +208,55 @@ window.OverworldMaps = {
           },
         ],
       }),
+      slime: new Person({
+        isMounted: true,
+        x: utils.withGrid(20),
+        y: utils.withGrid(32),
+        Wallx: this.x -1,
+        Wally: this.y,
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp:2,
+        alive: true,
+        id: "slime",
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        behaviorLoop: [
+          { type: "stand", direction: "left", time: 800 },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: 800 },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "right", time: 1200 },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: 1200 },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: 1200 },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "I'm busy..." },
+              { type: "textMessage", text: "Go away!" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "Ouch!!!!" },
+              { type: "textMessage", text: "You really want to piss me off?!" },
+              { type: "textMessage", text: "I will kill you!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "Well, my time is come......." },
+            ]
+          },
+        ],
+      }),
     },
-    slime: new Person({
-      isMounted: true,
-      x: utils.withGrid(20),
-      y: utils.withGrid(32),
-      Wallx: this.x -1,
-      Wally: this.y,
-      WallSizex: utils.withGrid(1),
-      WallSizey: utils.withGrid(1),
-      sizex: 32,
-      sizey: 32,
-      hp:2,
-      alive: true,
-      id: "slime",
-      ifdialogue: true,
-      src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
-      behaviorLoop: [
-        { type: "stand", direction: "left", time: 800 },
-        { type: "walk", direction: "left", spritedirection: "left" },
-        { type: "stand", direction: "left", time: 800 },
-        { type: "walk", direction: "left", spritedirection: "left" },
-        { type: "stand", direction: "up", time: 800 },
-        { type: "stand", direction: "right", time: 1200 },
-        { type: "walk", direction: "right", spritedirection: "right" },
-        { type: "stand", direction: "right", time: 1200 },
-        { type: "walk", direction: "right", spritedirection: "right" },
-        { type: "stand", direction: "down", time: 800 },
-      ],
-      talking: [
-        {
-          events: [
-            { type: "textMessage", text: "I'm busy..." },
-            { type: "textMessage", text: "Go away!" },
-          ]
-        },
-        {
-          Receiveattackevents: [
-            { type: "textMessage", text: "Ouch!!!!" },
-            { type: "textMessage", text: "You really want to piss me off?!" },
-            { type: "textMessage", text: "I will kill you!" },
-          ]
-        },
-        {
-          death: [
-            { type: "textMessage", text: "Well, my time is come......." },
-          ]
-        },
-      ],
-    }),
     walls: {
       wall1: new GameObject({
         id: "wall1",
