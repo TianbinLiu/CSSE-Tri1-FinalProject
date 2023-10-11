@@ -190,6 +190,7 @@ class Sprite {
 
     if (this.image.id === "slime") {
       this.image.alive = slimeAlive;
+      console.log("yes")
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,

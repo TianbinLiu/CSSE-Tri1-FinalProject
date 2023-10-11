@@ -132,7 +132,12 @@ class OverworldMap {
           this.startCutscene(match.talking[2].death);
         }, 500); // Delay for 0.5 second (500 milliseconds)
         match.alive = false;
-        npcAAlive = match.alive;
+        if(match.id="npcA"){
+          npcAAlive = match.alive;
+        }
+        if(match.id="slime"){
+          slimeAlive = match.alive;
+        }
         this.cutsceneSpaces[match.id][0].events =[];
         match.isMounted = false;
       }
@@ -206,10 +211,10 @@ window.OverworldMaps = {
     },
     slime: new Person({
       isMounted: true,
-      x: utils.withGrid(15),
+      x: utils.withGrid(20),
       y: utils.withGrid(32),
-      Wallx: utils.withGrid(14),
-      Wally: utils.withGrid(32),
+      Wallx: this.x -1,
+      Wally: this.y,
       WallSizex: utils.withGrid(1),
       WallSizey: utils.withGrid(1),
       sizex: 32,
