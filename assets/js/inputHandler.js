@@ -61,18 +61,22 @@ addEventListener("keydown", function (event) {
         //with a extra layer of cooldown 
         if (event.code == 'KeyU') {
             skill1 = true
+            Skillmanager1()
             console.log ("skill1 is functional") 
         }
         if (event.code == 'KeyI') {
             skill2 = true
+            Skillmanager2()
             console.log ("skill2 is functional")  
         }
         if (event.code == 'KeyO') {
             skill3 = true
+            Skillmanager3()
             console.log ("skill3 is functional")  
         }
         if (event.code == 'KeyP') {
             skill4 = true
+            Skillmanager4()
             console.log ("skill4 is functional")  
         }
         // end of commit 

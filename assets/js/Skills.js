@@ -10,49 +10,62 @@ let cooldown4 = 4
 let skill1 = false
 let skill2 = false 
 let skill3 = false 
-let skill4 = false 
+let skill4 = false
+
 //non functional for now
-function chanced(max) {
-    return Math.floor(Math.random() * max);
-  }
+function hitchance(max) {
+    return Math.floor(Math.random() * max);   
+}
+function Skillmanager1() {
+  var hitcheck1 = hitchance(100)
   if (skill1 = true) {
-  console.log(chanced(100));
-  if (chanced > 50) {
+  console.log(hitcheck1);
+  if (hitcheck1 > 50) {
     hit = true
     console.log("critical")
-  } else if (chanced < 50) {
+  } else if (hitcheck1 < 50) {
     miss = true 
     console.log("miss")
   }
   }
+}
+function Skillmanager2() {
+  var hitcheck2 = hitchance(100)
   if (skill2 = true) {
-    console.log(chanced(100));
-    if (chanced > 50) {
+    console.log(hitcheck2);
+    if (hitcheck2 > 50) {
       hit = true
       console.log("critical")
-    } else if (chanced < 50) {
+    } else if (hitcheck2 < 50) {
       miss = true
       console.log("miss")
     }
     }
+  }
+function Skillmanager3() {
+  var hitcheck3 = hitchance(100)
     if (skill3 = true) {
-      console.log(chanced(100));
-      if (chanced > 50) {
+      console.log(hitcheck3);
+      if (hitcheck3 > 50) {
         hit = true
         console.log("critical")
-      } else if (chanced < 50) {
+      } else if (hitcheck3 < 50) {
         miss = true
         console.log("miss") 
       }
       }
+    }
+function Skillmanager4() {
+  var hitcheck4 = hitchance(100)
       if (skill4 = true) {
-        console.log(chanced(100));
-        if (chanced >= 50) {
+        console.log(hitcheck4);
+        if (hitcheck4 >= 50) {
           hit = true
           console.log("critical")
-        } else if (chanced <= 49) {
+        } else if (hitcheck4 <= 49) {
           miss = true 
           console.log("miss")
         }}
+ }
 
       
