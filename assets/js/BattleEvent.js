@@ -5,4 +5,10 @@ let heroAlive = true;
 let slimeAlive = true;
 //initative decides if you or the enemy attacks first (true for player attacks first false for player attacks)
 let initiative = false 
-
+function hitchance(max) {
+    return Math.floor(Math.random() * max);   
+}
+//wip
+function initiative () {
+    hitchance(2)
+}

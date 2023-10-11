@@ -13,9 +13,9 @@ let skill3 = false
 let skill4 = false
 
 //non functional for now
-function hitchance(max) {
-    return Math.floor(Math.random() * max);   
-}
+//function hitchance(max) {
+//    return Math.floor(Math.random() * max);   
+//}
 function Skillmanager1() {
   var hitcheck1 = hitchance(100)
   if (skill1 = true) {
