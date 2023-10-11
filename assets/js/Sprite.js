@@ -48,6 +48,10 @@ class Sprite {
       "npcA-walk-left": [[2, 2], [3, 2],],
       "npcA-walk-up": [[2, 1], [3, 1],],
       "npcA-walk-down": [[2, 0], [3, 0],],
+      "slime-idle-right": [[0, 0], [1, 0], [2, 0],[3, 0],],
+      "slime-idle-left": [[6, 5], [5, 5], [4, 5],[3, 5],],
+      "slime-walk-right": [[0, 1], [1, 1], [2, 1],[3, 1],[4, 1],[5, 1],],
+      "slime-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
     }
     this.currentAnimation = config.currentAnimation || (this.image.id + "-idle-right");
     this.currentAnimationFrame = 0;
@@ -136,6 +140,25 @@ class Sprite {
         );
       }
     }
+    if (this.image.id === "slime") {
+      this.image.alive = slimeAlive;
+      if (this.image.alive) {
+        this.isShadowLoaded && ctx.drawImage(this.shadow,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+      else {
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+    }
 
 
 
@@ -155,6 +178,18 @@ class Sprite {
 
     if (this.image.id === "npcA") {
       this.image.alive = npcAAlive;
+      if (this.image.alive) {
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
+
+    if (this.image.id === "slime") {
+      this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
