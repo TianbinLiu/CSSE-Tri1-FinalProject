@@ -9,6 +9,6 @@ function hitchance(max) {
     return Math.floor(Math.random() * max);   
 }
 //wip
-function initiative () {
-    hitchance(2)
+function finitiative () {
+   hitchance(2)
 }
