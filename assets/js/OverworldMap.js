@@ -32,7 +32,26 @@ class OverworldMap {
 
   isSpaceTaken(currentX, currentY, direction) {
     const { x, y } = utils.nextPosition(currentX, currentY, direction);
-    return this.walls[`${x},${y}`] || false;
+    let isReach = false;
+    Object.values(this.gameObjects).forEach(hero => {
+      if (hero.isPlayerControlled) {
+        if ((((x) >= (hero.x) && ((x - this.gameObjects["hero"].WallSizex) <= (hero.x + hero.WallSizex))) && ((y >= (hero.y)) && (y <= (hero.y + hero.WallSizey))))) {
+          isReach = true;
+        }
+      }
+    })
+    Object.values(this.walls).forEach(wall => {
+      if (((x >= wall.x) && ((x - this.gameObjects["hero"].WallSizex) <= (wall.x + wall.sizex))) && ((y >= wall.y) && (y <= (wall.y + wall.sizey)))) {
+        if (wall.wall) {
+          isReach = true;
+        }
+        if (!this.isCutscenePlaying && wall.event && this.cutsceneSpaces[wall.id][0].events.length!==0) {
+          this.startCutscene(this.cutsceneSpaces[wall.id][0].events);
+          wall.event = false;
+        }
+      }
+    })
+    return isReach;
   }
 
   heroisSpaceTaken(currentX, currentY, direction) {
@@ -112,12 +131,11 @@ class OverworldMap {
     const hero = this.gameObjects["hero"];
     const nextCoords = utils.heronextPosition(hero.x, hero.y, hero.direction);
     const match = Object.values(this.gameObjects).find(object => {
-      let ifisReach = false;
       if (object.isMounted) {
         if ((((nextCoords.x) >= (object.Wallx) && ((nextCoords.x - hero.WallSizex) <= (object.Wallx + object.WallSizex))) && ((nextCoords.y >= (object.Wally)) && (nextCoords.y <= (object.Wally + (object.WallSizey)))))) {
-          ifisReach = true;
+          object.reach = true;
         }
-        return ifisReach;
+        return object.reach;
       }
     });
     if (!this.isCutscenePlaying && match) {
@@ -127,18 +145,21 @@ class OverworldMap {
           this.startCutscene(match.talking[1].Receiveattackevents);
       }, 500); // Delay for 0.5 second (500 milliseconds)
       }
-      else{
+      else if(match.hp <=0){
         setTimeout(() => {
           this.startCutscene(match.talking[2].death);
         }, 500); // Delay for 0.5 second (500 milliseconds)
-        match.alive = false;
         if(match.id="npcA"){
+          match.alive = false;
           npcAAlive = match.alive;
         }
         if(match.id="slime"){
+          match.alive = false;
           slimeAlive = match.alive;
         }
-        this.cutsceneSpaces[match.id][0].events =[];
+        if(typeof (this.cutsceneSpaces[match.id]) !== "undefined"){
+          this.cutsceneSpaces[match.id][0].events =[];
+        }
         match.isMounted = false;
       }
     
@@ -176,6 +197,7 @@ window.OverworldMaps = {
         WallSizey: utils.withGrid(1),
         sizex: 48,
         sizey: 48,
+        reach: false,
         hp:2,
         alive: true,
         id: "npcA",
@@ -210,15 +232,16 @@ window.OverworldMaps = {
       }),
       slime: new Person({
         isMounted: true,
-        x: utils.withGrid(20),
-        y: utils.withGrid(32),
-        Wallx: this.x -1,
-        Wally: this.y,
+        x: utils.withGrid(15),
+        y: utils.withGrid(30),
+        Wallx: utils.withGrid(14),
+        Wally: utils.withGrid(30),
         WallSizex: utils.withGrid(1),
         WallSizey: utils.withGrid(1),
         sizex: 32,
         sizey: 32,
         hp:2,
+        reach: false,
         alive: true,
         id: "slime",
         ifdialogue: true,
