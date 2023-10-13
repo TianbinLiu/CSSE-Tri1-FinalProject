@@ -4,10 +4,18 @@ let npcAAlive = true;
 let heroAlive = true;
 let slimeAlive = true;
 //initative decides if you or the enemy attacks first (true for player attacks first false for player attacks)
-let initiative = 0 
+
 function initativechance(max) {
     return Math.floor(Math.random() * max); 
 }  
+// currently battle preperation only decides initative 
 function BattlePreperation() {
-    initativechance(2)
+   if (battle = true) { 
+    var initative = initativechance(2)
+    if (initative > 1) {
+        // let the monster attack first 
+    } else {
+        //let the hero attack first 
+    }
+   }
 }
