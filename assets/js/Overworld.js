@@ -84,4 +84,12 @@ class Overworld {
 
 
   }
+
+  init()
+    const marketplace = new Image
+    marketplace.onload = () => {
+      this.ctx.drawImage(marketplace, 0,0)
+    }
+    marketplace.src = "/images/characters/marketplace.png"
+  
 }
