@@ -45,7 +45,7 @@ class OverworldMap {
         if (wall.wall) {
           isReach = true;
         }
-        if (!this.isCutscenePlaying && wall.event && this.cutsceneSpaces[wall.id][0].events.length!==0) {
+        if (!this.isCutscenePlaying && wall.event && this.cutsceneSpaces[wall.id][0].events.length !== 0) {
           this.startCutscene(this.cutsceneSpaces[wall.id][0].events);
           wall.event = false;
         }
@@ -69,7 +69,7 @@ class OverworldMap {
         if (wall.wall) {
           isReach = true;
         }
-        if (!this.isCutscenePlaying && wall.event && this.cutsceneSpaces[wall.id][0].events.length!==0) {
+        if (!this.isCutscenePlaying && wall.event && this.cutsceneSpaces[wall.id][0].events.length !== 0) {
           this.startCutscene(this.cutsceneSpaces[wall.id][0].events);
           wall.event = false;
         }
@@ -105,7 +105,7 @@ class OverworldMap {
     this.isCutscenePlaying = false;
 
     Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
-    canMove=true;
+    canMove = true;
   }
 
   checkForActionCutscene() {
@@ -121,7 +121,7 @@ class OverworldMap {
       }
     });
     if (!this.isCutscenePlaying && match && match.talking.length) {
-      if (match.ifdialogue) {
+      if (match.ifdialogue && match.alive) {
         this.startCutscene(match.talking[0].events)
         match.ifdialogue = false;
       }
@@ -132,38 +132,43 @@ class OverworldMap {
     const nextCoords = utils.heronextPosition(hero.x, hero.y, hero.direction);
     const match = Object.values(this.gameObjects).find(object => {
       if (object.isMounted) {
-        if ((((nextCoords.x) >= (object.Wallx) && ((nextCoords.x - hero.WallSizex) <= (object.Wallx + object.WallSizex))) && ((nextCoords.y >= (object.Wally)) && (nextCoords.y <= (object.Wally + (object.WallSizey)))))) {
+        if ((((nextCoords.x) >= (object.Wallx) && ((nextCoords.x - object.WallSizex) <= (object.Wallx + object.WallSizex))) && ((nextCoords.y >= (object.Wally)) && (nextCoords.y <= (object.Wally + (object.WallSizey)))))) {
           object.reach = true;
         }
         return object.reach;
       }
     });
-    if (!this.isCutscenePlaying && match) {
-      match.hp-=1;
-      if(match.hp > 0){
+    if (!this.isCutscenePlaying && match && match.alive) {
+      match.hp -= 1;
+      if (match.hp > 0) {
         setTimeout(() => {
           this.startCutscene(match.talking[1].Receiveattackevents);
-      }, 500); // Delay for 0.5 second (500 milliseconds)
+        }, 500); // Delay for 0.5 second (500 milliseconds)
+        console.log(this.gameObjects["slime"].hp)
+        console.log(this.gameObjects["npcA"].hp)
       }
-      else if(match.hp <=0){
+      else if (match.hp <= 0) {
+        console.log(this.gameObjects["slime"].hp)
+        console.log(this.gameObjects["npcA"].hp)
+        console.log(match)
         setTimeout(() => {
           this.startCutscene(match.talking[2].death);
         }, 500); // Delay for 0.5 second (500 milliseconds)
-        if(match.id="npcA"){
+        if (match.id === "npcA") {
           match.alive = false;
           npcAAlive = match.alive;
-        }
-        if(match.id="slime"){
+        } 
+        if (match.id === "slime") {
           match.alive = false;
           slimeAlive = match.alive;
         }
-        if(typeof (this.cutsceneSpaces[match.id]) !== "undefined"){
-          this.cutsceneSpaces[match.id][0].events =[];
+        if (typeof (this.cutsceneSpaces[match.id]) !== "undefined") {
+          this.cutsceneSpaces[match.id][0].events = [];
         }
         match.isMounted = false;
       }
-    
-  }
+
+    }
   }
 
 
@@ -181,7 +186,7 @@ window.OverworldMaps = {
         y: utils.withGrid(30),
         sizex: 50,
         sizey: 37,
-        hp:2,
+        hp: 2,
         alive: true,
         WallSizex: utils.withGrid(1),
         WallSizey: utils.withGrid(1),
@@ -198,7 +203,7 @@ window.OverworldMaps = {
         sizex: 48,
         sizey: 48,
         reach: false,
-        hp:2,
+        hp: 2,
         alive: true,
         id: "npcA",
         ifdialogue: true,
@@ -240,7 +245,7 @@ window.OverworldMaps = {
         WallSizey: utils.withGrid(1),
         sizex: 32,
         sizey: 32,
-        hp:2,
+        hp: 2,
         reach: false,
         alive: true,
         id: "slime",
