@@ -244,6 +244,7 @@ window.OverworldMaps = {
         reach: false,
         alive: true,
         id: "slime",
+        monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
         behaviorLoop: [
@@ -282,10 +283,10 @@ window.OverworldMaps = {
       marketplace: new Person({
         isMounted: true,
         x: utils.withGrid(15),
-        y: utils.withGrid(24),
-        Wallx: utils.withGrid(14),
+        y: utils.withGrid(28),
+        Wallx: utils.withGrid(15),
         Wally: utils.withGrid(28),
-        WallSizex: utils.withGrid(1),
+        WallSizex: utils.withGrid(2),
         WallSizey: utils.withGrid(1),
         sizex: 196,
         sizey: 228,

@@ -15,6 +15,7 @@ class GameObject {
     this.alive = config.alive || true;
     this.hp= config.hp || 1;
     this.reach = config.reach || false;
+    this.monster = config.monster || false;
     this.ifdialogue = config.ifdialogue || false;
     this.sprite = new Sprite({
       gameObject: this,
