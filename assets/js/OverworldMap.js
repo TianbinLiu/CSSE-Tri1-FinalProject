@@ -144,13 +144,8 @@ class OverworldMap {
         setTimeout(() => {
           this.startCutscene(match.talking[1].Receiveattackevents);
         }, 500); // Delay for 0.5 second (500 milliseconds)
-        console.log(this.gameObjects["slime"].hp)
-        console.log(this.gameObjects["npcA"].hp)
       }
       else if (match.hp <= 0) {
-        console.log(this.gameObjects["slime"].hp)
-        console.log(this.gameObjects["npcA"].hp)
-        console.log(match)
         setTimeout(() => {
           this.startCutscene(match.talking[2].death);
         }, 500); // Delay for 0.5 second (500 milliseconds)
@@ -296,6 +291,7 @@ window.OverworldMaps = {
         sizey: 228,
         reach: false,
         id: "marketplace",
+        ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/marketplace.png",
       }),
     },

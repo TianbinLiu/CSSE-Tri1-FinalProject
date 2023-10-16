@@ -52,7 +52,7 @@ class Sprite {
       "slime-idle-left": [[6, 5], [5, 5], [4, 5],[3, 5],],
       "slime-walk-right": [[0, 1], [1, 1], [2, 1],[3, 1],[4, 1],[5, 1],],
       "slime-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
-      "marketplace-idle-right":[[0,0],],
+      "marketplace-idle-right":[[0,0]],
     }
     this.currentAnimation = config.currentAnimation || (this.image.id + "-idle-right");
     this.currentAnimationFrame = 0;
@@ -192,15 +192,14 @@ class Sprite {
       }
     }
 
-    if(this.image.id ==="marketplace"){
+    if (this.image.id === "marketplace") {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
           this.image.sizex, this.image.sizey,
           x, y,
-          this.image.size/5, this.image.sizey/5,
+          this.image.sizex/5, this.image.sizey/5,
         );
     }
-
     this.updateAnimationProgress();
   }
 

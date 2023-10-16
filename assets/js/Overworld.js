@@ -73,12 +73,5 @@ class Overworld {
       { type: "textMessage", text: "With no one to fight the oppression of the monsters, it can only be one to fight them, and that one being you..." },
       { type: "textMessage", text: "Merlin." },
     ]);
-
-    // Load and draw the "marketplace.png" image
-    const marketplace = new Image();
-    marketplace.onload = () => {
-      this.ctx.drawImage(marketplace, 0, 0);
-    };
-    marketplace.src = "/images/characters/marketplace.png";
   }
 }

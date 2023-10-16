@@ -13,7 +13,7 @@ class GameObject {
     this.WallSizey = config.WallSizey || 0;
     this.wall = config.wall || false;
     this.alive = config.alive || true;
-    this.hp= config.hp || 0;
+    this.hp= config.hp || 1;
     this.reach = config.reach || false;
     this.ifdialogue = config.ifdialogue || false;
     this.sprite = new Sprite({
