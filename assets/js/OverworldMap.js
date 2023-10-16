@@ -284,6 +284,20 @@ window.OverworldMaps = {
           },
         ],
       }),
+      marketplace: new Person({
+        isMounted: true,
+        x: utils.withGrid(15),
+        y: utils.withGrid(28),
+        Wallx: utils.withGrid(14),
+        Wally: utils.withGrid(28),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 196,
+        sizey: 228,
+        reach: false,
+        id: "marketplace",
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/marketplace.png",
+      }),
     },
     walls: {
       wall1: new GameObject({
