@@ -282,7 +282,7 @@ window.OverworldMaps = {
       marketplace: new Person({
         isMounted: true,
         x: utils.withGrid(15),
-        y: utils.withGrid(28),
+        y: utils.withGrid(24),
         Wallx: utils.withGrid(14),
         Wally: utils.withGrid(28),
         WallSizex: utils.withGrid(1),
