@@ -9,13 +9,30 @@ function initativechance(max) {
     return Math.floor(Math.random() * max); 
 }  
 // currently battle preperation only decides initative 
-function BattlePreperation() {
-   if (battle = true) { 
+function BattlePreperationinitative() {
     var initative = initativechance(2)
     if (initative > 1) {
         // let the monster attack first 
     } else {
         //let the hero attack first 
     }
-   }
+   
+}
+function battlepreperationformation() {
+    //set a new scene with a new background for combat 
+    // need image for that 
+    // also makes the enemy be all the way in the middle right and player on the middle left 
+    // see github issues 
+    
+}
+function battlepreperationui() {
+    // sets up the ui at the bottom hand corner 
+    // need image for ui and skills // see github issues 
+}
+// INbattle functions 
+function INbattleslimeattack1() {
+  //code for slime attack 1 
+}
+function INbattleslimeattack2() {
+    //code for slime attack 2  
 }
