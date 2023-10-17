@@ -45,8 +45,8 @@ class OverworldMap {
         if (wall.wall) {
           isReach = true;
         }
-        if (!this.isCutscenePlaying && wall.event && this.cutsceneSpaces[wall.id][0].events.length !== 0) {
-          this.startCutscene(this.cutsceneSpaces[wall.id][0].events);
+        if (!this.isCutscenePlaying && wall.event) {
+          this.startCutscene(this.cutsceneSpaces[wall.id][0].events, this.cutsceneSpaces[wall.id][0].events.length !== 0);
           wall.event = false;
         }
       }
@@ -69,8 +69,8 @@ class OverworldMap {
         if (wall.wall) {
           isReach = true;
         }
-        if (!this.isCutscenePlaying && wall.event && this.cutsceneSpaces[wall.id][0].events.length !== 0) {
-          this.startCutscene(this.cutsceneSpaces[wall.id][0].events);
+        if (!this.isCutscenePlaying && wall.event) {
+          this.startCutscene(this.cutsceneSpaces[wall.id][0].events, this.cutsceneSpaces[wall.id][0].events.length !== 0);
           wall.event = false;
         }
       }
@@ -91,13 +91,14 @@ class OverworldMap {
     })
   }
 
-  async startCutscene(events) {
+  async startCutscene(events, alive) {
     this.isCutscenePlaying = true;
     canMove = false;
     for (let i = 0; i < events.length; i++) {
       const eventHandler = new OverworldEvent({
         event: events[i],
         map: this,
+        alive: alive,
       })
       await eventHandler.init();
     }
@@ -122,7 +123,7 @@ class OverworldMap {
     });
     if (!this.isCutscenePlaying && match && match.talking.length) {
       if (match.ifdialogue && match.alive) {
-        this.startCutscene(match.talking[0].events)
+        this.startCutscene(match.talking[0].events, match.alive)
         match.ifdialogue = false;
       }
     }
@@ -142,12 +143,12 @@ class OverworldMap {
       match.hp -= 1;
       if (match.hp > 0) {
         setTimeout(() => {
-          this.startCutscene(match.talking[1].Receiveattackevents);
+          this.startCutscene(match.talking[1].Receiveattackevents, match.alive);
         }, 500); // Delay for 0.5 second (500 milliseconds)
       }
       else if (match.hp <= 0) {
         setTimeout(() => {
-          this.startCutscene(match.talking[2].death);
+          this.startCutscene(match.talking[2].death, match.alive);
         }, 500); // Delay for 0.5 second (500 milliseconds)
         if (match.id === "npcA") {
           match.alive = false;
@@ -234,8 +235,8 @@ window.OverworldMaps = {
         isMounted: true,
         x: utils.withGrid(15),
         y: utils.withGrid(30),
-        Wallx: utils.withGrid(14),
-        Wally: utils.withGrid(30),
+        Wallx: utils.withGrid(13.5),
+        Wally: utils.withGrid(28.5),
         WallSizex: utils.withGrid(1),
         WallSizey: utils.withGrid(1),
         sizex: 32,

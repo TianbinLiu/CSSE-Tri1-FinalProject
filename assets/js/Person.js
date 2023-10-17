@@ -3,7 +3,6 @@ class Person extends GameObject {
     super(config);
     this.movingProgressRemaining = 0;
     this.isPlayerControlled = config.isPlayerControlled || false;
-
     this.directionUpdate = {
       "up": ["y", -1],
       "down": ["y", 1],
@@ -59,35 +58,40 @@ class Person extends GameObject {
     if (!this.isPlayerControlled) {
       this.direction = behavior.direction;
       this.spritedirection = behavior.spritedirection;
-      if (behavior.type === "walk") {
-        //Stop here if space is not free
-        if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
-
-          behavior.retry && setTimeout(() => {
-            this.startBehavior(state, behavior)
-          }, 10);
-
-          return;
+      this.alive = behavior.alive;
+      if(this.alive){
+        if (behavior.type === "walk") {
+          //Stop here if space is not free
+          if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {
+  
+            behavior.retry && setTimeout(() => {
+              this.startBehavior(state, behavior)
+            }, 10);
+  
+            return;
+          }
+  
+          //Ready to walk!
+          this.movingProgressRemaining = 16;
+          this.updateSprite(state);
         }
-
-        //Ready to walk!
-        this.movingProgressRemaining = 16;
-        this.updateSprite(state);
+  
+        if (behavior.type === "stand") {
+          setTimeout(() => {
+            utils.emitEvent("PersonStandComplete", {
+              whoId: this.id
+            })
+          }, behavior.time)
+        }
       }
 
-      if (behavior.type === "stand") {
-        setTimeout(() => {
-          utils.emitEvent("PersonStandComplete", {
-            whoId: this.id
-          })
-        }, behavior.time)
-      }
     }
   }
 
   updatePosition() {
     const [property, change] = this.directionUpdate[this.direction];
     this[property] += change;
+    this["Wall" + property] += change;
     this.movingProgressRemaining -= 1;
 
     if (this.movingProgressRemaining === 0) {

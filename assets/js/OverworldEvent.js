@@ -1,7 +1,8 @@
 class OverworldEvent {
-  constructor({ map, event }) {
+  constructor({ map, event, alive }) {
     this.map = map;
     this.event = event;
+    this.alive = alive;
   }
 
   stand(resolve) {
@@ -11,8 +12,9 @@ class OverworldEvent {
     }, {
       type: "stand",
       direction: this.event.direction,
-      time: this.event.time
-    })
+      time: this.event.time,
+      alive: this.alive,
+    },)
 
     //Set up a handler to complete when correct person is done walking, then resolve the event
     const completeHandler = e => {
@@ -32,6 +34,7 @@ class OverworldEvent {
       type: "walk",
       direction: this.event.direction,
       spritedirection: this.event.spritedirection,
+      alive: this.alive,
       retry: true
     })
 
@@ -43,14 +46,10 @@ class OverworldEvent {
       }
     }
     document.addEventListener("PersonWalkingComplete", completeHandler)
-
   }
 
 
   textMessage(resolve) {
-
-
-
     const message = new TextMessage({
       text: this.event.text,
       onComplete: () => resolve()
