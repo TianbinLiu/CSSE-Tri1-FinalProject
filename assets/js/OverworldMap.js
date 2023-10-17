@@ -163,6 +163,10 @@ class OverworldMap {
         }
         match.isMounted = false;
       }
+      if(match.monster){
+        Battle = true;
+        match.behaviorLoop = [];
+      }
 
     }
   }
@@ -263,20 +267,19 @@ window.OverworldMaps = {
         talking: [
           {
             events: [
-              { type: "textMessage", text: "I'm busy..." },
-              { type: "textMessage", text: "Go away!" },
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
             ]
           },
           {
             Receiveattackevents: [
-              { type: "textMessage", text: "Ouch!!!!" },
-              { type: "textMessage", text: "You really want to piss me off?!" },
-              { type: "textMessage", text: "I will kill you!" },
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
             ]
           },
           {
             death: [
-              { type: "textMessage", text: "Well, my time is come......." },
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
             ]
           },
         ],
