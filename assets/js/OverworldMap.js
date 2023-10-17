@@ -109,6 +109,19 @@ class OverworldMap {
     canMove = true;
   }
 
+  checkForPause(){
+    if(canMove && this.isCutscenePlaying && !pause){
+      canMove = false;
+      this.isCutscenePlaying = true;
+      pause = true;
+    }
+    else if(pause){
+      canMove = true;
+      this.isCutscenePlaying = false;
+      pause = false;
+    }
+  }
+
   checkForActionCutscene() {
     const hero = this.gameObjects["hero"];
     const nextCoords = utils.heronextPosition(hero.x, hero.y, hero.direction);
@@ -162,6 +175,10 @@ class OverworldMap {
           this.cutsceneSpaces[match.id][0].events = [];
         }
         match.isMounted = false;
+      }
+      if(match.monster){
+        Battle = true;
+        match.behaviorLoop = [];
       }
 
     }
@@ -263,20 +280,19 @@ window.OverworldMaps = {
         talking: [
           {
             events: [
-              { type: "textMessage", text: "I'm busy..." },
-              { type: "textMessage", text: "Go away!" },
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
             ]
           },
           {
             Receiveattackevents: [
-              { type: "textMessage", text: "Ouch!!!!" },
-              { type: "textMessage", text: "You really want to piss me off?!" },
-              { type: "textMessage", text: "I will kill you!" },
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
             ]
           },
           {
             death: [
-              { type: "textMessage", text: "Well, my time is come......." },
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
             ]
           },
         ],
@@ -284,7 +300,7 @@ window.OverworldMaps = {
       marketplace: new Person({
         isMounted: true,
         x: utils.withGrid(15),
-        y: utils.withGrid(28),
+        y: utils.withGrid(24),
         Wallx: utils.withGrid(15),
         Wally: utils.withGrid(28),
         WallSizex: utils.withGrid(2),

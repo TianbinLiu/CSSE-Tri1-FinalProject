@@ -46,6 +46,10 @@ class Overworld {
       // Is there a person here to talk to?
       this.map.checkForActionCutscene();
     });
+    new KeyPressListener("Escape", () => {
+
+      this.map.checkForPause();
+    });
     if (canMove) {
       new KeyPressListener("Space", () => {
         this.map.checkForBattle();

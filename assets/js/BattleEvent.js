@@ -3,6 +3,7 @@ let attack = false;
 let npcAAlive = true;
 let heroAlive = true;
 let slimeAlive = true;
+let pause = false;
 //initative decides if you or the enemy attacks first (true for player attacks first false for player attacks)
 
 function initativechance(max) {
