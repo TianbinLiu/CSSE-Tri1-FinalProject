@@ -8,6 +8,10 @@ let slimeAlive = true;
 function initativechance(max) {
     return Math.floor(Math.random() * max); 
 }  
+function battlepreperation() {
+    Battle = true 
+    canMove = false 
+}
 // currently battle preperation only decides initative 
 function BattlePreperationinitative() {
     var initative = initativechance(2)
@@ -19,6 +23,7 @@ function BattlePreperationinitative() {
    
 }
 function battlepreperationformation() {
+
     //set a new scene with a new background for combat 
     // need image for that 
     // also makes the enemy be all the way in the middle right and player on the middle left 
