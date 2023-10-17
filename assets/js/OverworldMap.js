@@ -109,6 +109,19 @@ class OverworldMap {
     canMove = true;
   }
 
+  checkForPause(){
+    if(canMove && this.isCutscenePlaying && !pause){
+      canMove = false;
+      this.isCutscenePlaying = true;
+      pause = true;
+    }
+    else if(pause){
+      canMove = true;
+      this.isCutscenePlaying = false;
+      pause = false;
+    }
+  }
+
   checkForActionCutscene() {
     const hero = this.gameObjects["hero"];
     const nextCoords = utils.heronextPosition(hero.x, hero.y, hero.direction);
