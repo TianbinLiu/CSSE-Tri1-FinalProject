@@ -285,7 +285,7 @@ window.OverworldMaps = {
         isMounted: true,
         x: utils.withGrid(15),
         y: utils.withGrid(28),
-        Wallx: utils.withGrid(13),
+        Wallx: utils.withGrid(15),
         Wally: utils.withGrid(28),
         WallSizex: utils.withGrid(2),
         WallSizey: utils.withGrid(1),
