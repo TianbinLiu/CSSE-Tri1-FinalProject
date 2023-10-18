@@ -47,7 +47,7 @@ class Overworld {
       this.map.checkForActionCutscene();
     });
     new KeyPressListener("Escape", () => {
-
+      console.log(this.map.isCutscenePlaying)
       this.map.checkForPause();
     });
     if (canMove) {
