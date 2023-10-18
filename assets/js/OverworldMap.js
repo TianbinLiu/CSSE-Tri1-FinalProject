@@ -178,6 +178,7 @@ class OverworldMap {
       }
       if(match.monster){
         Battle = true;
+        battlepreperation()
         match.behaviorLoop = [];
       }
 
@@ -293,6 +294,7 @@ window.OverworldMaps = {
           {
             death: [
               { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
             ]
           },
         ],

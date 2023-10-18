@@ -10,8 +10,9 @@ function initativechance(max) {
     return Math.floor(Math.random() * max); 
 }  
 function battlepreperation() {
-    Battle = true 
+    if (battle = true) {
     canMove = false 
+}
 }
 // currently battle preperation only decides initative 
 function BattlePreperationinitative() {
