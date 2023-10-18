@@ -110,7 +110,7 @@ class OverworldMap {
   }
 
   checkForPause(){
-    if(canMove && this.isCutscenePlaying && !pause){
+    if(canMove && !this.isCutscenePlaying && !pause){
       canMove = false;
       this.isCutscenePlaying = true;
       pause = true;
@@ -118,6 +118,8 @@ class OverworldMap {
     else if(pause){
       canMove = true;
       this.isCutscenePlaying = false;
+      console.log(this.isCutscenePlaying)
+      Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
       pause = false;
     }
   }
