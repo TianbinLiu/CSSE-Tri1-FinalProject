@@ -181,6 +181,8 @@ class OverworldMap {
       if(match.monster){
         Battle = true;
         match.behaviorLoop = [];
+        this.startCutscene(this.cutsceneSpaces["battle"][0].events)
+        canMove = false;
       }
 
     }
@@ -363,6 +365,13 @@ window.OverworldMaps = {
         {
           events: [
             { type: "changeMap", map: "classroom" }
+          ]
+        }
+      ],
+      ["battle"]:[
+        {
+          events:[
+            {type: "changeMap", map: "classroom" }
           ]
         }
       ]
