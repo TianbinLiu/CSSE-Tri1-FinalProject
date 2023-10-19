@@ -1,3 +1,30 @@
+const pauseMenu = document.getElementById("pauseMenu");
+
+const restartButton = document.getElementById("restartButton");
+
+// Function to pause the game and show the pause menu
+function pauseGame() {
+  pauseMenu.classList.remove("hidden");
+  // Disable game interactions when paused
+  // For example, you could pause game updates, etc.
+}
+
+// Function to resume the game
+function resumeGame() {
+  pauseMenu.classList.add("hidden");
+  // Resume game interactions
+}
+
+// Function to restart the game
+function restartGame() {
+  // Add code to reset the game to its initial state
+  location.reload(); // Make sure the pause menu is hidden
+}
+
+// Event listeners for buttons
+
+restartButton.addEventListener("click", restartGame);
+
 class OverworldMap {
   constructor(config) {
     this.overworld = null;
@@ -111,14 +138,15 @@ class OverworldMap {
 
   checkForPause(){
     if(canMove && !this.isCutscenePlaying && !pause){
+      pauseGame();
       canMove = false;
       this.isCutscenePlaying = true;
       pause = true;
     }
     else if(pause){
+      resumeGame()
       canMove = true;
       this.isCutscenePlaying = false;
-      console.log(this.isCutscenePlaying)
       Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
       pause = false;
     }
