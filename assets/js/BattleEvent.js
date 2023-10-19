@@ -9,11 +9,6 @@ let pause = false;
 function initativechance(max) {
     return Math.floor(Math.random() * max); 
 }  
-function battlepreperation() {
-    if (battle = true) {
-    canMove = false 
-}
-}
 // currently battle preperation only decides initative 
 function BattlePreperationinitative() {
     var initative = initativechance(2)
@@ -35,6 +30,11 @@ function battlepreperationformation() {
 function battlepreperationui() {
     // sets up the ui at the bottom hand corner 
     // need image for ui and skills // see github issues 
+}
+function battlepreperation() {
+    if (battle = true) {
+    canMove = false  
+}
 }
 // INbattle functions 
 function INbattleslimeattack1() {
