@@ -1,3 +1,4 @@
+
 class Overworld {
   constructor(config) {
     this.element = config.element;
@@ -42,12 +43,19 @@ class Overworld {
   }
 
   bindActionInput() {
+    const resumeButton = document.getElementById("resumeButton");
+
+    const pauseGame = () => {
+      this.map.checkForPause();
+    };
+
+    resumeButton.addEventListener("click", pauseGame);
+
     new KeyPressListener("Enter", () => {
       // Is there a person here to talk to?
       this.map.checkForActionCutscene();
     });
     new KeyPressListener("Escape", () => {
-      console.log(this.map.isCutscenePlaying)
       this.map.checkForPause();
     });
     if (canMove) {
