@@ -133,7 +133,9 @@ class OverworldMap {
     this.isCutscenePlaying = false;
 
     Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
-    canMove = true;
+    if(!Battle){
+      canMove = true;
+    }
   }
 
   checkForPause(){
@@ -145,7 +147,9 @@ class OverworldMap {
     }
     else if(pause){
       resumeGame()
-      canMove = true;
+      if(!Battle){
+        canMove = true;
+      }
       this.isCutscenePlaying = false;
       Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
       pause = false;
@@ -210,7 +214,7 @@ class OverworldMap {
         Battle = true;
         battlepreperation()
         match.behaviorLoop = [];
-        this.startCutscene(this.cutsceneSpaces["battle"][0].events)
+        this.startCutscene(this.cutsceneSpaces[match.id + "battle"][0].events, match.alive)
         canMove = false;
       }
 
@@ -398,10 +402,10 @@ window.OverworldMaps = {
           ]
         }
       ],
-      ["battle"]:[
+      ["slimebattle"]:[
         {
           events:[
-            {type: "changeMap", map: "classroom" }
+            {type: "changeMap", map: "slimebattle" }
           ]
         }
       ]
@@ -644,6 +648,22 @@ window.OverworldMaps = {
         sizex: utils.withGrid(2.25),
         sizey: utils.withGrid(1),
       }),
+    },
+  },
+  slimebattle: {
+    lowerSrc: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/maps/battleback1.png",
+    upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroomUpper.png",
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(3),
+        y: utils.withGrid(4),
+        sizex: 50,
+        sizey: 37,
+        id: "hero",
+      }),
+    },
+    walls: {
     },
   },
 }
