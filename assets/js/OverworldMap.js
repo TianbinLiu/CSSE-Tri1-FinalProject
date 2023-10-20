@@ -212,20 +212,20 @@ class OverworldMap {
       }
       if(match.monster){
         Battle = true;
+        canMove = false;
         battlepreperation()
         match.behaviorLoop = [];
         this.startCutscene(this.cutsceneSpaces[match.id + "battle"][0].events, match.alive)
-        match.direction = "left"
-        if(persondirection = "left"){
-          this.gameObjects["hero"].x = 21;
-          this.gameObjects[match.id].x = 12;
+        if(persondirection === "left"){
+          console.log("yes")
+          this.gameObjects["hero"].x = utils.withGrid(21);
+          console.log(this.gameObjects["hero"].x)
+          this.gameObjects[match.id].x = utils.withGrid(12);
         }
-        else if(persondirection = "right"){
-          this.gameObjects["hero"].x = 12;
-          this.gameObjects[match.id].x = 21;
+        else if(persondirection === "right"){
+          this.gameObjects["hero"].x = utils.withGrid(12);
+          this.gameObjects[match.id].x = utils.withGrid(21);
         }
-        
-        canMove = false;
       }
 
     }
