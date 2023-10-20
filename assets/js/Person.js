@@ -29,7 +29,10 @@ class Person extends GameObject {
           canMovex = false;
         }
         else {
-          this.x += vx;
+          if(canMove){
+            this.x += vx;
+          }
+          
         }
       }
 
@@ -40,7 +43,9 @@ class Person extends GameObject {
           canMovey = false;
         }
         else {
+          if(canMove){
           this.y += vy;
+          }
         }
       }
 

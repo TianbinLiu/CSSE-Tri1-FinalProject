@@ -225,6 +225,7 @@ class OverworldMap {
         else if(persondirection === "right"){
           this.gameObjects["hero"].x = utils.withGrid(12);
           this.gameObjects[match.id].x = utils.withGrid(21);
+          this.gameObjects[match.id].direction = "left";
         }
       }
 
