@@ -3,7 +3,6 @@
     position: fixed;
     width: 100%;
     height: 50%;
-    background: rgba(196, 164, 132, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,11 +10,49 @@
 }
 
 #pauseMenuContent {
-    background: #FFE5B4;
-    padding: 50px;
-    border-radius: px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px 60px; /* Set padding for the entire content area */
+    border-radius: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column (top to bottom) */
+    align-items: center; /* Center items horizontally */
 }
+
+#resumeButton {
+    background: rgb(211, 211, 211);
+    width: 150px; /* Set the width to 15px */
+    height: 50px; /* Set the height to 20px */
+    margin: 5px 0; /* Add vertical margin for spacing between buttons */
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    border-radius: 10px; transition: background-color 0.3s; /* Add a smooth transition for the background color change */
+}
+
+
+#restartButton {
+    background: rgb(211, 211, 211);
+    width: 150px; /* Set the width to 15px */
+    height: 50px; /* Set the height to 20px */
+    margin: 5px 0; /* Add vertical margin for spacing between buttons */
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s; /* Add a smooth transition for the background color change */
+    
+}
+
+#resumeButton:hover,
+#restartButton:hover {
+    background: darken(rgb(211, 211, 211), 10%); /* Darken the background color on hover */
+}
+
+#gameTitle{
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: white;
+}
+
+
 
 /* Hide the pause menu by default */
 .hidden {

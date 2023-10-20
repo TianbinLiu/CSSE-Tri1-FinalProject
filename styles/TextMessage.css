@@ -12,6 +12,7 @@
 .TextMessage_p {
   margin: 0;
   font-size: 12px;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 .TextMessage span {
   opacity: 0;
@@ -24,7 +25,6 @@
   margin: 0;
   font-size: 8px;  
   padding:0;
-  -webkit-appearance: none;
   background:none;
   border:0;
   font-family: inherit;
