@@ -651,8 +651,8 @@ window.OverworldMaps = {
     },
   },
   slimebattle: {
-    lowerSrc: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/maps/battleback1.png",
-    upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroomUpper.png",
+    lowerSrc: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/maps/battlemap1.png",
+    upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/transparent.png",
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
