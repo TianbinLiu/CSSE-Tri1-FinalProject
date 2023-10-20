@@ -215,6 +215,16 @@ class OverworldMap {
         battlepreperation()
         match.behaviorLoop = [];
         this.startCutscene(this.cutsceneSpaces[match.id + "battle"][0].events, match.alive)
+        match.direction = "left"
+        if(persondirection = "left"){
+          this.gameObjects["hero"].x = 21;
+          this.gameObjects[match.id].x = 12;
+        }
+        else if(persondirection = "right"){
+          this.gameObjects["hero"].x = 12;
+          this.gameObjects[match.id].x = 21;
+        }
+        
         canMove = false;
       }
 
@@ -656,11 +666,49 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(3),
-        y: utils.withGrid(4),
+        x: utils.withGrid(12),
+        y: utils.withGrid(10),
         sizex: 50,
         sizey: 37,
         id: "hero",
+      }),
+      slime: new Person({
+        isMounted: true,
+        x: utils.withGrid(21),
+        y: utils.withGrid(10),
+        Wallx: utils.withGrid(13.5),
+        Wally: utils.withGrid(28.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
       }),
     },
     walls: {
