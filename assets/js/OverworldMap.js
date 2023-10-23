@@ -29,7 +29,7 @@ restartButton.addEventListener("click", () => {
 
   if (restartClickCount === 1) {
       // First click, show confirmation prompt
-      if (confirm("Are you sure you want to restart the game?")) {
+      if (confirm("⛔Are you sure you want to restart the game? All progress will be lost. This action can not be undone! ⛔")) {
           // User confirmed, proceed with the restart
           restartClickCount = 0;
           location.reload();
