@@ -29,6 +29,9 @@
     border-radius: 10px; transition: background-color 0.3s; /* Add a smooth transition for the background color change */
 }
 
+#resumeButton:hover {
+    background-color: greenyellow; /* Change the background color to red on hover */
+}
 
 #restartButton {
     background: rgb(211, 211, 211);
@@ -42,9 +45,8 @@
     
 }
 
-#resumeButton:hover,
 #restartButton:hover {
-    background: darken(rgb(211, 211, 211), 10%); /* Darken the background color on hover */
+    background-color: red; /* Change the background color to red on hover */
 }
 
 #gameTitle{
@@ -52,7 +54,51 @@
     color: white;
 }
 
+/* Styles for LED Lines */
+.led-line {
+    height: 2px; /* Adjust the height of the lines */
+    background-color: white;
+    position: absolute;
+    animation-duration: 4s; /* Adjust the animation duration */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
 
+.led-line.led1 {
+    top: 0;
+    left: 0;
+    width: 100%; /* Line spans the top */
+    animation-name: moveLedTop;
+}
+
+.led-line.led2 {
+    top: 0;
+    right: 0;
+    height: 100%; /* Line spans the right */
+    animation-name: moveLedRight;
+}
+
+/* Add more styles for additional LED lines */
+
+/* Keyframe animation for moving LED Lines along the top */
+@keyframes moveLedTop {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Keyframe animation for moving LED Lines along the right side */
+@keyframes moveLedRight {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 100%;
+    }
+}
 
 /* Hide the pause menu by default */
 .hidden {
