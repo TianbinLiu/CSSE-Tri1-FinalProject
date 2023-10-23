@@ -30,7 +30,7 @@
 }
 
 #resumeButton:hover {
-    background-color: greenyellow; /* Change the background color to red on hover */
+    background-color: rgb(135, 254, 124); /* Change the background color to red on hover */
 }
 
 #restartButton {
@@ -46,7 +46,7 @@
 }
 
 #restartButton:hover {
-    background-color: red; /* Change the background color to red on hover */
+    background-color: rgb(255, 75, 75); /* Change the background color to red on hover */
 }
 
 #gameTitle{
