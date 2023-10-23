@@ -217,15 +217,13 @@ class OverworldMap {
         match.behaviorLoop = [];
         this.startCutscene(this.cutsceneSpaces[match.id + "battle"][0].events, match.alive)
         if(persondirection === "left"){
-          console.log("yes")
-          this.gameObjects["hero"].x = utils.withGrid(21);
-          console.log(this.gameObjects["hero"].x)
-          this.gameObjects[match.id].x = utils.withGrid(12);
+          window.OverworldMaps[match.id + "battle"].gameObjects["hero"].x = utils.withGrid(19);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].x = utils.withGrid(12);
         }
         else if(persondirection === "right"){
-          this.gameObjects["hero"].x = utils.withGrid(12);
-          this.gameObjects[match.id].x = utils.withGrid(21);
-          this.gameObjects[match.id].direction = "left";
+          window.OverworldMaps[match.id + "battle"].gameObjects["hero"].x = utils.withGrid(12);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].x = utils.withGrid(21);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].direction = "left";
         }
       }
 
