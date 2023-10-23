@@ -1,6 +1,7 @@
 const pauseMenu = document.getElementById("pauseMenu");
 
 const restartButton = document.getElementById("restartButton");
+let restartClickCount = 0;
 
 // Function to pause the game and show the pause menu
 function pauseGame() {
@@ -23,7 +24,21 @@ function restartGame() {
 
 // Event listeners for buttons
 
-restartButton.addEventListener("click", restartGame);
+restartButton.addEventListener("click", () => {
+  restartClickCount++;
+
+  if (restartClickCount === 1) {
+      // First click, show confirmation prompt
+      if (confirm("⛔Are you sure you want to restart the game? All progress will be lost. This action can not be undone! ⛔")) {
+          // User confirmed, proceed with the restart
+          restartClickCount = 0;
+          location.reload();
+      } else {
+          // User canceled, reset the click count
+          restartClickCount = 0;
+      }
+  }
+});
 
 class OverworldMap {
   constructor(config) {
@@ -217,15 +232,13 @@ class OverworldMap {
         match.behaviorLoop = [];
         this.startCutscene(this.cutsceneSpaces[match.id + "battle"][0].events, match.alive)
         if(persondirection === "left"){
-          console.log("yes")
-          this.gameObjects["hero"].x = utils.withGrid(21);
-          console.log(this.gameObjects["hero"].x)
-          this.gameObjects[match.id].x = utils.withGrid(12);
+          window.OverworldMaps[match.id + "battle"].gameObjects["hero"].x = utils.withGrid(19);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].x = utils.withGrid(12);
         }
         else if(persondirection === "right"){
-          this.gameObjects["hero"].x = utils.withGrid(12);
-          this.gameObjects[match.id].x = utils.withGrid(21);
-          this.gameObjects[match.id].direction = "left";
+          window.OverworldMaps[match.id + "battle"].gameObjects["hero"].x = utils.withGrid(12);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].x = utils.withGrid(21);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].direction = "left";
         }
       }
 
