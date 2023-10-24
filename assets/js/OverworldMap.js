@@ -376,14 +376,55 @@ window.OverworldMaps = {
       }),
     },
     walls: {
-      wall1: new GameObject({
-        id: "wall1",
+      wall0: new GameObject({
+        id: "wall0",   //name whatever you want, maybe like wa
         wall: true,
-        x: utils.withGrid(6),
-        y: utils.withGrid(5),
-        sizex: utils.withGrid(2),
-        sizey: utils.withGrid(2),
+        x: utils.withGrid(10), // x-position of the wall 
+        y: utils.withGrid(0), // y-position of the wall 
+        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(25), //length of the width
       }),
+      wall1: new GameObject({
+        id: "wall1",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(12), // x-position of the wall 
+        y: utils.withGrid(19), // y-position of the wall 
+        sizex: utils.withGrid(4.5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2), // width
+      }),
+      wall2: new GameObject({
+        id: "wall2",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(0), // x-position of the wall 
+        y: utils.withGrid(29), // y-position of the wall 
+        sizex: utils.withGrid(11), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(13), // width
+      }),
+      wall3: new GameObject({
+        id: "wall3",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(0), // x-position of the wall 
+        y: utils.withGrid(24), // y-position of the wall 
+        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(5), // width
+      }),
+      wall4: new GameObject({
+        id: "wall4",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(18), // x-position of the wall 
+        y: utils.withGrid(19), // y-position of the wall 
+        sizex: utils.withGrid(1.5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2.5), // width
+      }),
+      walltop: new GameObject({
+        id: "walltop",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(0), // x-position of the wall 
+        y: utils.withGrid(0), // y-position of the wall 
+        sizex: utils.withGrid(999), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(0), //length of the width
+      }),
+
       event1: new GameObject({
         id: "npcA",
         event: true,
@@ -726,6 +767,7 @@ window.OverworldMaps = {
       }),
     },
     walls: {
+
     },
     cutsceneSpaces: {
       ["slimeattackleft"]: [
