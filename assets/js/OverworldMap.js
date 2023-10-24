@@ -212,7 +212,6 @@ class OverworldMap {
       }
       if(match.monster){
         Battle = true;
-        canMove = false;
         battlepreperation()
         match.behaviorLoop = [];
         this.startCutscene(this.cutsceneSpaces[match.id + "battle"][0].events, match.alive)
