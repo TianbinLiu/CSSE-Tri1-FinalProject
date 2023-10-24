@@ -1,6 +1,7 @@
 const pauseMenu = document.getElementById("pauseMenu");
 
 const restartButton = document.getElementById("restartButton");
+let restartClickCount = 0;
 
 // Function to pause the game and show the pause menu
 function pauseGame() {
@@ -23,7 +24,21 @@ function restartGame() {
 
 // Event listeners for buttons
 
-restartButton.addEventListener("click", restartGame);
+restartButton.addEventListener("click", () => {
+  restartClickCount++;
+
+  if (restartClickCount === 1) {
+      // First click, show confirmation prompt
+      if (confirm("⛔Are you sure you want to restart the game? All progress will be lost. This action can not be undone! ⛔")) {
+          // User confirmed, proceed with the restart
+          restartClickCount = 0;
+          location.reload();
+      } else {
+          // User canceled, reset the click count
+          restartClickCount = 0;
+      }
+  }
+});
 
 class OverworldMap {
   constructor(config) {
@@ -216,15 +231,13 @@ class OverworldMap {
         match.behaviorLoop = [];
         this.startCutscene(this.cutsceneSpaces[match.id + "battle"][0].events, match.alive)
         if(persondirection === "left"){
-          console.log("yes")
-          this.gameObjects["hero"].x = utils.withGrid(21);
-          console.log(this.gameObjects["hero"].x)
-          this.gameObjects[match.id].x = utils.withGrid(12);
+          window.OverworldMaps[match.id + "battle"].gameObjects["hero"].x = utils.withGrid(19);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].x = utils.withGrid(12);
         }
         else if(persondirection === "right"){
-          this.gameObjects["hero"].x = utils.withGrid(12);
-          this.gameObjects[match.id].x = utils.withGrid(21);
-          this.gameObjects[match.id].direction = "left";
+          window.OverworldMaps[match.id + "battle"].gameObjects["hero"].x = utils.withGrid(12);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].x = utils.withGrid(21);
+          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].direction = "left";
         }
       }
 
@@ -349,8 +362,8 @@ window.OverworldMaps = {
         isMounted: true,
         x: utils.withGrid(15),
         y: utils.withGrid(24),
-        Wallx: utils.withGrid(15),
-        Wally: utils.withGrid(28),
+        Wallx: utils.withGrid(13),
+        Wally: utils.withGrid(24),
         WallSizex: utils.withGrid(2),
         WallSizey: utils.withGrid(1),
         sizex: 196,
@@ -362,14 +375,87 @@ window.OverworldMaps = {
       }),
     },
     walls: {
-      wall1: new GameObject({
-        id: "wall1",
+      wall0: new GameObject({
+        id: "wall0",   //name whatever you want, maybe like wa
         wall: true,
-        x: utils.withGrid(6),
-        y: utils.withGrid(5),
-        sizex: utils.withGrid(2),
-        sizey: utils.withGrid(2),
+        x: utils.withGrid(10), // x-position of the wall 
+        y: utils.withGrid(0), // y-position of the wall 
+        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(25), //length of the width
       }),
+      wall1: new GameObject({
+        id: "wall1",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(12), // x-position of the wall 
+        y: utils.withGrid(19), // y-position of the wall 
+        sizex: utils.withGrid(4.5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2), // width
+      }),
+      wall2: new GameObject({
+        id: "wall2",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(0), // x-position of the wall 
+        y: utils.withGrid(28), // y-position of the wall 
+        sizex: utils.withGrid(11), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(13), // width
+      }),
+      wall3: new GameObject({
+        id: "wall3",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(0), // x-position of the wall 
+        y: utils.withGrid(24), // y-position of the wall 
+        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(5), // width
+      }),
+      wall4: new GameObject({
+        id: "wall4",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(18), // x-position of the wall 
+        y: utils.withGrid(19), // y-position of the wall 
+        sizex: utils.withGrid(1.5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2.5), // width
+      }),
+      wall5: new GameObject({
+        id: "wall5",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(8), // x-position of the wall 
+        y: utils.withGrid(26), // y-position of the wall 
+        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(1), // width
+      }),
+      wall6: new GameObject({
+        id: "wall6",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(28), // x-position of the wall 
+        y: utils.withGrid(19), // y-position of the wall 
+        sizex: utils.withGrid(5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2), // width
+      }),
+      wall7: new GameObject({
+        id: "wall7",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(31), // x-position of the wall 
+        y: utils.withGrid(21), // y-position of the wall 
+        sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(3), // width
+      }),
+      wall8: new GameObject({
+        id: "wall8",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(31), // x-position of the wall 
+        y: utils.withGrid(24), // y-position of the wall 
+        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(3), // width
+      }),
+      walltop: new GameObject({
+        id: "walltop",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(0), // x-position of the wall 
+        y: utils.withGrid(0), // y-position of the wall 
+        sizex: utils.withGrid(999), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(0), //length of the width
+      }),
+
       event1: new GameObject({
         id: "npcA",
         event: true,
@@ -712,6 +798,81 @@ window.OverworldMaps = {
       }),
     },
     walls: {
+
     },
+    cutsceneSpaces: {
+      ["slimeattackleft"]: [
+        {
+          events: [
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "Slime attack! " },
+            { who: "slime", type: "stand", direction: "left", time: 500 },
+            { who: "slime", type: "attack", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
+            { who: "npcA", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "npcA", type: "stand", direction: "up", time: 500 },
+          ]
+        }
+      ],
+      ["slimeattackright"]: [
+        {
+          events: [
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "You can't stay there! " },
+            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "stand", direction: "up", time: 500 },
+          ]
+        }
+      ],
+      ["heroattackleft"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "You can't stay there! " },
+            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
+            { type: "textMessage", text: "..." },
+            { type: "textMessage", text: "......." },
+            { type: "textMessage", text: "..........." },
+            { type: "textMessage", text: "Move!!!!!!!!!" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "stand", direction: "up", time: 500 },
+          ]
+        }
+      ],
+      ["heroattackright"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "You can't stay there! " },
+            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
+            { type: "textMessage", text: "..." },
+            { type: "textMessage", text: "......." },
+            { type: "textMessage", text: "..........." },
+            { type: "textMessage", text: "Move!!!!!!!!!" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "stand", direction: "up", time: 500 },
+          ]
+        }
+      ],
+      ["door1"]: [
+        {
+          events: [
+            { type: "changeMap", map: "classroom" }
+          ]
+        }
+      ],
+      ["slimebattle"]:[
+        {
+          events:[
+            {type: "changeMap", map: "slimebattle" }
+          ]
+        }
+      ]
+    }
   },
 }
