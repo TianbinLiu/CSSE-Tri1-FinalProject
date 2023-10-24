@@ -712,5 +712,79 @@ window.OverworldMaps = {
     },
     walls: {
     },
+    cutsceneSpaces: {
+      ["slimeattackleft"]: [
+        {
+          events: [
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "Slime attack! " },
+            { who: "slime", type: "stand", direction: "left", time: 500 },
+            { who: "slime", type: "attack", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
+            { who: "npcA", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "npcA", type: "stand", direction: "up", time: 500 },
+          ]
+        }
+      ],
+      ["slimeattackright"]: [
+        {
+          events: [
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "You can't stay there! " },
+            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "stand", direction: "up", time: 500 },
+          ]
+        }
+      ],
+      ["heroattackleft"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "You can't stay there! " },
+            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
+            { type: "textMessage", text: "..." },
+            { type: "textMessage", text: "......." },
+            { type: "textMessage", text: "..........." },
+            { type: "textMessage", text: "Move!!!!!!!!!" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "stand", direction: "up", time: 500 },
+          ]
+        }
+      ],
+      ["heroattackright"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "You can't stay there! " },
+            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
+            { type: "textMessage", text: "..." },
+            { type: "textMessage", text: "......." },
+            { type: "textMessage", text: "..........." },
+            { type: "textMessage", text: "Move!!!!!!!!!" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "stand", direction: "up", time: 500 },
+          ]
+        }
+      ],
+      ["door1"]: [
+        {
+          events: [
+            { type: "changeMap", map: "classroom" }
+          ]
+        }
+      ],
+      ["slimebattle"]:[
+        {
+          events:[
+            {type: "changeMap", map: "slimebattle" }
+          ]
+        }
+      ]
+    }
   },
 }
