@@ -363,8 +363,8 @@ window.OverworldMaps = {
         isMounted: true,
         x: utils.withGrid(15),
         y: utils.withGrid(24),
-        Wallx: utils.withGrid(15),
-        Wally: utils.withGrid(28),
+        Wallx: utils.withGrid(13),
+        Wally: utils.withGrid(24),
         WallSizex: utils.withGrid(2),
         WallSizey: utils.withGrid(1),
         sizex: 196,
@@ -396,7 +396,7 @@ window.OverworldMaps = {
         id: "wall2",   //name whatever you want, maybe like wa
         wall: true,
         x: utils.withGrid(0), // x-position of the wall 
-        y: utils.withGrid(29), // y-position of the wall 
+        y: utils.withGrid(28), // y-position of the wall 
         sizex: utils.withGrid(11), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
         sizey: utils.withGrid(13), // width
       }),
@@ -415,6 +415,31 @@ window.OverworldMaps = {
         y: utils.withGrid(19), // y-position of the wall 
         sizex: utils.withGrid(1.5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
         sizey: utils.withGrid(2.5), // width
+      }),
+      wall5: new GameObject({
+        id: "wall5",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(8), // x-position of the wall 
+        y: utils.withGrid(26), // y-position of the wall 
+        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(1), // width
+      }),
+      wall6: new GameObject({
+        id: "wall6",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(28), // x-position of the wall 
+        y: utils.withGrid(19), // y-position of the wall 
+        sizex: utils.withGrid(5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2), // width
+      }),
+      wall7: new GameObject({
+        id: "wall7",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(31), // x-position of the wall 
+        y: utils.withGrid(21), // y-position of the wall 
+        sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(3
+          ), // width
       }),
       walltop: new GameObject({
         id: "walltop",   //name whatever you want, maybe like wa
