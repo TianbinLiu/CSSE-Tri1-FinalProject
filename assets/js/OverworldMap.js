@@ -153,6 +153,34 @@ class OverworldMap {
     }
   }
 
+  battle(){
+    const match = Object.values(this.gameObjects).find(object => {
+      if (object.isMounted) {
+        return object.isMounted;
+      }
+    });
+    if(heroTurn === null && monsterTurn === null){
+      BattlePreperationinitative()
+      console.log(heroTurn)
+      console.log(monsterTurn)
+    }
+    if(monsterTurn && !this.isCutscenePlaying){
+      this.startCutscene(this.cutsceneSpaces[match.id + "attack" + match.direction][0].events, match.alive);
+      monsterTurn = false;
+      heroTurn = true;
+    }
+    if(heroTurn && !this.isCutscenePlaying){
+      new KeyPressListener("Digit1", () => {
+        this.activeSkill(1);
+      });
+      new KeyPressListener("Digit2", () => {
+        this.activeSkill(2);
+      });
+      new KeyPressListener("Digit3", () => {
+        this.activeSkill(3);
+      });
+    }
+  }
   checkForPause(){
     if(canMove && !this.isCutscenePlaying && !pause){
       pauseGame();
@@ -190,6 +218,12 @@ class OverworldMap {
       }
     }
   }
+
+  activeSkill(command){
+    heroTurn = false;
+    monsterTurn = true;
+  }
+
   checkForBattle() {
     const hero = this.gameObjects["hero"];
     const nextCoords = utils.heronextPosition(hero.x, hero.y, hero.direction);
@@ -689,7 +723,7 @@ window.OverworldMaps = {
       slime: new Person({
         isMounted: true,
         x: utils.withGrid(21),
-        y: utils.withGrid(10),
+        y: utils.withGrid(11),
         Wallx: utils.withGrid(13.5),
         Wally: utils.withGrid(28.5),
         WallSizex: utils.withGrid(1),
@@ -733,12 +767,26 @@ window.OverworldMaps = {
           events: [
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { type: "textMessage", text: "Slime attack! " },
-            { who: "slime", type: "stand", direction: "left", time: 500 },
+            { who: "slime", type: "stand", direction: "left", time: 1000 },
             { who: "slime", type: "attack", direction: "left", spritedirection: "left" },
-            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
-            { who: "npcA", type: "walk", direction: "right", spritedirection: "right" },
-            { who: "npcA", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "You receive 1 demage" },
+            { who: "slime", type: "stand", direction: "right", time: 1000 },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
           ]
         }
       ],
