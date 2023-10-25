@@ -4,6 +4,8 @@ let npcAAlive = true;
 let heroAlive = true;
 let slimeAlive = true;
 let pause = false;
+let monsterTurn = null;
+let heroTurn = null;
 //initative decides if you or the enemy attacks first (true for player attacks first false for player attacks)
 
 function initativechance(max) {
@@ -13,9 +15,11 @@ function initativechance(max) {
 function BattlePreperationinitative() {
     var initative = initativechance(2)
     if (initative > 1) {
-        // let the monster attack first 
+        monsterTurn = true; 
+        heroTurn = false
     } else {
-        //let the hero attack first 
+        heroTurn = true;
+        monsterTurn = false;
     }
    
 }

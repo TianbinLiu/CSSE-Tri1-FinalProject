@@ -153,6 +153,34 @@ class OverworldMap {
     }
   }
 
+  battle(){
+    const match = Object.values(this.gameObjects).find(object => {
+      if (object.isMounted) {
+        return object.isMounted;
+      }
+    });
+    if(heroTurn === null && monsterTurn === null){
+      BattlePreperationinitative()
+      console.log(heroTurn)
+      console.log(monsterTurn)
+    }
+    if(monsterTurn && !this.isCutscenePlaying){
+      this.startCutscene(this.cutsceneSpaces[match.id + "attack" + match.direction][0].events, match.alive);
+      monsterTurn = false;
+      heroTurn = true;
+    }
+    if(heroTurn && !this.isCutscenePlaying){
+      new KeyPressListener("Digit1", () => {
+        this.activeSkill(1);
+      });
+      new KeyPressListener("Digit2", () => {
+        this.activeSkill(2);
+      });
+      new KeyPressListener("Digit3", () => {
+        this.activeSkill(3);
+      });
+    }
+  }
   checkForPause(){
     if(canMove && !this.isCutscenePlaying && !pause){
       pauseGame();
@@ -190,6 +218,12 @@ class OverworldMap {
       }
     }
   }
+
+  activeSkill(command){
+    heroTurn = false;
+    monsterTurn = true;
+  }
+
   checkForBattle() {
     const hero = this.gameObjects["hero"];
     const nextCoords = utils.heronextPosition(hero.x, hero.y, hero.direction);
@@ -381,7 +415,7 @@ window.OverworldMaps = {
         x: utils.withGrid(10), // x-position of the wall 
         y: utils.withGrid(0), // y-position of the wall 
         sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
-        sizey: utils.withGrid(25), //length of the width
+        sizey: utils.withGrid(999), //length of the width
       }),
       wall1: new GameObject({
         id: "wall1",   //name whatever you want, maybe like wa
@@ -463,6 +497,126 @@ window.OverworldMaps = {
         sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
         sizey: utils.withGrid(2.5), // width
       }),
+      wall11: new GameObject({
+        id: "wall11",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(54), // x-position of the wall 
+        y: utils.withGrid(26), // y-position of the wall 
+        sizex: utils.withGrid(7), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2.5), // width
+      }),
+      wall12: new GameObject({
+        id: "wall12",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(59), // x-position of the wall 
+        y: utils.withGrid(24), // y-position of the wall 
+        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2), // width
+      }),
+      wall13: new GameObject({
+        id: "wall13",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(61), // x-position of the wall 
+        y: utils.withGrid(22), // y-position of the wall 
+        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2), // width
+      }),
+      wall14: new GameObject({
+        id: "wall14",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(63), // x-position of the wall 
+        y: utils.withGrid(19), // y-position of the wall 
+        sizex: utils.withGrid(5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(3), // width
+      }),
+      wall15: new GameObject({
+        id: "wall15",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(65), // x-position of the wall 
+        y: utils.withGrid(15), // y-position of the wall 
+        sizex: utils.withGrid(2), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(4), // width
+      }),
+      wall16: new GameObject({
+        id: "wall16",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(72), // x-position of the wall 
+        y: utils.withGrid(23), // y-position of the wall 
+        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(5), // width
+      }),
+      wall17: new GameObject({
+        id: "wall17",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(67), // x-position of the wall 
+        y: utils.withGrid(30), // y-position of the wall 
+        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2), // width
+      }),
+      wall18: new GameObject({
+        id: "wall18",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(73), // x-position of the wall 
+        y: utils.withGrid(34), // y-position of the wall 
+        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(8), // width
+      }),
+      wall19: new GameObject({
+        id: "wall19",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(46), // x-position of the wall 
+        y: utils.withGrid(38), // y-position of the wall 
+        sizex: utils.withGrid(5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(4), // width
+      }),
+      wall20: new GameObject({
+        id: "wall20",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(38), // x-position of the wall 
+        y: utils.withGrid(0), // y-position of the wall 
+        sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(7), // width
+      }),
+      wall21: new GameObject({
+        id: "wall21",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(46), // x-position of the wall 
+        y: utils.withGrid(1), // y-position of the wall 
+        sizex: utils.withGrid(8), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(6), // width
+      }),
+      wall22: new GameObject({
+        id: "wall22",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(31), // x-position of the wall 
+        y: utils.withGrid(0), // y-position of the wall 
+        sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2.5), // width
+      }),
+      wall23: new GameObject({
+        id: "wall23",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(54.5), // x-position of the wall 
+        y: utils.withGrid(4), // y-position of the wall 
+        sizex: utils.withGrid(7), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(2), // width
+      }),
+      wall24: new GameObject({
+        id: "wall24",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(46), // x-position of the wall 
+        y: utils.withGrid(11), // y-position of the wall 
+        sizex: utils.withGrid(9), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(9), // width
+      }),
+      wall25: new GameObject({
+        id: "wall25",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(46), // x-position of the wall 
+        y: utils.withGrid(11), // y-position of the wall 
+        sizex: utils.withGrid(9), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(9), // width
+      }),
       walltop: new GameObject({
         id: "walltop",   //name whatever you want, maybe like wa
         wall: true,
@@ -470,6 +624,14 @@ window.OverworldMaps = {
         y: utils.withGrid(0), // y-position of the wall 
         sizex: utils.withGrid(999), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
         sizey: utils.withGrid(0), //length of the width
+      }),
+      wallbottom: new GameObject({
+        id: "wallbottom",   //name whatever you want, maybe like wa
+        wall: true,
+        x: utils.withGrid(0), // x-position of the wall 
+        y: utils.withGrid(41.5), // y-position of the wall 
+        sizex: utils.withGrid(999), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(1), //length of the width
       }),
       event1: new GameObject({
         id: "npcA",
@@ -776,7 +938,7 @@ window.OverworldMaps = {
       slime: new Person({
         isMounted: true,
         x: utils.withGrid(21),
-        y: utils.withGrid(10),
+        y: utils.withGrid(11),
         Wallx: utils.withGrid(13.5),
         Wally: utils.withGrid(28.5),
         WallSizex: utils.withGrid(1),
@@ -821,12 +983,26 @@ window.OverworldMaps = {
           events: [
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { type: "textMessage", text: "Slime attack! " },
-            { who: "slime", type: "stand", direction: "left", time: 500 },
+            { who: "slime", type: "stand", direction: "left", time: 1000 },
             { who: "slime", type: "attack", direction: "left", spritedirection: "left" },
-            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
-            { who: "npcA", type: "walk", direction: "right", spritedirection: "right" },
-            { who: "npcA", type: "stand", direction: "up", time: 500 },
+            { type: "textMessage", text: "You receive 1 demage" },
+            { who: "slime", type: "stand", direction: "right", time: 1000 },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
           ]
         }
       ],
