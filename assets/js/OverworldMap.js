@@ -612,10 +612,10 @@ window.OverworldMaps = {
       wall25: new GameObject({
         id: "wall25",   //name whatever you want, maybe like wa
         wall: true,
-        x: utils.withGrid(77), // x-position of the wall 
-        y: utils.withGrid(29), // y-position of the wall 
-        sizex: utils.withGrid(5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
-        sizey: utils.withGrid(2), // width
+        x: utils.withGrid(46), // x-position of the wall 
+        y: utils.withGrid(11), // y-position of the wall 
+        sizex: utils.withGrid(9), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        sizey: utils.withGrid(9), // width
       }),
       walltop: new GameObject({
         id: "walltop",   //name whatever you want, maybe like wa
