@@ -91,6 +91,7 @@ class Person extends GameObject {
               whoId: this.id
             })
           }, behavior.time)
+          this.updateSprite(state);
         }
         
       }
