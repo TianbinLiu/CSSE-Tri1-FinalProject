@@ -8,28 +8,20 @@ let monsterTurn = null;
 let heroTurn = null;
 //initative decides if you or the enemy attacks first (true for player attacks first false for player attacks)
 
-function initativechance(max) {
-    return Math.floor(Math.random() * max); 
-}  
+
 // currently battle preperation only decides initative 
 function BattlePreperationinitative() {
-    var initative = initativechance(2)
+    var initative = hitchance(3)
     if (initative > 1) {
         monsterTurn = true; 
-        heroTurn = false
+        heroTurn = false 
+        console.log (initative)
     } else {
         heroTurn = true;
         monsterTurn = false;
+        console.log (initative)
     }
    
-}
-function battlepreperationformation() {
-
-    //set a new scene with a new background for combat 
-    // need image for that 
-    // also makes the enemy be all the way in the middle right and player on the middle left 
-    // see github issues 
-    
 }
 function battlepreperationui() {
     // sets up the ui at the bottom hand corner 
