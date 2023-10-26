@@ -161,8 +161,6 @@ class OverworldMap {
     });
     if(heroTurn === null && monsterTurn === null){
       BattlePreperationinitative()
-      console.log(heroTurn)
-      console.log(monsterTurn)
     }
     if(monsterTurn && !this.isCutscenePlaying){
       this.startCutscene(this.cutsceneSpaces[match.id + "attack" + match.direction][0].events, match.alive);
@@ -982,10 +980,10 @@ window.OverworldMaps = {
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { type: "textMessage", text: "Slime attack! " },
-            { who: "slime", type: "stand", direction: "left", time: 1000 },
+            { who: "slime", type: "stand", direction: "left", time: 500 },
             { who: "slime", type: "attack", direction: "left", spritedirection: "left" },
             { type: "textMessage", text: "You receive 1 demage" },
-            { who: "slime", type: "stand", direction: "right", time: 1000 },
+            { who: "slime", type: "stand", direction: "right", time: 500 },
             { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
             { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
             { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
