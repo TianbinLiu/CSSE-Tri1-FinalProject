@@ -161,8 +161,6 @@ class OverworldMap {
     });
     if(heroTurn === null && monsterTurn === null){
       BattlePreperationinitative()
-      console.log(heroTurn)
-      console.log(monsterTurn)
     }
     if(monsterTurn && !this.isCutscenePlaying){
       this.startCutscene(this.cutsceneSpaces[match.id + "attack" + match.direction][0].events, match.alive);
@@ -410,7 +408,7 @@ window.OverworldMaps = {
     },
     walls: {
       wall0: new GameObject({
-        id: "wall0",   //name whatever you want, maybe like wa
+        id: "wall0",   //name
         wall: true,
         x: utils.withGrid(10), // x-position of the wall 
         y: utils.withGrid(0), // y-position of the wall 
@@ -418,7 +416,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(999), //length of the width
       }),
       wall1: new GameObject({
-        id: "wall1",   //name whatever you want, maybe like wa
+        id: "wall1",   //name
         wall: true,
         x: utils.withGrid(12), // x-position of the wall 
         y: utils.withGrid(19), // y-position of the wall 
@@ -426,7 +424,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2), // width
       }),
       wall2: new GameObject({
-        id: "wall2",   //name whatever you want, maybe like wa
+        id: "wall2",   //name
         wall: true,
         x: utils.withGrid(0), // x-position of the wall 
         y: utils.withGrid(28), // y-position of the wall 
@@ -434,7 +432,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(13), // width
       }),
       wall3: new GameObject({
-        id: "wall3",   //name whatever you want, maybe like wa
+        id: "wall3",   //name
         wall: true,
         x: utils.withGrid(0), // x-position of the wall 
         y: utils.withGrid(24), // y-position of the wall 
@@ -442,7 +440,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(5), // width
       }),
       wall4: new GameObject({
-        id: "wall4",   //name whatever you want, maybe like wa
+        id: "wall4",   //name
         wall: true,
         x: utils.withGrid(18), // x-position of the wall 
         y: utils.withGrid(19), // y-position of the wall 
@@ -450,7 +448,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2.5), // width
       }),
       wall5: new GameObject({
-        id: "wall5",   //name whatever you want, maybe like wa
+        id: "wall5",   //name
         wall: true,
         x: utils.withGrid(8), // x-position of the wall 
         y: utils.withGrid(26), // y-position of the wall 
@@ -458,7 +456,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(1), // width
       }),
       wall6: new GameObject({
-        id: "wall6",   //name whatever you want, maybe like wa
+        id: "wall6",   //name
         wall: true,
         x: utils.withGrid(28), // x-position of the wall 
         y: utils.withGrid(19), // y-position of the wall 
@@ -466,7 +464,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2), // width
       }),
       wall7: new GameObject({
-        id: "wall7",   //name whatever you want, maybe like wa
+        id: "wall7",   //name
         wall: true,
         x: utils.withGrid(31), // x-position of the wall 
         y: utils.withGrid(21), // y-position of the wall 
@@ -474,7 +472,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(3), // width
       }),
       wall8: new GameObject({
-        id: "wall8",   //name whatever you want, maybe like wa
+        id: "wall8",   //name
         wall: true,
         x: utils.withGrid(31), // x-position of the wall 
         y: utils.withGrid(24), // y-position of the wall 
@@ -482,7 +480,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(3), // width
       }),
       wall9: new GameObject({
-        id: "wall9",   //name whatever you want, maybe like wa
+        id: "wall9",   //name
         wall: true,
         x: utils.withGrid(32), // x-position of the wall 
         y: utils.withGrid(27), // y-position of the wall 
@@ -490,7 +488,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2), // width
       }),
       wall10: new GameObject({
-        id: "wall10",   //name whatever you want, maybe like wa
+        id: "wall10",   //name
         wall: true,
         x: utils.withGrid(39), // x-position of the wall 
         y: utils.withGrid(26), // y-position of the wall 
@@ -498,7 +496,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2.5), // width
       }),
       wall11: new GameObject({
-        id: "wall11",   //name whatever you want, maybe like wa
+        id: "wall11",   //name
         wall: true,
         x: utils.withGrid(54), // x-position of the wall 
         y: utils.withGrid(26), // y-position of the wall 
@@ -506,7 +504,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2.5), // width
       }),
       wall12: new GameObject({
-        id: "wall12",   //name whatever you want, maybe like wa
+        id: "wall12",   //name
         wall: true,
         x: utils.withGrid(59), // x-position of the wall 
         y: utils.withGrid(24), // y-position of the wall 
@@ -514,7 +512,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2), // width
       }),
       wall13: new GameObject({
-        id: "wall13",   //name whatever you want, maybe like wa
+        id: "wall13",   //name
         wall: true,
         x: utils.withGrid(61), // x-position of the wall 
         y: utils.withGrid(22), // y-position of the wall 
@@ -522,7 +520,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2), // width
       }),
       wall14: new GameObject({
-        id: "wall14",   //name whatever you want, maybe like wa
+        id: "wall14",   //name
         wall: true,
         x: utils.withGrid(63), // x-position of the wall 
         y: utils.withGrid(19), // y-position of the wall 
@@ -530,7 +528,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(3), // width
       }),
       wall15: new GameObject({
-        id: "wall15",   //name whatever you want, maybe like wa
+        id: "wall15",   //name
         wall: true,
         x: utils.withGrid(65), // x-position of the wall 
         y: utils.withGrid(15), // y-position of the wall 
@@ -538,7 +536,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(4), // width
       }),
       wall16: new GameObject({
-        id: "wall16",   //name whatever you want, maybe like wa
+        id: "wall16",   //name
         wall: true,
         x: utils.withGrid(72), // x-position of the wall 
         y: utils.withGrid(23), // y-position of the wall 
@@ -546,7 +544,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(5), // width
       }),
       wall17: new GameObject({
-        id: "wall17",   //name whatever you want, maybe like wa
+        id: "wall17",   //name
         wall: true,
         x: utils.withGrid(67), // x-position of the wall 
         y: utils.withGrid(30), // y-position of the wall 
@@ -554,7 +552,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2), // width
       }),
       wall18: new GameObject({
-        id: "wall18",   //name whatever you want, maybe like wa
+        id: "wall18",   //name
         wall: true,
         x: utils.withGrid(73), // x-position of the wall 
         y: utils.withGrid(34), // y-position of the wall 
@@ -562,7 +560,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(8), // width
       }),
       wall19: new GameObject({
-        id: "wall19",   //name whatever you want, maybe like wa
+        id: "wall19",   //name
         wall: true,
         x: utils.withGrid(46), // x-position of the wall 
         y: utils.withGrid(38), // y-position of the wall 
@@ -570,7 +568,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(4), // width
       }),
       wall20: new GameObject({
-        id: "wall20",   //name whatever you want, maybe like wa
+        id: "wall20",   //name
         wall: true,
         x: utils.withGrid(38), // x-position of the wall 
         y: utils.withGrid(0), // y-position of the wall 
@@ -578,7 +576,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(7), // width
       }),
       wall21: new GameObject({
-        id: "wall21",   //name whatever you want, maybe like wa
+        id: "wall21",   //name
         wall: true,
         x: utils.withGrid(46), // x-position of the wall 
         y: utils.withGrid(1), // y-position of the wall 
@@ -586,7 +584,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(6), // width
       }),
       wall22: new GameObject({
-        id: "wall22",   //name whatever you want, maybe like wa
+        id: "wall22",   //name
         wall: true,
         x: utils.withGrid(31), // x-position of the wall 
         y: utils.withGrid(0), // y-position of the wall 
@@ -594,7 +592,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2.5), // width
       }),
       wall23: new GameObject({
-        id: "wall23",   //name whatever you want, maybe like wa
+        id: "wall23",   //name
         wall: true,
         x: utils.withGrid(54.5), // x-position of the wall 
         y: utils.withGrid(4), // y-position of the wall 
@@ -602,7 +600,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(2), // width
       }),
       wall24: new GameObject({
-        id: "wall24",   //name whatever you want, maybe like wa
+        id: "wall24",   //name
         wall: true,
         x: utils.withGrid(46), // x-position of the wall 
         y: utils.withGrid(11), // y-position of the wall 
@@ -610,7 +608,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(9), // width
       }),
       wall25: new GameObject({
-        id: "wall25",   //name whatever you want, maybe like wa
+        id: "wall25",   //name
         wall: true,
         x: utils.withGrid(46), // x-position of the wall 
         y: utils.withGrid(11), // y-position of the wall 
@@ -618,7 +616,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(9), // width
       }),
       walltop: new GameObject({
-        id: "walltop",   //name whatever you want, maybe like wa
+        id: "walltop",   //name
         wall: true,
         x: utils.withGrid(0), // x-position of the wall 
         y: utils.withGrid(0), // y-position of the wall 
@@ -626,7 +624,7 @@ window.OverworldMaps = {
         sizey: utils.withGrid(0), //length of the width
       }),
       wallbottom: new GameObject({
-        id: "wallbottom",   //name whatever you want, maybe like wa
+        id: "wallbottom",   //name
         wall: true,
         x: utils.withGrid(0), // x-position of the wall 
         y: utils.withGrid(41.5), // y-position of the wall 
@@ -990,10 +988,10 @@ window.OverworldMaps = {
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { type: "textMessage", text: "Slime attack! " },
-            { who: "slime", type: "stand", direction: "left", time: 1000 },
+            { who: "slime", type: "stand", direction: "left", time: 500 },
             { who: "slime", type: "attack", direction: "left", spritedirection: "left" },
             { type: "textMessage", text: "You receive 1 demage" },
-            { who: "slime", type: "stand", direction: "right", time: 1000 },
+            { who: "slime", type: "stand", direction: "right", time: 500 },
             { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
             { who: "slime", type: "walk", direction: "right", spritedirection: "right" },
             { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },

@@ -80,6 +80,10 @@ class Person extends GameObject {
           this.movingProgressRemaining = 16;
           this.updateSprite(state);
         }
+        if (behavior.type === "attack") {
+          this.movingProgressRemaining = 16;
+          this.updateSprite(state);
+        }
   
         if (behavior.type === "stand") {
           setTimeout(() => {
@@ -88,6 +92,7 @@ class Person extends GameObject {
             })
           }, behavior.time)
         }
+        
       }
 
     }
@@ -102,6 +107,9 @@ class Person extends GameObject {
     if (this.movingProgressRemaining === 0) {
       //We finished the walk!
       utils.emitEvent("PersonWalkingComplete", {
+        whoId: this.id
+      })
+      utils.emitEvent("PersonAttackingComplete", {
         whoId: this.id
       })
 
