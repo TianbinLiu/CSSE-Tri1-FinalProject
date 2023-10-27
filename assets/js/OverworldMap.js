@@ -826,7 +826,7 @@ window.OverworldMaps = {
         x: utils.withGrid(12),  
         y: utils.withGrid(19),  
         sizex: utils.withGrid(4.5),  
-        sizey: utils.withGrid(2), // width
+        sizey: utils.withGrid(2),  
       }),
       wall2: new GameObject({
         id: "wall2",   //name
@@ -834,7 +834,7 @@ window.OverworldMaps = {
         x: utils.withGrid(0),  
         y: utils.withGrid(28),  
         sizex: utils.withGrid(11),  
-        sizey: utils.withGrid(13), // width
+        sizey: utils.withGrid(13),  
       }),
       wall3: new GameObject({
         id: "wall3",   //name
@@ -842,7 +842,7 @@ window.OverworldMaps = {
         x: utils.withGrid(0),  
         y: utils.withGrid(24),  
         sizex: utils.withGrid(3),  
-        sizey: utils.withGrid(5), // width
+        sizey: utils.withGrid(5),  
       }),
       wall4: new GameObject({
         id: "wall4",   //name
@@ -850,7 +850,7 @@ window.OverworldMaps = {
         x: utils.withGrid(18),  
         y: utils.withGrid(19),  
         sizex: utils.withGrid(1.5),  
-        sizey: utils.withGrid(2.5), // width
+        sizey: utils.withGrid(2.5),  
       }),
       wall5: new GameObject({
         id: "wall5",   //name
@@ -858,7 +858,7 @@ window.OverworldMaps = {
         x: utils.withGrid(8),  
         y: utils.withGrid(26),  
         sizex: utils.withGrid(3),  
-        sizey: utils.withGrid(1), // width
+        sizey: utils.withGrid(1),  
       }),
       wall6: new GameObject({
         id: "wall6",   //name
@@ -866,7 +866,7 @@ window.OverworldMaps = {
         x: utils.withGrid(28),  
         y: utils.withGrid(19),  
         sizex: utils.withGrid(5),  
-        sizey: utils.withGrid(2), // width
+        sizey: utils.withGrid(2),  
       }),
       wall7: new GameObject({
         id: "wall7",   //name
@@ -874,7 +874,7 @@ window.OverworldMaps = {
         x: utils.withGrid(31),  
         y: utils.withGrid(21),  
         sizex: utils.withGrid(6),  
-        sizey: utils.withGrid(3), // width
+        sizey: utils.withGrid(3),  
       }),
       wall8: new GameObject({
         id: "wall8",   //name
@@ -882,7 +882,7 @@ window.OverworldMaps = {
         x: utils.withGrid(31),  
         y: utils.withGrid(24),  
         sizex: utils.withGrid(1),  
-        sizey: utils.withGrid(3), // width
+        sizey: utils.withGrid(3),  
       }),
       wall9: new GameObject({
         id: "wall9",   //name
@@ -890,7 +890,7 @@ window.OverworldMaps = {
         x: utils.withGrid(32),  
         y: utils.withGrid(27),  
         sizex: utils.withGrid(8),  
-        sizey: utils.withGrid(2), // width
+        sizey: utils.withGrid(2),  
       }),
       wall10: new GameObject({
         id: "wall10",   //name
@@ -898,7 +898,7 @@ window.OverworldMaps = {
         x: utils.withGrid(39),  
         y: utils.withGrid(26),  
         sizex: utils.withGrid(6),  
-        sizey: utils.withGrid(2.5), // width
+        sizey: utils.withGrid(2.5),  
       }),
       wall11: new GameObject({
         id: "wall11",   //name
@@ -906,7 +906,7 @@ window.OverworldMaps = {
         x: utils.withGrid(54),  
         y: utils.withGrid(26),  
         sizex: utils.withGrid(7),  
-        sizey: utils.withGrid(2.5), // width
+        sizey: utils.withGrid(2.5),  
       }),
       wall12: new GameObject({
         id: "wall12",   //name
@@ -914,7 +914,7 @@ window.OverworldMaps = {
         x: utils.withGrid(59),  
         y: utils.withGrid(24),  
         sizex: utils.withGrid(3),  
-        sizey: utils.withGrid(2), // width
+        sizey: utils.withGrid(2),  
       }),
       wall13: new GameObject({
         id: "wall13",   //name
@@ -922,7 +922,7 @@ window.OverworldMaps = {
         x: utils.withGrid(61),  
         y: utils.withGrid(22),  
         sizex: utils.withGrid(3),  
-        sizey: utils.withGrid(2), // width
+        sizey: utils.withGrid(2),  
       }),
       wall14: new GameObject({
         id: "wall14",   //name
@@ -930,7 +930,7 @@ window.OverworldMaps = {
         x: utils.withGrid(63),  
         y: utils.withGrid(19),  
         sizex: utils.withGrid(5),  
-        sizey: utils.withGrid(3), // width
+        sizey: utils.withGrid(3),  
       }),
       wall15: new GameObject({
         id: "wall15",   //name
@@ -938,7 +938,7 @@ window.OverworldMaps = {
         x: utils.withGrid(65),  
         y: utils.withGrid(15),  
         sizex: utils.withGrid(2),  
-        sizey: utils.withGrid(4), // width
+        sizey: utils.withGrid(4),  
       }),
       wall16: new GameObject({
         id: "wall16",   //name
@@ -946,7 +946,7 @@ window.OverworldMaps = {
         x: utils.withGrid(72),  
         y: utils.withGrid(23),  
         sizex: utils.withGrid(1),  
-        sizey: utils.withGrid(5), // width
+        sizey: utils.withGrid(5),  
       }),
       wall17: new GameObject({
         id: "wall17",   //name
@@ -954,7 +954,7 @@ window.OverworldMaps = {
         x: utils.withGrid(67),  
         y: utils.withGrid(30),  
         sizex: utils.withGrid(1),  
-        sizey: utils.withGrid(2), // width
+        sizey: utils.withGrid(2),  
       }),
       wall18: new GameObject({
         id: "wall18",   //name
@@ -962,7 +962,7 @@ window.OverworldMaps = {
         x: utils.withGrid(73),  
         y: utils.withGrid(34),  
         sizex: utils.withGrid(1),  
-        sizey: utils.withGrid(8), // width
+        sizey: utils.withGrid(8),  
       }),
       wall19: new GameObject({
         id: "wall19",   //name
@@ -970,7 +970,7 @@ window.OverworldMaps = {
         x: utils.withGrid(46),  
         y: utils.withGrid(38),  
         sizex: utils.withGrid(5),  
-        sizey: utils.withGrid(4), // width
+        sizey: utils.withGrid(4),  
       }),
       wall20: new GameObject({
         id: "wall20",   //name
@@ -978,7 +978,7 @@ window.OverworldMaps = {
         x: utils.withGrid(38),  
         y: utils.withGrid(0),  
         sizex: utils.withGrid(6),  
-        sizey: utils.withGrid(7), // width
+        sizey: utils.withGrid(7),  
       }),
       wall21: new GameObject({
         id: "wall21",   //name
@@ -986,7 +986,7 @@ window.OverworldMaps = {
         x: utils.withGrid(46),  
         y: utils.withGrid(1),  
         sizex: utils.withGrid(8),  
-        sizey: utils.withGrid(6), // width
+        sizey: utils.withGrid(6),  
       }),
       wall22: new GameObject({
         id: "wall22",   //name
@@ -994,7 +994,7 @@ window.OverworldMaps = {
         x: utils.withGrid(31),  
         y: utils.withGrid(0),  
         sizex: utils.withGrid(6),  
-        sizey: utils.withGrid(2.5), // width
+        sizey: utils.withGrid(2.5),  
       }),
       wall23: new GameObject({
         id: "wall23",   //name
@@ -1002,7 +1002,7 @@ window.OverworldMaps = {
         x: utils.withGrid(54.5),  
         y: utils.withGrid(4),  
         sizex: utils.withGrid(7),  
-        sizey: utils.withGrid(2), // width
+        sizey: utils.withGrid(2),  
       }),
       wall24: new GameObject({
         id: "wall24",   //name
@@ -1010,7 +1010,7 @@ window.OverworldMaps = {
         x: utils.withGrid(46),  
         y: utils.withGrid(11),  
         sizex: utils.withGrid(9),  
-        sizey: utils.withGrid(9), // width
+        sizey: utils.withGrid(9),  
       }),
       wall25: new GameObject({
         id: "wall25",   //name
@@ -1018,7 +1018,7 @@ window.OverworldMaps = {
         x: utils.withGrid(46),  
         y: utils.withGrid(11),  
         sizex: utils.withGrid(9),  
-        sizey: utils.withGrid(9), // width
+        sizey: utils.withGrid(9),  
       }),
       walltop: new GameObject({
         id: "walltop",   //name
