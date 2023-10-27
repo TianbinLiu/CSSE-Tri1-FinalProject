@@ -57,6 +57,7 @@ addEventListener("keydown", function (event) {
             // Handle Space key event here     
             attack = true;
         }
+        
         // commited as of october 10 10:46 am unsure if we can make the skills behave like the attack but
         //with a extra layer of cooldown 
         if (event.code == 'KeyU') {

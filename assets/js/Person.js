@@ -124,11 +124,11 @@ class Person extends GameObject {
 
   heroupdateSprite() {
     let checkifwalkingResult = checkifwalkingright || checkifwalkingleft || checkifwalkingdown || checkifwalkingup;
-    if (this.isPlayerControlled && !(checkifwalkingResult) && !attack) {
+    if (this.isPlayerControlled && !(checkifwalkingResult) && !attack & !skill1) {
       this.sprite.setAnimation(this.id + "-idle-" + persondirection);
     }
 
-    if (this.isPlayerControlled && checkifwalkingResult && !attack) {
+    if (this.isPlayerControlled && checkifwalkingResult && !attack & !skill1) {
       this.sprite.setAnimation(this.id + "-walk-" + persondirection);
     }
     if (this.isPlayerControlled && attack) {
