@@ -214,6 +214,10 @@ class OverworldMap {
         this.startCutscene(match.talking[0].events, match.alive)
         match.ifdialogue = false;
       }
+
+    }
+    if(!this.isCutscenePlaying && match && match.type === "object"){
+      this.startCutscene(this.cutsceneSpaces[match.id][0].events, match);
     }
   }
 
@@ -652,6 +656,7 @@ window.OverworldMaps = {
         sizey: 228,
         reach: false,
         id: "marketplace",
+        type: "object",
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/marketplace.png",
       }),
@@ -929,8 +934,33 @@ window.OverworldMaps = {
             {type: "changeMap", map: "slimebattle" }
           ]
         }
+      ],
+      ["marketplace"]:[
+        {
+          events:[
+            {type: "changeMap", map: "marketplace" }
+          ]
+        }
       ]
     }
+  },
+
+  marketplace: {
+    lowerSrc: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/maps/insidemarket.png",
+    upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/transparent.png",
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(20),
+        y: utils.withGrid(30),
+        sizex: 50,
+        sizey: 37,
+        hp: 2,
+        alive: true,
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        id: "hero",
+      }),
   },
   classroom: {
     lowerSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroom.png",
@@ -1328,4 +1358,5 @@ window.OverworldMaps = {
       ]
     }
   },
+}
 }
