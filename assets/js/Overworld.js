@@ -35,6 +35,10 @@ class Overworld {
       // Draw Upper layer
       this.map.drawUpperImage(this.ctx, cameraPerson);
 
+      if(Battle){
+        this.map.battle();
+      }
+
       requestAnimationFrame(() => {
         step();
       });
@@ -60,7 +64,12 @@ class Overworld {
     });
     if (canMove) {
       new KeyPressListener("Space", () => {
-        this.map.checkForBattle();
+        if(!Battle){
+          this.map.checkForBattle();
+        }
+        else if (Battle && heroTurn){
+
+        }
       });
     }
   }

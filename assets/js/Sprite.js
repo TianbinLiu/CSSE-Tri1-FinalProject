@@ -40,6 +40,15 @@ class Sprite {
       "hero-walk-right": [[8, 1], [9, 1], [10, 1], [11, 1], [12, 1],],
       "hero-attack-left": [[6, 7], [5, 7], [4, 6], [3, 6], [2, 6], [1, 6], [0, 6],],
       "hero-attack-right": [[7, 7], [8, 7], [9, 6], [10, 6], [11, 6], [12, 6], [13, 6],],
+      "hero-attackcrescent-right": [[11, 7], [12, 7], [13, 7], [8, 8], [9, 8],],
+      "hero-attackupslash-right": [[8, 14], [8, 15], [9, 14], [10, 14], [11, 14],],
+      "hero-attackflurry-right": [[7, 7], [8, 7], [9, 7], [10, 15], [9, 14], [10, 14], [11, 14],[11, 7], [12, 7], [13, 7], [8, 8], [9, 8],],
+      "hero-attackcrescent-left": [[2, 7], [1, 7], [0, 7], [5, 8], [4, 8],],
+      "hero-attackupslash-left": [[2,14],[5, 14], [5, 15], [4, 14], [3, 14], [2, 14],],
+      "hero-attackflurry-left": [[6, 7], [5, 7], [4,7], [3,7], [4,14],[3,14],[2,14],[2, 7], [1, 7], [0, 7], [5, 8], [4, 8],],
+      
+      
+      
       "npcA-idle-right": [[0, 3], [1, 3],],
       "npcA-idle-left": [[0, 2], [1, 2],],
       "npcA-idle-up": [[0, 1], [1, 1],],
@@ -54,6 +63,36 @@ class Sprite {
       "slime-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
       "slime-attack-right": [[0, 2], [1, 2], [2, 2],[3, 2],[4, 2],[5, 2],[6, 2],],
       "slime-attack-left": [[6, 7], [5, 7], [4, 7],[3, 7],[2, 7],[1, 7],[0, 7],],
+      "slime2-idle-right": [[0, 0], [1, 0], [2, 0],[3, 0],],
+      "slime2-idle-left": [[6, 5], [5, 5], [4, 5],[3, 5],],
+      "slime2-walk-right": [[0, 1], [1, 1], [2, 1],[3, 1],[4, 1],[5, 1],],
+      "slime2-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
+      "slime2-attack-right": [[0, 2], [1, 2], [2, 2],[3, 2],[4, 2],[5, 2],[6, 2],],
+      "slime2-attack-left": [[6, 7], [5, 7], [4, 7],[3, 7],[2, 7],[1, 7],[0, 7],],
+      "slime3-idle-right": [[0, 0], [1, 0], [2, 0],[3, 0],],
+      "slime3-idle-left": [[6, 5], [5, 5], [4, 5],[3, 5],],
+      "slime3-walk-right": [[0, 1], [1, 1], [2, 1],[3, 1],[4, 1],[5, 1],],
+      "slime3-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
+      "slime3-attack-right": [[0, 2], [1, 2], [2, 2],[3, 2],[4, 2],[5, 2],[6, 2],],
+      "slime3-attack-left": [[6, 7], [5, 7], [4, 7],[3, 7],[2, 7],[1, 7],[0, 7],],
+      "slime4-idle-right": [[0, 0], [1, 0], [2, 0],[3, 0],],
+      "slime4-idle-left": [[6, 5], [5, 5], [4, 5],[3, 5],],
+      "slime4-walk-right": [[0, 1], [1, 1], [2, 1],[3, 1],[4, 1],[5, 1],],
+      "slime4-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
+      "slime4-attack-right": [[0, 2], [1, 2], [2, 2],[3, 2],[4, 2],[5, 2],[6, 2],],
+      "slime4-attack-left": [[6, 7], [5, 7], [4, 7],[3, 7],[2, 7],[1, 7],[0, 7],],
+      "slime5-idle-right": [[0, 0], [1, 0], [2, 0],[3, 0],],
+      "slime5-idle-left": [[6, 5], [5, 5], [4, 5],[3, 5],],
+      "slime5-walk-right": [[0, 1], [1, 1], [2, 1],[3, 1],[4, 1],[5, 1],],
+      "slime5-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
+      "slime5-attack-right": [[0, 2], [1, 2], [2, 2],[3, 2],[4, 2],[5, 2],[6, 2],],
+      "slime5-attack-left": [[6, 7], [5, 7], [4, 7],[3, 7],[2, 7],[1, 7],[0, 7],],
+      "slime6-idle-right": [[0, 0], [1, 0], [2, 0],[3, 0],],
+      "slime6-idle-left": [[6, 5], [5, 5], [4, 5],[3, 5],],
+      "slime6-walk-right": [[0, 1], [1, 1], [2, 1],[3, 1],[4, 1],[5, 1],],
+      "slime6-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
+      "slime6-attack-right": [[0, 2], [1, 2], [2, 2],[3, 2],[4, 2],[5, 2],[6, 2],],
+      "slime6-attack-left": [[6, 7], [5, 7], [4, 7],[3, 7],[2, 7],[1, 7],[0, 7],],
       "marketplace-idle-right":[[0,0]],
     }
     this.currentAnimation = config.currentAnimation || (this.image.id + "-idle-right");
@@ -154,6 +193,65 @@ class Sprite {
       }
     }
 
+    if (this.image.id === "slime2") {
+      this.image.alive = slimeAlive;
+      if (!this.image.alive){
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+    }
+
+    if (this.image.id === "slime3") {
+      this.image.alive = slimeAlive;
+      if (!this.image.alive){
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+    }
+
+    if (this.image.id === "slime4") {
+      this.image.alive = slimeAlive;
+      if (!this.image.alive){
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+    }
+
+    if (this.image.id === "slime5") {
+      this.image.alive = slimeAlive;
+      if (!this.image.alive){
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+    }
+
+    if (this.image.id === "slime6") {
+      this.image.alive = slimeAlive;
+      if (!this.image.alive){
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+    }
 
 
     const [frameX, frameY] = this.frame;
@@ -183,6 +281,66 @@ class Sprite {
     }
 
     if (this.image.id === "slime") {
+      this.image.alive = slimeAlive;
+      if (this.image.alive) {
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
+
+    if (this.image.id === "slime2") {
+      this.image.alive = slimeAlive;
+      if (this.image.alive) {
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
+
+    if (this.image.id === "slime3") {
+      this.image.alive = slimeAlive;
+      if (this.image.alive) {
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
+
+    if (this.image.id === "slime4") {
+      this.image.alive = slimeAlive;
+      if (this.image.alive) {
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
+
+    if (this.image.id === "slime5") {
+      this.image.alive = slimeAlive;
+      if (this.image.alive) {
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
+
+    if (this.image.id === "slime6") {
       this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
