@@ -16,8 +16,8 @@ let damage2 = 90
 let damage3 = 20
 let damage4 = 350
 //non functional for now
-function hitchance(max) {
-   return Math.floor(Math.random() * max);   
+function hitchance() {
+  initative = Math.floor(Math.random() * 2);   
 }
 function Skillmanager1() {
   var hitcheck1 = hitchance(100)
