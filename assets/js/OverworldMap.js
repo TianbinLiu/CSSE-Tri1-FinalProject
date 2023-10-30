@@ -510,7 +510,7 @@ window.OverworldMaps = {
         id: "slime",
         monster: true,
         ifdialogue: true,
-        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
         behaviorLoop: [
           { type: "stand", direction: "left", time: 800 },
           { type: "walk", direction: "left", spritedirection: "left" },
