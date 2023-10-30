@@ -1,3 +1,4 @@
+// sets the variables 
 let Battle = false;
 let attack = false;
 let npcAAlive = true;
@@ -10,7 +11,7 @@ let initative = 0;
 //initative decides if you or the enemy attacks first (true for player attacks first false for player attacks)
 
 
-// currently battle preperation only decides initative 
+
 function BattlePreperationinitative() {
     hitchance();
     if (initative === 1) {
@@ -28,7 +29,7 @@ function BattlePreperationinitative() {
 }
 function battlepreperationui() {
     // sets up the ui at the bottom hand corner 
-    // need image for ui and skills // see github issues 
+    // need image for ui and skills
 }
 function battlepreperation() {
     if (battle = true) {

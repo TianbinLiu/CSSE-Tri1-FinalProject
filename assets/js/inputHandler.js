@@ -1,5 +1,5 @@
 console.log("inputHandler.js loaded")
-
+//sets the variables
 let vx = 0;
 let vy = 0;
 
@@ -21,7 +21,7 @@ let checkifwalkingdown;
 let checkifwalkingleft;
 
 let canMove = true;
-
+// sets the eventlistener to check for if a certian key is pressed and do a specfic action accordingly 
 addEventListener("keydown", function (event) {
     console.log(event.code)
     if (canMove) {
@@ -53,37 +53,30 @@ addEventListener("keydown", function (event) {
             vy = -1;
         };
         }
-        if (event.code == 'Space') {
+        if (event.code == 'Space'||event.code == 'KeyU') {
             // Handle Space key event here     
             attack = true;
         }
-        // commited as of october 10 10:46 am unsure if we can make the skills behave like the attack but
-        //with a extra layer of cooldown 
-        if (event.code == 'KeyU') {
+        if (event.code == 'KeyI') {
             skill1 = true
             Skillmanager1()
             console.log ("skill1 is functional") 
         }
-        if (event.code == 'KeyI') {
+        if (event.code == 'KeyO') {
             skill2 = true
             Skillmanager2()
             console.log ("skill2 is functional")  
         }
-        if (event.code == 'KeyO') {
+        if (event.code == 'KeyP') {
             skill3 = true
             Skillmanager3()
             console.log ("skill3 is functional")  
         }
-        if (event.code == 'KeyP') {
-            skill4 = true
-            Skillmanager4()
-            console.log ("skill4 is functional")  
-        }
-        // end of commit 
+       
     }
 
 })
-
+// sets the eventlistener to check for if a certian key is unpressed and do a specfic action accordingly 
 addEventListener("keyup", function (event) {
     if (event.code == 'ArrowRight'||event.code == 'KeyD') {
         if (!checkifwalkingleft) {
@@ -129,21 +122,18 @@ addEventListener("keyup", function (event) {
         checkifwalkingup = false;
 
     };
-    if (event.code == 'Space') {
+    if (event.code == 'Space'||event.code == 'KeyU') {
         // Handle Space key event here
         attack = false;
     }
-    if (event.code == 'KeyU') {
+    if (event.code == 'KeyI') {
         skill1 = false 
     }
-    if (event.code == 'KeyI') {
+    if (event.code == 'KeyO') {
         skill2 = false
     }
-    if (event.code == 'KeyO') {
-        skill3 = false 
-    }
     if (event.code == 'KeyP') {
-        skill4 = false 
+        skill3 = false 
     }
 })
 

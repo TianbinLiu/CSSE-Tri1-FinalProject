@@ -84,6 +84,11 @@ class Person extends GameObject {
           this.movingProgressRemaining = 16;
           this.updateSprite(state);
         }
+        if (behavior.type === "attackcrescent") {
+          this.movingProgressRemaining = 16;
+          this.updateSprite(state);
+          // i dont know whats the reason for this to not work I SPENT 3 HOURS and still this doesnt work
+        }
   
         if (behavior.type === "stand") {
           setTimeout(() => {
@@ -119,15 +124,18 @@ class Person extends GameObject {
 
   heroupdateSprite() {
     let checkifwalkingResult = checkifwalkingright || checkifwalkingleft || checkifwalkingdown || checkifwalkingup;
-    if (this.isPlayerControlled && !(checkifwalkingResult) && !attack) {
+    if (this.isPlayerControlled && !(checkifwalkingResult) && !attack & !skill1) {
       this.sprite.setAnimation(this.id + "-idle-" + persondirection);
     }
 
-    if (this.isPlayerControlled && checkifwalkingResult && !attack) {
+    if (this.isPlayerControlled && checkifwalkingResult && !attack & !skill1) {
       this.sprite.setAnimation(this.id + "-walk-" + persondirection);
     }
     if (this.isPlayerControlled && attack) {
       this.sprite.setAnimation(this.id + "-attack-" + persondirection);
+    }
+    if (this.isPlayerControlled && skill1) {
+      this.sprite.setAnimation(this.id + "-attackcrescent-" + persondirection);
     }
 
   }
