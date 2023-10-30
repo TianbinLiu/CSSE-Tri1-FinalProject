@@ -671,7 +671,7 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png", 
         behaviorLoop: [
-           { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
@@ -1095,6 +1095,14 @@ window.OverworldMaps = {
         sizex: utils.withGrid(999),  
         sizey: utils.withGrid(1),  
       }),
+      wallright: new GameObject({
+        id: "wallright",   //name
+        wall: true,
+        x: utils.withGrid(86),  
+        y: utils.withGrid(0),  
+        sizex: utils.withGrid(0),  
+        sizey: utils.withGrid(999),  
+      }),
       event1: new GameObject({
         id: "npcA",
         event: true,
@@ -1160,8 +1168,8 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(20),
-        y: utils.withGrid(30),
+        x: utils.withGrid(7.5),
+        y: utils.withGrid(7.5),
         sizex: 50,
         sizey: 37,
         hp: 2,
@@ -1170,7 +1178,7 @@ window.OverworldMaps = {
         WallSizey: utils.withGrid(1),
         id: "hero",
       }),
-  },
+    },
   classroom: {
     lowerSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroom.png",
     upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroomUpper.png",
