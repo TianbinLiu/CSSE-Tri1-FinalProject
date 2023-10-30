@@ -111,6 +111,12 @@ class Sprite {
       "slime9-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
       "slime9-attack-right": [[0, 2], [1, 2], [2, 2],[3, 2],[4, 2],[5, 2],[6, 2],],
       "slime9-attack-left": [[6, 7], [5, 7], [4, 7],[3, 7],[2, 7],[1, 7],[0, 7],],
+      "slime10-idle-right": [[0, 0], [1, 0], [2, 0],[3, 0],],
+      "slime10-idle-left": [[6, 5], [5, 5], [4, 5],[3, 5],],
+      "slime10-walk-right": [[0, 1], [1, 1], [2, 1],[3, 1],[4, 1],[5, 1],],
+      "slime10-walk-left": [[6, 6], [5, 6], [4, 6],[3, 6],[2, 6],[1, 6],],
+      "slime10-attack-right": [[0, 2], [1, 2], [2, 2],[3, 2],[4, 2],[5, 2],[6, 2],],
+      "slime10-attack-left": [[6, 7], [5, 7], [4, 7],[3, 7],[2, 7],[1, 7],[0, 7],],
       "marketplace-idle-right":[[0,0]],
     }
     this.currentAnimation = config.currentAnimation || (this.image.id + "-idle-right");
@@ -307,6 +313,18 @@ class Sprite {
       }
     }
 
+    if (this.image.id === "slime10") {
+      this.image.alive = slimeAlive;
+      if (!this.image.alive){
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+    }
+
     const [frameX, frameY] = this.frame;
 
     if (this.image.id === "hero") {
@@ -444,6 +462,19 @@ class Sprite {
       }
     }
 
+    if (this.image.id === "slime10") {
+      
+      this.image.alive = slimeAlive;
+
+      if (this.image.alive) {
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
 
     if (this.image.id === "marketplace") {
         this.isLoaded && ctx.drawImage(this.image,

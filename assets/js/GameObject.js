@@ -56,8 +56,6 @@ class GameObject {
     eventConfig.who = this.id;
     let alive = this.alive
 
-    changeTime();
-
     //Create an event instance out of our next event config
     const eventHandler = new OverworldEvent({ map, event: eventConfig, alive });
     await eventHandler.init();

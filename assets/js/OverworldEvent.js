@@ -7,12 +7,13 @@ class OverworldEvent {
 
   stand(resolve) {
     const who = this.map.gameObjects[this.event.who];
+    changeTime();
     who.startBehavior({
       map: this.map
     }, {
       type: "stand",
       direction: this.event.direction,
-      time: this.event.time,
+      time: runtime,
       alive: this.alive,
     },)
 

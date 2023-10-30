@@ -421,16 +421,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
         behaviorLoop: [
-           { type: "stand", direction: "left", time: runtime },
-          { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: runtime },
-          { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: runtime },
-          { type: "stand", direction: "right", time: runtime },
+          { type: "stand", direction: "right", time: 1200 },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: runtime },
+          { type: "stand", direction: "right", time: 800 },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: runtime },
+          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: 800 },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: 600 },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: 800 },
         ],
         talking: [
           {
@@ -569,7 +569,7 @@ window.OverworldMaps = {
         id: "slime",
         monster: true,
         ifdialogue: true,
-        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
         behaviorLoop: [
            { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
@@ -669,9 +669,9 @@ window.OverworldMaps = {
         id: "slime",
         monster: true,
         ifdialogue: true,
-        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png", 
         behaviorLoop: [
-           { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
@@ -719,7 +719,7 @@ window.OverworldMaps = {
         id: "slime",
         monster: true,
         ifdialogue: true,
-        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
         behaviorLoop: [
            { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
@@ -770,6 +770,56 @@ window.OverworldMaps = {
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        behaviorLoop: [
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime10: new Person({
+        isMounted: true,
+        x: utils.withGrid(35),
+        y: utils.withGrid(13),
+        Wallx: utils.withGrid(33.5),
+        Wally: utils.withGrid(11.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
         behaviorLoop: [
            { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
@@ -1044,6 +1094,14 @@ window.OverworldMaps = {
         y: utils.withGrid(41.5),  
         sizex: utils.withGrid(999),  
         sizey: utils.withGrid(1),  
+      }),
+      wallright: new GameObject({
+        id: "wallright",   //name
+        wall: true,
+        x: utils.withGrid(86),  
+        y: utils.withGrid(0),  
+        sizex: utils.withGrid(0),  
+        sizey: utils.withGrid(999),  
       }),
       event1: new GameObject({
         id: "npcA",
