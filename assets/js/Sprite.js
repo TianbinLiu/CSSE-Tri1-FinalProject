@@ -330,6 +330,18 @@ class Sprite {
       }
     }
 
+    if (this.image.id === "slime11") {
+      this.image.alive = slimeAlive;
+      if (!this.image.alive){
+        this.isBloodLoaded && ctx.drawImage(this.blood,
+          0, 0,
+          32, 32,
+          x, y,
+          this.image.sizex, this.image.sizey
+        );
+      }
+    }
+
     const [frameX, frameY] = this.frame;
 
     if (this.image.id === "hero") {
@@ -468,6 +480,20 @@ class Sprite {
     }
 
     if (this.image.id === "slime10") {
+      
+      this.image.alive = slimeAlive;
+
+      if (this.image.alive) {
+        this.isLoaded && ctx.drawImage(this.image,
+          frameX * this.image.sizex, frameY * this.image.sizey,
+          this.image.sizex, this.image.sizey,
+          x, y,
+          this.image.sizex, this.image.sizey,
+        );
+      }
+    }
+
+    if (this.image.id === "slime11") {
       
       this.image.alive = slimeAlive;
 
