@@ -1110,8 +1110,8 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(20),
-        y: utils.withGrid(30),
+        x: utils.withGrid(7.5),
+        y: utils.withGrid(7.5),
         sizex: 50,
         sizey: 37,
         hp: 2,
@@ -1120,7 +1120,7 @@ window.OverworldMaps = {
         WallSizey: utils.withGrid(1),
         id: "hero",
       }),
-  },
+    },
   classroom: {
     lowerSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroom.png",
     upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroomUpper.png",
