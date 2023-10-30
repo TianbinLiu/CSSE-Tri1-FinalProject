@@ -421,18 +421,6 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
         behaviorLoop: [
-<<<<<<< HEAD
-          { type: "stand", direction: "right", time: 1200 },
-          { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 800 },
-          { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 600 },
-          { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-=======
            { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
           { type: "stand", direction: "left", time: runtime },
@@ -443,7 +431,6 @@ window.OverworldMaps = {
           { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
           { type: "stand", direction: "right", time: runtime },
->>>>>>> fc217f0512904983e6b8e217e1f551b63e76a457
         ],
         talking: [
           {
