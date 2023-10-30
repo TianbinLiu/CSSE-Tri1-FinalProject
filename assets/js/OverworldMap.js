@@ -1095,14 +1095,6 @@ window.OverworldMaps = {
         sizex: utils.withGrid(999),  
         sizey: utils.withGrid(1),  
       }),
-      wallright: new GameObject({
-        id: "wallright",   //name
-        wall: true,
-        x: utils.withGrid(86),  
-        y: utils.withGrid(0),  
-        sizex: utils.withGrid(0),  
-        sizey: utils.withGrid(999),  
-      }),
       event1: new GameObject({
         id: "npcA",
         event: true,
