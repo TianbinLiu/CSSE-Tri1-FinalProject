@@ -671,7 +671,7 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png", 
         behaviorLoop: [
-           { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
