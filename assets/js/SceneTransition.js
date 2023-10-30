@@ -1,3 +1,4 @@
+// creates the scenetransition
 class SceneTransition {
   constructor() {
     this.element = null;
