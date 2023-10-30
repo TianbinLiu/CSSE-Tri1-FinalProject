@@ -22,6 +22,15 @@ function restartGame() {
   location.reload(); // Make sure the pause menu is hidden
 }
 
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var runtime = getRandomNumber(500, 1500);
+
+function changeTime(){
+  runtime = getRandomNumber(500, 1500);
+}
 // Event listeners for buttons
 
 restartButton.addEventListener("click", () => {
@@ -362,16 +371,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
@@ -412,6 +421,7 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
         behaviorLoop: [
+<<<<<<< HEAD
           { type: "stand", direction: "right", time: 1200 },
           { type: "walk", direction: "right", spritedirection: "right" },
           { type: "stand", direction: "right", time: 800 },
@@ -422,6 +432,18 @@ window.OverworldMaps = {
           { type: "stand", direction: "left", time: 600 },
           { type: "walk", direction: "left", spritedirection: "left" },
           { type: "stand", direction: "left", time: 800 },
+=======
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+>>>>>>> fc217f0512904983e6b8e217e1f551b63e76a457
         ],
         talking: [
           {
@@ -462,16 +484,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
@@ -512,16 +534,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
@@ -562,16 +584,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
@@ -612,16 +634,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
@@ -662,16 +684,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
@@ -712,16 +734,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
@@ -762,16 +784,16 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
