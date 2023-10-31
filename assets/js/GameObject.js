@@ -18,6 +18,7 @@ class GameObject {
     this.monster = config.monster || false;
     this.ifdialogue = config.ifdialogue || false;
     this.type = config.type || "npc";
+    this.src = config.src || "https://tianbinliu.github.io/CSA-FinalProject/images/character/adventurer-v1.5-Sheetflip.png";
     this.sprite = new Sprite({
       gameObject: this,
       id: config.id || null,

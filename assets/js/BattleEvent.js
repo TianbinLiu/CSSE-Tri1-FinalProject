@@ -27,3 +27,8 @@ function BattlePreperationinitative() {
     }
    
 }
+function battlepreperation() {
+    if (battle = true) {
+    canMove = false  
+}
+}

@@ -272,17 +272,18 @@ class OverworldMap {
       }
       if(match.monster){
         Battle = true;
-        battlepreperation()
         match.behaviorLoop = [];
-        this.startCutscene(this.cutsceneSpaces[match.id + "battle"][0].events, match.alive)
+        battlepreperation();
+        window.OverworldMaps[match.type + "battle"].gameObjects[match.type].src = match.src;
+        this.startCutscene(this.cutsceneSpaces[match.type + "battle"][0].events, match.alive)
         if(persondirection === "left"){
-          window.OverworldMaps[match.id + "battle"].gameObjects["hero"].x = utils.withGrid(19);
-          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].x = utils.withGrid(12);
+          window.OverworldMaps[match.type + "battle"].gameObjects["hero"].x = utils.withGrid(19);
+          window.OverworldMaps[match.type + "battle"].gameObjects[match.type].x = utils.withGrid(12);
         }
         else if(persondirection === "right"){
-          window.OverworldMaps[match.id + "battle"].gameObjects["hero"].x = utils.withGrid(12);
-          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].x = utils.withGrid(21);
-          window.OverworldMaps[match.id + "battle"].gameObjects[match.id].direction = "left";
+          window.OverworldMaps[match.type + "battle"].gameObjects["hero"].x = utils.withGrid(12);
+          window.OverworldMaps[match.type + "battle"].gameObjects[match.type].x = utils.withGrid(21);
+          window.OverworldMaps[match.type + "battle"].gameObjects[match.type].direction = "left";
         }
       }
 
@@ -368,6 +369,7 @@ window.OverworldMaps = {
         alive: true,
         id: "slime",
         monster: true,
+        type: "slime",
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
         behaviorLoop: [
@@ -416,7 +418,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime2",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
@@ -466,7 +469,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime3",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
@@ -516,7 +520,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime4",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
@@ -566,7 +571,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime5",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
@@ -616,7 +622,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime6",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
@@ -666,7 +673,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime7",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png", 
@@ -716,12 +724,13 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime8",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
         behaviorLoop: [
-           { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
@@ -766,7 +775,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime9",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
@@ -816,7 +826,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime10",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
@@ -866,7 +877,8 @@ window.OverworldMaps = {
         hp: 2,
         reach: false,
         alive: true,
-        id: "slime",
+        id: "slime11",
+        type: "slime",
         monster: true,
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
@@ -1229,6 +1241,7 @@ window.OverworldMaps = {
         id: "hero",
       }),
     },
+  },
   classroom: {
     lowerSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroom.png",
     upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroomUpper.png",
@@ -1609,21 +1622,6 @@ window.OverworldMaps = {
           ]
         }
       ],
-      ["door1"]: [
-        {
-          events: [
-            { type: "changeMap", map: "classroom" }
-          ]
-        }
-      ],
-      ["slimebattle"]:[
-        {
-          events:[
-            {type: "changeMap", map: "slimebattle" }
-          ]
-        }
-      ]
     }
   },
-}
 }
