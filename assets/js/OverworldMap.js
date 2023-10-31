@@ -22,6 +22,15 @@ function restartGame() {
   location.reload(); // Make sure the pause menu is hidden
 }
 
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var runtime = getRandomNumber(500, 1500);
+
+function changeTime(){
+  runtime = getRandomNumber(500, 1500);
+}
 // Event listeners for buttons
 
 restartButton.addEventListener("click", () => {
@@ -214,6 +223,10 @@ class OverworldMap {
         this.startCutscene(match.talking[0].events, match.alive)
         match.ifdialogue = false;
       }
+
+    }
+    if(!this.isCutscenePlaying && match && match.type === "object"){
+      this.startCutscene(this.cutsceneSpaces[match.id][0].events, match);
     }
   }
 
@@ -356,18 +369,518 @@ window.OverworldMaps = {
         id: "slime",
         monster: true,
         ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
+        behaviorLoop: [
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime2: new Person({
+        isMounted: true,
+        x: utils.withGrid(25),
+        y: utils.withGrid(26),
+        Wallx: utils.withGrid(23.5),
+        Wally: utils.withGrid(24.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
+        behaviorLoop: [
+          { type: "stand", direction: "right", time: 1200 },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: 800 },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: 800 },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: 600 },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: 800 },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime3: new Person({
+        isMounted: true,
+        x: utils.withGrid(27),
+        y: utils.withGrid(15),
+        Wallx: utils.withGrid(25.5),
+        Wally: utils.withGrid(13.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
+           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
           { type: "walk", direction: "right", spritedirection: "right" },
-          { type: "stand", direction: "right", time: 1200 },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime4: new Person({
+        isMounted: true,
+        x: utils.withGrid(40),
+        y: utils.withGrid(10),
+        Wallx: utils.withGrid(38.5),
+        Wally: utils.withGrid(8.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
+        behaviorLoop: [
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime5: new Person({
+        isMounted: true,
+        x: utils.withGrid(49),
+        y: utils.withGrid(28),
+        Wallx: utils.withGrid(47.5),
+        Wally: utils.withGrid(26.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
+        behaviorLoop: [
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime6: new Person({
+        isMounted: true,
+        x: utils.withGrid(66),
+        y: utils.withGrid(28),
+        Wallx: utils.withGrid(64.5),
+        Wally: utils.withGrid(26.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        behaviorLoop: [
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime7: new Person({
+        isMounted: true,
+        x: utils.withGrid(35),
+        y: utils.withGrid(36),
+        Wallx: utils.withGrid(33.5),
+        Wally: utils.withGrid(34.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png", 
+        behaviorLoop: [
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime8: new Person({
+        isMounted: true,
+        x: utils.withGrid(32),
+        y: utils.withGrid(32),
+        Wallx: utils.withGrid(30.5),
+        Wally: utils.withGrid(30.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Redslime.png",
+        behaviorLoop: [
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime9: new Person({
+        isMounted: true,
+        x: utils.withGrid(42),
+        y: utils.withGrid(24),
+        Wallx: utils.withGrid(40.5),
+        Wally: utils.withGrid(22.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Blueslime.png",
+        behaviorLoop: [
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime10: new Person({
+        isMounted: true,
+        x: utils.withGrid(35),
+        y: utils.withGrid(13),
+        Wallx: utils.withGrid(33.5),
+        Wally: utils.withGrid(11.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
+        behaviorLoop: [
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+        ],
+        talking: [
+          {
+            events: [
+              { type: "textMessage", text: "(slime language)I'ha'mham a shaslhalimhame,ha," },
+              { type: "textMessage", text: "(slime language)I whawanhanthat thato khakilhallhal phapeophaplhale" },
+            ]
+          },
+          {
+            Receiveattackevents: [
+              { type: "textMessage", text: "(slime language)Ouchachhah!ha!!ha!!ha!!ha!" },
+              { type: "textMessage", text: "(slime language)I whawilhallhal khakilhallhal yhayou!ha!" },
+            ]
+          },
+          {
+            death: [
+              { type: "textMessage", text: "(slime language)Ahhahhhahhhahhhahhhah!ha!!ha!!ha!!ha!!ha!" },
+              
+            ]
+          },
+        ],
+      }),
+      slime11: new Person({
+        isMounted: true,
+        x: utils.withGrid(55),
+        y: utils.withGrid(10),
+        Wallx: utils.withGrid(53.5),
+        Wally: utils.withGrid(8.5),
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        sizex: 32,
+        sizey: 32,
+        hp: 2,
+        reach: false,
+        alive: true,
+        id: "slime",
+        monster: true,
+        ifdialogue: true,
+        src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
+        behaviorLoop: [
+           { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "right", time: runtime },
         ],
         talking: [
           {
@@ -402,6 +915,7 @@ window.OverworldMaps = {
         sizey: 228,
         reach: false,
         id: "marketplace",
+        type: "object",
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/marketplace.png",
       }),
@@ -410,226 +924,234 @@ window.OverworldMaps = {
       wall0: new GameObject({
         id: "wall0",   //name
         wall: true,
-        x: utils.withGrid(10), // x-position of the wall 
-        y: utils.withGrid(0), // y-position of the wall 
-        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
-        sizey: utils.withGrid(999), //length of the width
+        x: utils.withGrid(10), 
+        y: utils.withGrid(0),  
+        sizex: utils.withGrid(1),  
+        sizey: utils.withGrid(999),  
       }),
       wall1: new GameObject({
         id: "wall1",   //name
         wall: true,
-        x: utils.withGrid(12), // x-position of the wall 
-        y: utils.withGrid(19), // y-position of the wall 
-        sizex: utils.withGrid(4.5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(12),  
+        y: utils.withGrid(19),  
+        sizex: utils.withGrid(4.5),  
         sizey: utils.withGrid(2), // width
       }),
       wall2: new GameObject({
         id: "wall2",   //name
         wall: true,
-        x: utils.withGrid(0), // x-position of the wall 
-        y: utils.withGrid(28), // y-position of the wall 
-        sizex: utils.withGrid(11), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(0),  
+        y: utils.withGrid(28),  
+        sizex: utils.withGrid(11),  
         sizey: utils.withGrid(13), // width
       }),
       wall3: new GameObject({
         id: "wall3",   //name
         wall: true,
-        x: utils.withGrid(0), // x-position of the wall 
-        y: utils.withGrid(24), // y-position of the wall 
-        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(0),  
+        y: utils.withGrid(24),  
+        sizex: utils.withGrid(3),  
         sizey: utils.withGrid(5), // width
       }),
       wall4: new GameObject({
         id: "wall4",   //name
         wall: true,
-        x: utils.withGrid(18), // x-position of the wall 
-        y: utils.withGrid(19), // y-position of the wall 
-        sizex: utils.withGrid(1.5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(18),  
+        y: utils.withGrid(19),  
+        sizex: utils.withGrid(1.5),  
         sizey: utils.withGrid(2.5), // width
       }),
       wall5: new GameObject({
         id: "wall5",   //name
         wall: true,
-        x: utils.withGrid(8), // x-position of the wall 
-        y: utils.withGrid(26), // y-position of the wall 
-        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(8),  
+        y: utils.withGrid(26),  
+        sizex: utils.withGrid(3),  
         sizey: utils.withGrid(1), // width
       }),
       wall6: new GameObject({
         id: "wall6",   //name
         wall: true,
-        x: utils.withGrid(28), // x-position of the wall 
-        y: utils.withGrid(19), // y-position of the wall 
-        sizex: utils.withGrid(5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(28),  
+        y: utils.withGrid(19),  
+        sizex: utils.withGrid(5),  
         sizey: utils.withGrid(2), // width
       }),
       wall7: new GameObject({
         id: "wall7",   //name
         wall: true,
-        x: utils.withGrid(31), // x-position of the wall 
-        y: utils.withGrid(21), // y-position of the wall 
-        sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(31),  
+        y: utils.withGrid(21),  
+        sizex: utils.withGrid(6),  
         sizey: utils.withGrid(3), // width
       }),
       wall8: new GameObject({
         id: "wall8",   //name
         wall: true,
-        x: utils.withGrid(31), // x-position of the wall 
-        y: utils.withGrid(24), // y-position of the wall 
-        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(31),  
+        y: utils.withGrid(24),  
+        sizex: utils.withGrid(1),  
         sizey: utils.withGrid(3), // width
       }),
       wall9: new GameObject({
         id: "wall9",   //name
         wall: true,
-        x: utils.withGrid(32), // x-position of the wall 
-        y: utils.withGrid(27), // y-position of the wall 
-        sizex: utils.withGrid(8), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(32),  
+        y: utils.withGrid(27),  
+        sizex: utils.withGrid(8),  
         sizey: utils.withGrid(2), // width
       }),
       wall10: new GameObject({
         id: "wall10",   //name
         wall: true,
-        x: utils.withGrid(39), // x-position of the wall 
-        y: utils.withGrid(26), // y-position of the wall 
-        sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(39),  
+        y: utils.withGrid(26),  
+        sizex: utils.withGrid(6),  
         sizey: utils.withGrid(2.5), // width
       }),
       wall11: new GameObject({
         id: "wall11",   //name
         wall: true,
-        x: utils.withGrid(54), // x-position of the wall 
-        y: utils.withGrid(26), // y-position of the wall 
-        sizex: utils.withGrid(7), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(54),  
+        y: utils.withGrid(26),  
+        sizex: utils.withGrid(7),  
         sizey: utils.withGrid(2.5), // width
       }),
       wall12: new GameObject({
         id: "wall12",   //name
         wall: true,
-        x: utils.withGrid(59), // x-position of the wall 
-        y: utils.withGrid(24), // y-position of the wall 
-        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(59),  
+        y: utils.withGrid(24),  
+        sizex: utils.withGrid(3),  
         sizey: utils.withGrid(2), // width
       }),
       wall13: new GameObject({
         id: "wall13",   //name
         wall: true,
-        x: utils.withGrid(61), // x-position of the wall 
-        y: utils.withGrid(22), // y-position of the wall 
-        sizex: utils.withGrid(3), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(61),  
+        y: utils.withGrid(22),  
+        sizex: utils.withGrid(3),  
         sizey: utils.withGrid(2), // width
       }),
       wall14: new GameObject({
         id: "wall14",   //name
         wall: true,
-        x: utils.withGrid(63), // x-position of the wall 
-        y: utils.withGrid(19), // y-position of the wall 
-        sizex: utils.withGrid(5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(63),  
+        y: utils.withGrid(19),  
+        sizex: utils.withGrid(5),  
         sizey: utils.withGrid(3), // width
       }),
       wall15: new GameObject({
         id: "wall15",   //name
         wall: true,
-        x: utils.withGrid(65), // x-position of the wall 
-        y: utils.withGrid(15), // y-position of the wall 
-        sizex: utils.withGrid(2), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(65),  
+        y: utils.withGrid(15),  
+        sizex: utils.withGrid(2),  
         sizey: utils.withGrid(4), // width
       }),
       wall16: new GameObject({
         id: "wall16",   //name
         wall: true,
-        x: utils.withGrid(72), // x-position of the wall 
-        y: utils.withGrid(23), // y-position of the wall 
-        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(72),  
+        y: utils.withGrid(23),  
+        sizex: utils.withGrid(1),  
         sizey: utils.withGrid(5), // width
       }),
       wall17: new GameObject({
         id: "wall17",   //name
         wall: true,
-        x: utils.withGrid(67), // x-position of the wall 
-        y: utils.withGrid(30), // y-position of the wall 
-        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(67),  
+        y: utils.withGrid(30),  
+        sizex: utils.withGrid(1),  
         sizey: utils.withGrid(2), // width
       }),
       wall18: new GameObject({
         id: "wall18",   //name
         wall: true,
-        x: utils.withGrid(73), // x-position of the wall 
-        y: utils.withGrid(34), // y-position of the wall 
-        sizex: utils.withGrid(1), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(73),  
+        y: utils.withGrid(34),  
+        sizex: utils.withGrid(1),  
         sizey: utils.withGrid(8), // width
       }),
       wall19: new GameObject({
         id: "wall19",   //name
         wall: true,
-        x: utils.withGrid(46), // x-position of the wall 
-        y: utils.withGrid(38), // y-position of the wall 
-        sizex: utils.withGrid(5), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(46),  
+        y: utils.withGrid(38),  
+        sizex: utils.withGrid(5),  
         sizey: utils.withGrid(4), // width
       }),
       wall20: new GameObject({
         id: "wall20",   //name
         wall: true,
-        x: utils.withGrid(38), // x-position of the wall 
-        y: utils.withGrid(0), // y-position of the wall 
-        sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(38),  
+        y: utils.withGrid(0),  
+        sizex: utils.withGrid(6),  
         sizey: utils.withGrid(7), // width
       }),
       wall21: new GameObject({
         id: "wall21",   //name
         wall: true,
-        x: utils.withGrid(46), // x-position of the wall 
-        y: utils.withGrid(1), // y-position of the wall 
-        sizex: utils.withGrid(8), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(46),  
+        y: utils.withGrid(1),  
+        sizex: utils.withGrid(8),  
         sizey: utils.withGrid(6), // width
       }),
       wall22: new GameObject({
         id: "wall22",   //name
         wall: true,
-        x: utils.withGrid(31), // x-position of the wall 
-        y: utils.withGrid(0), // y-position of the wall 
-        sizex: utils.withGrid(6), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(31),  
+        y: utils.withGrid(0),  
+        sizex: utils.withGrid(6),  
         sizey: utils.withGrid(2.5), // width
       }),
       wall23: new GameObject({
         id: "wall23",   //name
         wall: true,
-        x: utils.withGrid(54.5), // x-position of the wall 
-        y: utils.withGrid(4), // y-position of the wall 
-        sizex: utils.withGrid(7), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(54.5),  
+        y: utils.withGrid(4),  
+        sizex: utils.withGrid(7),  
         sizey: utils.withGrid(2), // width
       }),
       wall24: new GameObject({
         id: "wall24",   //name
         wall: true,
-        x: utils.withGrid(46), // x-position of the wall 
-        y: utils.withGrid(11), // y-position of the wall 
-        sizex: utils.withGrid(9), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(46),  
+        y: utils.withGrid(11),  
+        sizex: utils.withGrid(9),  
         sizey: utils.withGrid(9), // width
       }),
       wall25: new GameObject({
         id: "wall25",   //name
         wall: true,
-        x: utils.withGrid(46), // x-position of the wall 
-        y: utils.withGrid(11), // y-position of the wall 
-        sizex: utils.withGrid(9), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
+        x: utils.withGrid(46),  
+        y: utils.withGrid(11),  
+        sizex: utils.withGrid(9),  
         sizey: utils.withGrid(9), // width
       }),
       walltop: new GameObject({
         id: "walltop",   //name
         wall: true,
-        x: utils.withGrid(0), // x-position of the wall 
-        y: utils.withGrid(0), // y-position of the wall 
-        sizex: utils.withGrid(999), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
-        sizey: utils.withGrid(0), //length of the width
+        x: utils.withGrid(0),  
+        y: utils.withGrid(0),  
+        sizex: utils.withGrid(999),  
+        sizey: utils.withGrid(0),  
       }),
       wallbottom: new GameObject({
         id: "wallbottom",   //name
         wall: true,
-        x: utils.withGrid(0), // x-position of the wall 
-        y: utils.withGrid(41.5), // y-position of the wall 
-        sizex: utils.withGrid(999), //length of the wall, if you set both sizex and sizey equal to 0, then the wall is just a point. 
-        sizey: utils.withGrid(1), //length of the width
+        x: utils.withGrid(0),  
+        y: utils.withGrid(41.5),  
+        sizex: utils.withGrid(999),  
+        sizey: utils.withGrid(1),  
+      }),
+      wallright: new GameObject({
+        id: "wallright",   //name
+        wall: true,
+        x: utils.withGrid(86),  
+        y: utils.withGrid(0),  
+        sizex: utils.withGrid(0),  
+        sizey: utils.withGrid(999),  
       }),
       event1: new GameObject({
         id: "npcA",
@@ -679,9 +1201,34 @@ window.OverworldMaps = {
             {type: "changeMap", map: "slimebattle" }
           ]
         }
+      ],
+      ["marketplace"]:[
+        {
+          events:[
+            {type: "changeMap", map: "marketplace" }
+          ]
+        }
       ]
     }
   },
+
+  marketplace: {
+    lowerSrc: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/maps/insidemarket.png",
+    upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/transparent.png",
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(7.5),
+        y: utils.withGrid(7.5),
+        sizex: 50,
+        sizey: 37,
+        hp: 2,
+        alive: true,
+        WallSizex: utils.withGrid(1),
+        WallSizey: utils.withGrid(1),
+        id: "hero",
+      }),
+    },
   classroom: {
     lowerSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroom.png",
     upperSrc: "https://tianbinliu.github.io/CSA-FinalProject/images/maps/classroomUpper.png",
@@ -1078,4 +1625,5 @@ window.OverworldMaps = {
       ]
     }
   },
+}
 }

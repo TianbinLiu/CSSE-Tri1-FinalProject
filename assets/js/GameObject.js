@@ -12,11 +12,12 @@ class GameObject {
     this.WallSizex = config.WallSizex || 0;
     this.WallSizey = config.WallSizey || 0;
     this.wall = config.wall || false;
-    this.alive = config.alive || true;
+    this.alive = config.alive || false;
     this.hp= config.hp || 1;
     this.reach = config.reach || false;
     this.monster = config.monster || false;
     this.ifdialogue = config.ifdialogue || false;
+    this.type = config.type || "npc";
     this.sprite = new Sprite({
       gameObject: this,
       id: config.id || null,
