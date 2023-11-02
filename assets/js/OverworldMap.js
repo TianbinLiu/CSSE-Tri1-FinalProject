@@ -322,7 +322,6 @@ class OverworldMap {
         window.OverworldMaps[match.type + "battle"].gameObjects[match.type].src = match.src;
         window.OverworldMaps[match.type + "battle"].gameObjects[match.type].createSprite();
         this.startCutscene(this.cutsceneSpaces[match.type + "battle"][0].events, match.alive)
-        this.startCutscene(this.cutsceneSpaces["startBattle"][0].events, match.alive)
         match.alive = false;
         setTimeout(() => {
           match.createSprite();
@@ -1240,17 +1239,6 @@ window.OverworldMaps = {
       }),
     },
     cutsceneSpaces: {
-      ["startBattle"]: [
-        {
-          events: [
-            { type: "textMessage", text: "Note: Now you're in trouble!" },
-            { type: "textMessage", text: "You will have a fair battle with a slime!" },
-            { type: "textMessage", text: "This will be a turn-base battle" },
-            { type: "textMessage", text: "You need to use number key 1/2/3 to attack and activate your skills!" },
-            { type: "textMessage", text: "Now enjor your battle!" },
-          ]
-        }
-      ],
       ["slimebattle"]:[
         {
           events:[
@@ -1587,6 +1575,11 @@ window.OverworldMaps = {
       ["heroFirst"]:[
         {
           events: [
+            { type: "textMessage", text: "Note: Now you're in trouble!" },
+            { type: "textMessage", text: "You will have a fair battle with a slime!" },
+            { type: "textMessage", text: "This will be a turn-base battle" },
+            { type: "textMessage", text: "You need to use number key 1/2/3/4 to attack and activate your skills!" },
+            { type: "textMessage", text: "Now enjor your battle!" },
             { type: "textMessage", text: "You Start First" },
           ]
         }
@@ -1594,6 +1587,11 @@ window.OverworldMaps = {
       ["slimeFirst"]:[
         {
           events: [
+            { type: "textMessage", text: "Note: Now you're in trouble!" },
+            { type: "textMessage", text: "You will have a fair battle with a slime!" },
+            { type: "textMessage", text: "This will be a turn-base battle" },
+            { type: "textMessage", text: "You need to use number key 1/2/3/4 to attack and activate your skills!" },
+            { type: "textMessage", text: "Now enjor your battle!" },
             { type: "textMessage", text: "Slime Start First" },
           ]
         }
