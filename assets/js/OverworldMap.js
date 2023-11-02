@@ -177,6 +177,17 @@ class OverworldMap {
         this.startCutscene(this.cutsceneSpaces["heroFirst"][0].events, match.alive);
       }
     } 
+    if(!this.isCutscenePlaying && match.hp <=0){
+      Battle = false;
+      this.startCutscene(this.cutsceneSpaces["win"][0].events, match.alive);
+    }
+    else if(!this.isCutscenePlaying && this.gameObjects["hero"].hp <=0){
+      Battle = false;
+      this.startCutscene(this.cutsceneSpaces["lose"][0].events, match.alive);
+      setTimeout(() => {
+        restartGame();
+      }, 500); 
+    }
     if(monsterTurn && !this.isCutscenePlaying){
       this.startCutscene(this.cutsceneSpaces[match.id + "attack" + match.direction][0].events, match.alive);
       monsterTurn = false;
@@ -197,17 +208,7 @@ class OverworldMap {
         this.activeSkill(4);
       });
     }
-    if(!this.isCutscenePlaying && match.hp <=0){
-      Battle = false;
-      this.startCutscene(this.cutsceneSpaces["win"][0].events, match.alive);
-    }
-    else if(!this.isCutscenePlaying && this.gameObjects["hero"].hp <=0){
-      Battle = false;
-      this.startCutscene(this.cutsceneSpaces["lose"][0].events, match.alive);
-      setTimeout(() => {
-        restartGame();
-      }, 500); 
-    }
+
   }
   checkForPause(){
     if(canMove && !this.isCutscenePlaying && !pause){
@@ -265,19 +266,19 @@ class OverworldMap {
     }
     else if(command === 2 && !this.isCutscenePlaying){
       this.startCutscene(this.cutsceneSpaces[this.gameObjects["hero"].id + "attackcrescent" + this.gameObjects["hero"].direction][0].events, this.gameObjects["hero"].alive);
-      match.hp -=1;
+      match.hp -=2;
       heroTurn = false;
       monsterTurn = true;
     }
     else if(command === 3 && !this.isCutscenePlaying){
       this.startCutscene(this.cutsceneSpaces[this.gameObjects["hero"].id + "attackupslash" + this.gameObjects["hero"].direction][0].events, this.gameObjects["hero"].alive);
-      match.hp -=1;
+      match.hp -=3;
       heroTurn = false;
       monsterTurn = true;
     }
     else if(command === 4 && !this.isCutscenePlaying){
       this.startCutscene(this.cutsceneSpaces[this.gameObjects["hero"].id + "attackflurry" + this.gameObjects["hero"].direction][0].events, this.gameObjects["hero"].alive);
-      match.hp -=1;
+      match.hp -=4;
       heroTurn = false;
       monsterTurn = true;
     }
@@ -1539,7 +1540,7 @@ window.OverworldMaps = {
         WallSizey: utils.withGrid(1),
         sizex: 32,
         sizey: 32,
-        hp: 2,
+        hp: 6,
         reach: false,
         alive: true,
         id: "slime",
