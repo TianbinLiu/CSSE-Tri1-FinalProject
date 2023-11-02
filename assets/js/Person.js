@@ -2,6 +2,7 @@ class Person extends GameObject {
   constructor(config) {
     super(config);
     this.movingProgressRemaining = 0;
+    this.activingProgressRemaining = 0;
     this.isPlayerControlled = config.isPlayerControlled || false;
     this.directionUpdate = {
       "up": ["y", -1],
@@ -53,9 +54,18 @@ class Person extends GameObject {
     if (!this.isPlayerControlled && this.movingProgressRemaining > 0) {
       this.updatePosition();
     }
+    else if (!this.isPlayerControlled && this.activingProgressRemaining > 0){
+      this.activingProgressRemaining -=1;
+      if (this.activingProgressRemaining === 0) {
+        utils.emitEvent("PersonAttackingComplete", {
+          whoId: this.id
+        })
+      }
+    }
     else if (!this.isPlayerControlled && this.movingProgressRemaining === 0) {
       this.updateSprite(state)
     }
+
   }
 
   startBehavior(state, behavior) {
@@ -78,11 +88,11 @@ class Person extends GameObject {
   
           //Ready to walk!
           this.movingProgressRemaining = 16;
-          this.updateSprite(state);
+          this.updateSprite(behavior);
         }
         if (behavior.type === "attack") {
-          this.movingProgressRemaining = 16;
-          this.updateSprite(state);
+          this.activingProgressRemaining = 128;
+          this.updateSprite(behavior);
         }
   
         if (behavior.type === "stand") {
@@ -91,7 +101,7 @@ class Person extends GameObject {
               whoId: this.id
             })
           }, behavior.time)
-          this.updateSprite(state);
+          this.updateSprite(behavior);
         }
         
       }
@@ -110,10 +120,6 @@ class Person extends GameObject {
       utils.emitEvent("PersonWalkingComplete", {
         whoId: this.id
       })
-      utils.emitEvent("PersonAttackingComplete", {
-        whoId: this.id
-      })
-
     }
   }
 
@@ -132,11 +138,16 @@ class Person extends GameObject {
 
   }
 
-  updateSprite() {
-    if (this.movingProgressRemaining > 0) {
+  updateSprite(behavior) {
+    if (this.movingProgressRemaining > 0 && behavior.type === "walk") {
       this.sprite.setAnimation(this.id + "-walk-" + this.spritedirection);
       return;
     }
+    if (this.activingProgressRemaining > 0 && behavior.type === "attack") {
+      this.sprite.setAnimation(this.id + "-attack-" + this.spritedirection);
+      return;
+    }
+
     this.sprite.setAnimation(this.id + "-idle-" + this.direction);
 
   }

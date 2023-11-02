@@ -16,7 +16,7 @@ function BattlePreperationinitative() {
     hitchance();
     if (initative === 1) {
         monsterTurn = true; 
-        heroTurn = false 
+        heroTurn = false;
         console.log (initative)
         console.log (monsterTurn)
     } else if (initative === 0){
