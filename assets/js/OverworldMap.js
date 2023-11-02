@@ -323,6 +323,7 @@ class OverworldMap {
         window.OverworldMaps[match.type + "battle"].gameObjects[match.type].createSprite();
         this.startCutscene(this.cutsceneSpaces[match.type + "battle"][0].events, match.alive)
         match.alive = false;
+        match.isMounted = false;
         setTimeout(() => {
           match.createSprite();
         }, 500); 
