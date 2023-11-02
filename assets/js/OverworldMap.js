@@ -187,6 +187,9 @@ class OverworldMap {
         this.activeSkill(3);
       });
     }
+    if(!this.isCutscenePlaying && match.hp <=0){
+      Battle = false;
+    }
   }
   checkForPause(){
     if(canMove && !this.isCutscenePlaying && !pause){
@@ -1523,6 +1526,19 @@ window.OverworldMaps = {
 
     },
     cutsceneSpaces: {
+
+      ["startBattle"]: [
+        {
+          events: [
+            { type: "textMessage", text: "Note: Now you're in trouble!" },
+            { type: "textMessage", text: "You will have a fair battle with a slime!" },
+            { type: "textMessage", text: "This will be a turn-base battle" },
+            { type: "textMessage", text: "You need to use number key 1/2/3 to attack and activate your skills!" },
+            { type: "textMessage", text: "Now enjor your battle!" },
+          ]
+        }
+      ],
+
       ["slimeattackleft"]: [
         {
           events: [
@@ -1549,6 +1565,7 @@ window.OverworldMaps = {
             { who: "slime", type: "walk", direction: "right", spritedirection: "right"  },
             { who: "slime", type: "stand", direction: "left", time: 500 },
             { type: "textMessage", text: "Your Turn!" },
+            { type: "textMessage", text: "Normal attack(key 1)/Crescent(key 2)/Upslash(key 3)/Flurry(key 4)" },
           ]
         }
       ],
@@ -1578,6 +1595,7 @@ window.OverworldMaps = {
             { who: "slime", type: "walk", direction: "left", spritedirection: "left" },
             { who: "slime", type: "stand", direction: "right", time: 500 },
             { type: "textMessage", text: "Your Turn!" },
+            { type: "textMessage", text: "Normal attack(key 1)/Crescent(key 2)/Upslash(key 3)/Flurry(key 4)" },
           ]
         }
       ],
@@ -1639,6 +1657,15 @@ window.OverworldMaps = {
           ]
         }
       ],
+      ["win"]:[
+        {
+          events:[
+            { type: "textMessage", text: "You win!" },
+            {type: "changeMap", map: "DemoRoom" }
+
+          ]
+        }
+      ]
     }
   },
 }
