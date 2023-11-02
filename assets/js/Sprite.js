@@ -174,7 +174,6 @@ class Sprite {
     const x = this.gameObject.x + utils.withGrid(9.5) - cameraPerson.x;
     const y = this.gameObject.y - 18 + utils.withGrid(6) - cameraPerson.y;
     if (this.image.id === "npcA") {
-      this.image.alive = npcAAlive;
       if (this.image.alive) {
         this.isShadowLoaded && ctx.drawImage(this.shadow,
           0, 0,
@@ -193,7 +192,6 @@ class Sprite {
       }
     }
     if (this.image.id === "hero") {
-      this.image.alive = heroAlive;
       if (this.image.alive) {
         this.isShadowLoaded && ctx.drawImage(this.shadow,
           0, 0,
@@ -212,7 +210,6 @@ class Sprite {
       }
     }
     if (this.image.id === "slime") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -224,7 +221,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime2") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -236,7 +232,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime3") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -248,7 +243,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime4") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -260,7 +254,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime5") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -272,7 +265,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime6") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -284,7 +276,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime7") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -296,7 +287,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime8") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -308,7 +298,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime9") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -320,7 +309,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime10") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -332,7 +320,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime11") {
-      this.image.alive = slimeAlive;
       if (!this.image.alive){
         this.isBloodLoaded && ctx.drawImage(this.blood,
           0, 0,
@@ -346,7 +333,6 @@ class Sprite {
     const [frameX, frameY] = this.frame;
 
     if (this.image.id === "hero") {
-      this.image.alive = heroAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -358,7 +344,6 @@ class Sprite {
     }
 
     if (this.image.id === "npcA") {
-      this.image.alive = npcAAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -370,7 +355,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime") {
-      this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -382,7 +366,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime2") {
-      this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -394,7 +377,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime3") {
-      this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -406,7 +388,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime4") {
-      this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -418,7 +399,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime5") {
-      this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -430,7 +410,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime6") {
-      this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -442,7 +421,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime7") {
-      this.image.alive = slimeAlive;
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -454,8 +432,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime8") {
-      this.image.alive = slimeAlive;
-
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -467,9 +443,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime9") {
-      
-      this.image.alive = slimeAlive;
-
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -481,9 +454,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime10") {
-      
-      this.image.alive = slimeAlive;
-
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,
@@ -495,9 +465,6 @@ class Sprite {
     }
 
     if (this.image.id === "slime11") {
-      
-      this.image.alive = slimeAlive;
-
       if (this.image.alive) {
         this.isLoaded && ctx.drawImage(this.image,
           frameX * this.image.sizex, frameY * this.image.sizey,

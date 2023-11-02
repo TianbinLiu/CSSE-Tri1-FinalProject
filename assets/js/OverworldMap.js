@@ -257,16 +257,13 @@ class OverworldMap {
         setTimeout(() => {
           this.startCutscene(match.talking[2].death, match.alive);
         }, 500); // Delay for 0.5 second (500 milliseconds)
-        if (match.id === "npcA") {
-          match.alive = false;
-          npcAAlive = match.alive;
-        } 
-        if (match.id === "slime") {
-          match.alive = false;
-          slimeAlive = match.alive;
-        }
+
+        match.alive = false;
+        match.createSprite();
+        console.log(match)
+        match.behaviorLoop = [];
         if (typeof (this.cutsceneSpaces[match.id]) !== "undefined") {
-          this.cutsceneSpaces[match.id][0].events = [];
+          this.cutsceneSpaces[match.id][0].events = {};
         }
         match.isMounted = false;
       }
@@ -275,6 +272,7 @@ class OverworldMap {
         match.behaviorLoop = [];
         battlepreperation();
         window.OverworldMaps[match.type + "battle"].gameObjects[match.type].src = match.src;
+        window.OverworldMaps[match.type + "battle"].gameObjects[match.type].createSprite();
         this.startCutscene(this.cutsceneSpaces[match.type + "battle"][0].events, match.alive)
         if(persondirection === "left"){
           window.OverworldMaps[match.type + "battle"].gameObjects["hero"].x = utils.withGrid(19);
@@ -328,10 +326,14 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSA-FinalProject/images/character/Charakter.png",
         behaviorLoop: [
-          { type: "stand", direction: "left", time: 800 },
-          { type: "stand", direction: "up", time: 800 },
-          { type: "stand", direction: "right", time: 1200 },
-          { type: "stand", direction: "down", time: 800 },
+          { type: "stand", direction: "left", time: runtime },
+          { type: "walk", direction: "left", spritedirection: "left" },
+          { type: "stand", direction: "up", time: runtime },
+          { type: "walk", direction: "up", spritedirection: "up" },
+          { type: "stand", direction: "right", time: runtime },
+          { type: "walk", direction: "right", spritedirection: "right" },
+          { type: "stand", direction: "down", time: runtime },
+          { type: "walk", direction: "down", spritedirection: "down" },
         ],
         talking: [
           {
@@ -883,7 +885,7 @@ window.OverworldMaps = {
         ifdialogue: true,
         src: "https://tianbinliu.github.io/CSSE-Tri1-FinalProject/images/characters/Greenslime.png",
         behaviorLoop: [
-           { type: "stand", direction: "left", time: runtime },
+          { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
           { type: "stand", direction: "left", time: runtime },
           { type: "walk", direction: "left", spritedirection: "left" },
@@ -1184,29 +1186,6 @@ window.OverworldMaps = {
     },
     cutsceneSpaces: {
 
-      ["npcA"]: [
-        {
-          events: [
-            { who: "npcA", type: "walk", direction: "left", spritedirection: "left" },
-            { who: "npcA", type: "stand", direction: "up", time: 500 },
-            { type: "textMessage", text: "You can't stay there! " },
-            { type: "textMessage", text: "Go straight to the CS classroom. You don't want to be late right?" },
-            { type: "textMessage", text: "..." },
-            { type: "textMessage", text: "......." },
-            { type: "textMessage", text: "..........." },
-            { type: "textMessage", text: "Move!!!!!!!!!" },
-            { who: "npcA", type: "walk", direction: "right", spritedirection: "right" },
-            { who: "npcA", type: "stand", direction: "up", time: 500 },
-          ]
-        }
-      ],
-      ["door1"]: [
-        {
-          events: [
-            { type: "changeMap", map: "classroom" }
-          ]
-        }
-      ],
       ["slimebattle"]:[
         {
           events:[

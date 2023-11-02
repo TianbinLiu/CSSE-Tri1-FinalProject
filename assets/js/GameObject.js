@@ -24,7 +24,7 @@ class GameObject {
       id: config.id || null,
       sizex: config.sizex || 0,
       sizey: config.sizey || 0,
-      alive: config.alive || true,
+      alive: config.alive,
       src: config.src || "https://tianbinliu.github.io/CSA-FinalProject/images/character/adventurer-v1.5-Sheetflip.png",
     });
 
@@ -45,6 +45,16 @@ class GameObject {
 
   update() { }
 
+  createSprite() {
+    this.sprite = new Sprite({
+      gameObject: this,
+      id: this.id || null,
+      sizex: this.sizex || 0,
+      sizey: this.sizey || 0,
+      alive: this.alive,
+      src: this.src,
+    });
+  }
   async doBehaviorEvent(map) {
     //Don't do anything if there is a more important cutscene or I don't have config to do anything
     //anyway.
