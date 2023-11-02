@@ -90,8 +90,19 @@ class Person extends GameObject {
           this.movingProgressRemaining = 16;
           this.updateSprite(behavior);
         }
-        if (behavior.type === "attack") {
-          this.activingProgressRemaining = 128;
+        if (behavior.type === "attack" || behavior.type === "attackcrescent" || behavior.type === "attackupslash" || behavior.type === "attackflurry") {
+          if(behavior.type === "attack"){
+            this.activingProgressRemaining = 128;
+          }
+          else if(behavior.type === "attackcrescent"){
+            this.activingProgressRemaining = 110;
+          }
+          else if(behavior.type === "attackupslash"){
+            this.activingProgressRemaining = 110;
+          }
+          else if(behavior.type === "attackflurry"){
+            this.activingProgressRemaining = 128;
+          }
           this.updateSprite(behavior);
         }
   
@@ -145,6 +156,18 @@ class Person extends GameObject {
     }
     if (this.activingProgressRemaining > 0 && behavior.type === "attack") {
       this.sprite.setAnimation(this.id + "-attack-" + this.spritedirection);
+      return;
+    }
+    else if (this.activingProgressRemaining > 0 && behavior.type === "attackcrescent") {
+      this.sprite.setAnimation(this.id + "-attackcrescent-" + this.spritedirection);
+      return;
+    }
+    else if (this.activingProgressRemaining > 0 && behavior.type === "attackupslash") {
+      this.sprite.setAnimation(this.id + "-attackupslash-" + this.spritedirection);
+      return;
+    }
+    else if (this.activingProgressRemaining > 0 && behavior.type === "attackflurry") {
+      this.sprite.setAnimation(this.id + "-attackflurry-" + this.spritedirection);
       return;
     }
 

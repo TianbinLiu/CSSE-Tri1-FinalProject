@@ -168,13 +168,20 @@ class OverworldMap {
         return object.monster;
       }
     });
-    if(heroTurn === null && monsterTurn === null){
+    if(heroTurn === null && monsterTurn === null && !this.isCutscenePlaying){
       BattlePreperationinitative()
-    }
+      if(monsterTurn && !this.isCutscenePlaying){
+        this.startCutscene(this.cutsceneSpaces["slimeFirst"][0].events, match.alive);
+      }
+      if(heroTurn && !this.isCutscenePlaying){
+        this.startCutscene(this.cutsceneSpaces["heroFirst"][0].events, match.alive);
+      }
+    } 
     if(monsterTurn && !this.isCutscenePlaying){
       this.startCutscene(this.cutsceneSpaces[match.id + "attack" + match.direction][0].events, match.alive);
-        monsterTurn = false;
-        heroTurn = true;
+      monsterTurn = false;
+      heroTurn = true;
+      this.gameObjects["hero"].hp -=1;
     }
     if(heroTurn && !this.isCutscenePlaying){
       new KeyPressListener("Digit1", () => {
@@ -186,9 +193,20 @@ class OverworldMap {
       new KeyPressListener("Digit3", () => {
         this.activeSkill(3);
       });
+      new KeyPressListener("Digit4", () => {
+        this.activeSkill(4);
+      });
     }
     if(!this.isCutscenePlaying && match.hp <=0){
       Battle = false;
+      this.startCutscene(this.cutsceneSpaces["win"][0].events, match.alive);
+    }
+    else if(!this.isCutscenePlaying && this.gameObjects["hero"].hp <=0){
+      Battle = false;
+      this.startCutscene(this.cutsceneSpaces["lose"][0].events, match.alive);
+      setTimeout(() => {
+        restartGame();
+      }, 500); 
     }
   }
   checkForPause(){
@@ -234,8 +252,32 @@ class OverworldMap {
   }
 
   activeSkill(command){
+    const match = Object.values(this.gameObjects).find(object => {
+      if (object.monster) {
+        return object.monster;
+      }
+    });
     if(command === 1 && !this.isCutscenePlaying){
       this.startCutscene(this.cutsceneSpaces[this.gameObjects["hero"].id + "attack" + this.gameObjects["hero"].direction][0].events, this.gameObjects["hero"].alive);
+      match.hp -=1;
+      heroTurn = false;
+      monsterTurn = true;
+    }
+    else if(command === 2 && !this.isCutscenePlaying){
+      this.startCutscene(this.cutsceneSpaces[this.gameObjects["hero"].id + "attackcrescent" + this.gameObjects["hero"].direction][0].events, this.gameObjects["hero"].alive);
+      match.hp -=1;
+      heroTurn = false;
+      monsterTurn = true;
+    }
+    else if(command === 3 && !this.isCutscenePlaying){
+      this.startCutscene(this.cutsceneSpaces[this.gameObjects["hero"].id + "attackupslash" + this.gameObjects["hero"].direction][0].events, this.gameObjects["hero"].alive);
+      match.hp -=1;
+      heroTurn = false;
+      monsterTurn = true;
+    }
+    else if(command === 4 && !this.isCutscenePlaying){
+      this.startCutscene(this.cutsceneSpaces[this.gameObjects["hero"].id + "attackflurry" + this.gameObjects["hero"].direction][0].events, this.gameObjects["hero"].alive);
+      match.hp -=1;
       heroTurn = false;
       monsterTurn = true;
     }
@@ -280,6 +322,11 @@ class OverworldMap {
         window.OverworldMaps[match.type + "battle"].gameObjects[match.type].src = match.src;
         window.OverworldMaps[match.type + "battle"].gameObjects[match.type].createSprite();
         this.startCutscene(this.cutsceneSpaces[match.type + "battle"][0].events, match.alive)
+        this.startCutscene(this.cutsceneSpaces["startBattle"][0].events, match.alive)
+        match.alive = false;
+        setTimeout(() => {
+          match.createSprite();
+        }, 500); 
         if(persondirection === "left"){
           window.OverworldMaps[match.type + "battle"].gameObjects["hero"].x = utils.withGrid(19);
           window.OverworldMaps[match.type + "battle"].gameObjects["hero"].direction = "left";
@@ -1193,7 +1240,17 @@ window.OverworldMaps = {
       }),
     },
     cutsceneSpaces: {
-
+      ["startBattle"]: [
+        {
+          events: [
+            { type: "textMessage", text: "Note: Now you're in trouble!" },
+            { type: "textMessage", text: "You will have a fair battle with a slime!" },
+            { type: "textMessage", text: "This will be a turn-base battle" },
+            { type: "textMessage", text: "You need to use number key 1/2/3 to attack and activate your skills!" },
+            { type: "textMessage", text: "Now enjor your battle!" },
+          ]
+        }
+      ],
       ["slimebattle"]:[
         {
           events:[
@@ -1527,18 +1584,20 @@ window.OverworldMaps = {
     },
     cutsceneSpaces: {
 
-      ["startBattle"]: [
+      ["heroFirst"]:[
         {
           events: [
-            { type: "textMessage", text: "Note: Now you're in trouble!" },
-            { type: "textMessage", text: "You will have a fair battle with a slime!" },
-            { type: "textMessage", text: "This will be a turn-base battle" },
-            { type: "textMessage", text: "You need to use number key 1/2/3 to attack and activate your skills!" },
-            { type: "textMessage", text: "Now enjor your battle!" },
+            { type: "textMessage", text: "You Start First" },
           ]
         }
       ],
-
+      ["slimeFirst"]:[
+        {
+          events: [
+            { type: "textMessage", text: "Slime Start First" },
+          ]
+        }
+      ],
       ["slimeattackleft"]: [
         {
           events: [
@@ -1657,15 +1716,197 @@ window.OverworldMaps = {
           ]
         }
       ],
+      ["heroattackcrescentleft"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "you attack! " },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { who: "hero", type: "attackcrescent", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "Your opponent receive 2 demage" },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { type: "textMessage", text: "Your Turn Is Over..." },
+          ]
+        }
+      ],
+      ["heroattackcrescentright"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { type: "textMessage", text: "you attack! " },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { who: "hero", type: "attackcrescent", direction: "right", spritedirection: "right" },
+            { type: "textMessage", text: "Your opponent receive 2 demage" },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { type: "textMessage", text: "Your Turn Is Over..." },
+          ]
+        }
+      ],
+      ["heroattackupslashleft"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "you attack! " },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { who: "hero", type: "attackupslash", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "Your opponent receive 3 demage" },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { type: "textMessage", text: "Your Turn Is Over..." },
+          ]
+        }
+      ],
+      ["heroattackupslashright"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { type: "textMessage", text: "you attack! " },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { who: "hero", type: "attackupslash", direction: "right", spritedirection: "right" },
+            { type: "textMessage", text: "Your opponent receive 3 demage" },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { type: "textMessage", text: "Your Turn Is Over..." },
+          ]
+        }
+      ],
+      ["heroattackflurryleft"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "you attack! " },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { who: "hero", type: "attackflurry", direction: "left", spritedirection: "left" },
+            { type: "textMessage", text: "Your opponent receive 4 demage!!" },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right"  },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { type: "textMessage", text: "Your Turn Is Over..." },
+          ]
+        }
+      ],
+      ["heroattackflurryright"]: [
+        {
+          events: [
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { who: "hero", type: "walk", direction: "right", spritedirection: "right" },
+            { type: "textMessage", text: "you attack! " },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { who: "hero", type: "attackflurry", direction: "right", spritedirection: "right" },
+            { type: "textMessage", text: "Your opponent receive 4 demage!" },
+            { who: "hero", type: "stand", direction: "left", time: 500 },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left"  },
+            { who: "hero", type: "walk", direction: "left", spritedirection: "left" },
+            { who: "hero", type: "stand", direction: "right", time: 500 },
+            { type: "textMessage", text: "Your Turn Is Over..." },
+          ]
+        }
+      ],
       ["win"]:[
         {
           events:[
-            { type: "textMessage", text: "You win!" },
-            {type: "changeMap", map: "DemoRoom" }
+            {type: "textMessage", text: "You win!" },
+            {type: "changeMap", map: "DemoRoom" },
 
           ]
         }
-      ]
+      ],
+      ["lose"]:[
+        {
+          events:[
+            
+            { type: "textMessage", text: "You lose..." },
+          ]
+        }
+      ],
     }
   },
 }
