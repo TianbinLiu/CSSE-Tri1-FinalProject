@@ -1540,7 +1540,7 @@ window.OverworldMaps = {
         WallSizey: utils.withGrid(1),
         sizex: 32,
         sizey: 32,
-        hp: 6,
+        hp: 5,
         reach: false,
         alive: true,
         id: "slime",
