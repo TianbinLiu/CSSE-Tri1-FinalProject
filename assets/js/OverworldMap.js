@@ -180,6 +180,7 @@ class OverworldMap {
     if(!this.isCutscenePlaying && match.hp <=0){
       Battle = false;
       this.startCutscene(this.cutsceneSpaces["win"][0].events, match.alive);
+      match.hp = 4;
     }
     else if(!this.isCutscenePlaying && this.gameObjects["hero"].hp <=0){
       Battle = false;
